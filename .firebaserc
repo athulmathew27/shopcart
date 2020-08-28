@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "shoppingcart-2c518": {
+      "hosting": {
+        "shopcart": [
+          "shoppingcart-2c518"
+        ]
+      }
+    }
+  }
+}
