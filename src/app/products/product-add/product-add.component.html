@@ -1,26 +1,38 @@
-<p>product-add works!</p>
-<!-- <form #addProductForm="ngForm">
-  <input type="text" ngModel name="name">
-  <input type="text" ngModel name="email">
-  <button type="button" (click)="getValue(addProductForm.value)">Submit</button>
-</form> -->
+<div class="row">
+  <div class="col-xs-12">
+    <form class="example-form" [formGroup]="addProductForm" (ngSubmit)="getValue(addProductForm.value)">
+      <mat-form-field class="example-full-width">
+        <mat-label>Product Name </mat-label>
+        <input
+          matInput
+          formControlName="name"
+          placeholder="Ex. Carrot" >
+        <span class="errormessage" *ngIf="name.invalid && name.touched  ">Name is required</span>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Category</mat-label>
+        <mat-select   formControlName="category">
+          <mat-option
+            *ngFor="let cat of category | async" [value]="cat.name">  {{cat.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <mat-label>Price/Kg </mat-label>
+        <input
+          matInput
+          type="number"
+          formControlName="price"
+          placeholder="">
+        <span class="errormessage" *ngIf="price.invalid && price.touched  ">Price is required</span>
+      </mat-form-field>
+      <input
+        type="file"
+        formControlName="image">
+      <span class="errormessage" *ngIf="image.invalid && image.touched  ">Image is required</span>
 
-<form class="example-form" #addProductForm="ngForm" >
-  <mat-form-field class="example-full-width">
-    <mat-label>Product Name </mat-label>
-    <input matInput ngModel name="name" placeholder="Ex. Pizza" value="">
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Category</mat-label>
-    <mat-select  ngModel name="category">
-      <mat-option *ngFor="let cat of category | async" [value]="cat.name">  {{cat.name}}  </mat-option>
-    </mat-select>
-  </mat-form-field>
-  <mat-form-field class="example-full-width">
-    <mat-label>Price </mat-label>
-    <input matInput ngModel name="price" placeholder="" value="">
-  </mat-form-field>
-  <input type="file" ngModel name="image">
+      <button mat-raised-button [disabled]="!addProductForm.valid" mat-dialog-close type="submit">Add</button>
+    </form>
 
-  <button mat-raised-button mat-dialog-close (click)="getValue(addProductForm.value)">Add</button>
-</form>
+  </div>
+</div>

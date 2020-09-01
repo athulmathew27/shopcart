@@ -11,11 +11,17 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ProductsModule } from './products/products.module';
 import { ProductAddComponent } from './products/product-add/product-add.component';
+import { CategoryModule } from './category/category.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    PageNotFoundComponent,
   ],
   entryComponents : [ProductAddComponent],
   imports: [
@@ -25,8 +31,8 @@ import { ProductAddComponent } from './products/product-add/product-add.componen
     AppRoutingModule,
     ProductsModule,
     BrowserAnimationsModule,
-
-
+    NgbModule,
+    CategoryModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
