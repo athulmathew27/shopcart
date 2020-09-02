@@ -14,6 +14,7 @@ import { ProductAddComponent } from './products/product-add/product-add.componen
 import { CategoryModule } from './category/category.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HeaderComponent } from './header/header.component';
 
 
 
@@ -22,6 +23,7 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
   declarations: [
     AppComponent,
     PageNotFoundComponent,
+    HeaderComponent,
   ],
   entryComponents : [ProductAddComponent],
   imports: [
