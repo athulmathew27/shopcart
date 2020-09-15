@@ -1,4 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
 
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+
+}
+
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+   /* font-family: Roboto, "Helvetica Neue", sans-serif; */
+   font-family: 'Open Sans', sans-serif !important;
+   /* background: #DAE2F8;
+   background: -webkit-linear-gradient(to right, #D6A4A4, #DAE2F8);
+   background: linear-gradient(to right, #D6A4A4, #DAE2F8);  */
+
+
+
+  }

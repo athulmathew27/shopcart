@@ -133,6 +133,7 @@
   },
   "defaultProject": "shopcart",
   "cli": {
-    "analytics": "a9b6128d-83b7-41cb-9866-58296c17be94"
+    "defaultCollection": "@ngrx/schematics",
+    "analytics": "b27f4157-bad0-4c53-afca-b95dfe0c9903"
   }
 }

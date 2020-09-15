@@ -1,0 +1,34 @@
+.example-card {
+  max-width: 14rem;
+}
+
+.example-header-image {
+  background-size: cover;
+}
+
+.title-main{
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 500;
+}
+.title-sub{
+  text-align: center;
+}
+
+.row-spacing{
+  margin: 1em;
+}
+
+.button-effect{
+  background-color: whitesmoke;
+  margin-top: 1rem;
+  outline: none;
+  box-shadow: 1px 1px 5px 0px black;
+}
+
+.in-stock{
+  color:green;
+}
+.out-of-stock{
+  color: red;
+}

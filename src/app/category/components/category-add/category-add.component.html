@@ -1,10 +1,11 @@
-<h5>Add a new Category for products here...</h5>
+<h6>Add a new Category for products here...</h6>
+<hr>
 <div class="row">
   <div class="col-xs-12">
-    <form class="example-form" #addCategoryForm="ngForm" (ngSubmit)="getValue(addCategoryForm)">
+    <form class="example-form" #addCategoryForm="ngForm" (ngSubmit)="onCategorySave(addCategoryForm)">
       <mat-form-field class="example-full-width">
         <mat-label>Product Name </mat-label>
-        <input matInput placeholder="Ex. Vegitable" name="name" ngModel #name="ngModel" required minlength="3">
+        <input matInput  name="name" ngModel #name="ngModel" required minlength="3">
         <!--<span class="errormessage" *ngIf="name.invalid && name.touched  ">Name is required and must contain atleast 3 character</span> -->
         <div *ngIf="name.invalid && (name.dirty || name.touched)"  class="errormessage">
           <div *ngIf="name.errors.required">

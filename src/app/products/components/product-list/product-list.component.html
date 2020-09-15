@@ -1,0 +1,44 @@
+
+  <div class="row-fluid">
+    <div class="col-sm-6">
+      <button class="button-effect" mat-raised-button (click)="addProduct()">Add new Product</button>
+    </div>
+  </div>
+
+<hr>
+
+<!-- display card : product details -->
+<div class="container">
+  <div class="row" >
+      <div class="col-md-3" class="row-spacing" *ngFor="let product of productList | async; let i = index">
+        <mat-card class="example-card" >
+          <img mat-card-image src="https://source.unsplash.com/1600x900/?product" alt="Photo">
+            <mat-card-content>
+                <p class="title-main">{{ product.name | titlecase }}</p>
+            </mat-card-content>
+            <mat-card-header class="title-sub">
+              <mat-card-subtitle >{{ product.category | titlecase}}</mat-card-subtitle>
+            </mat-card-header>
+
+
+           <!-- <mat-card-content>
+            <p class="title-sub">{{ product.category | titlecase}}</p>
+          </mat-card-content>-->
+
+          <mat-card-content>
+          <h6> {{product.price | currency :'USD'}} </h6>
+          </mat-card-content>
+          <!-- <mat-card-actions>
+            <button mat-raised-button >Edit</button>
+          </mat-card-actions> --><!--(click)="showProduct(product.productId)"-->
+      </mat-card>
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
