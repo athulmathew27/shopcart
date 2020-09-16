@@ -10,7 +10,7 @@ import * as fromCategoryAction from '../../store/category.action';
 @Component({
   selector: 'app-category-add',
   templateUrl: './category-add.component.html',
-  styleUrls: ['./category-add.component.css']
+  styleUrls: ['./category-add.component.scss']
 })
 export class CategoryAddComponent implements OnInit {
 

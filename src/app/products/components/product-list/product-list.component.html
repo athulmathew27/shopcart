@@ -5,7 +5,6 @@
     </div>
   </div>
 
-<hr>
 
 <!-- display card : product details -->
 <div class="container">
@@ -25,12 +24,12 @@
             <p class="title-sub">{{ product.category | titlecase}}</p>
           </mat-card-content>-->
 
-          <mat-card-content>
+          <mat-card-content class="linear-grid">
           <h6> {{product.price | currency :'USD'}} </h6>
+          <h6 *ngIf="product.stock > 0" class="in-stock">IN-STOCK</h6>
+          <h6 *ngIf="product.stock == 0" class="out-of-stock">OUT OF STOCK</h6>
           </mat-card-content>
-          <!-- <mat-card-actions>
-            <button mat-raised-button >Edit</button>
-          </mat-card-actions> --><!--(click)="showProduct(product.productId)"-->
+
       </mat-card>
 
     </div>

@@ -12,13 +12,14 @@ import { map } from 'rxjs/operators';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css']
+  styleUrls: ['./product-list.component.scss']
 })
 export class ProductListComponent implements OnInit {
 
   productList: Observable<Product[]>;
   outOfStock : string = "Out Of Stock";
   inStock : string = "IN-STOCK";
+  valid:boolean = false;
 
   constructor(private firestore: AngularFirestore,
               private dialog: MatDialog,

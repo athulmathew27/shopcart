@@ -1,0 +1,20 @@
+@import '../../styles.scss';
+
+.active {
+  font-weight: bold;
+}
+
+.nav-effect{
+  position: relative;
+  box-shadow: 1px 1px 5px 0px black;
+}
+
+.mobile-sidebar{
+  position: absolute;
+  display: block;
+  background :#fff;
+  width: 50%;
+  left:0%;
+  top: 0%;
+  height: 100%;
+}

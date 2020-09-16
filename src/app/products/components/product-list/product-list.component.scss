@@ -21,14 +21,23 @@
 
 .button-effect{
   background-color: whitesmoke;
-  margin-top: 1rem;
+  // margin-top: 1rem;
   outline: none;
   box-shadow: 1px 1px 5px 0px black;
 }
 
 .in-stock{
   color:green;
+  font-weight: 400;
+  font-size: .9em;
 }
 .out-of-stock{
   color: red;
+  font-weight: 400;
+  font-size: .9em;
+}
+.linear-grid{
+  display: grid;
+  grid-template-columns: auto auto;
+  margin: 0%;
 }

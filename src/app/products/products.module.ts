@@ -6,7 +6,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../../environments/environment';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductAddComponent } from './components/product-add/product-add.component';
-import { ProductComponent } from './components/product/product.component';
+
 import { ProductsRoutingModule } from './products-routing.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
@@ -23,11 +23,12 @@ import * as fromProduct from './store/reducers/products.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductsEffect } from './store/effects/products.effects';
 
+
 @NgModule({
   declarations: [
     ProductListComponent, // every imported components
     ProductAddComponent,
-    ProductComponent,
+
   ],
   exports : [
     ProductListComponent // to fetch <app-product-list> in app.component.html, import it in app.component.ts

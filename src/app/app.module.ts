@@ -17,6 +17,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductsEffect } from './products/store/effects/products.effects';
+import { FooterComponent } from './footer/footer.component';
 // import { reducers, metaReducers } from './reducers';
 
 
@@ -26,6 +27,7 @@ import { ProductsEffect } from './products/store/effects/products.effects';
     AppComponent,
     PageNotFoundComponent,
     HeaderComponent,
+    FooterComponent,
   ],
  // entryComponents : [ProductAddComponent],
   imports: [
