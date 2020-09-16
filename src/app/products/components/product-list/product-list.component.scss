@@ -1,9 +1,16 @@
-.example-card {
-  max-width: 14rem;
-}
+@import '../../../../styles.scss';
 
-.example-header-image {
-  background-size: cover;
+.add-button{
+  @extend .add-button;
+}
+.add-button:hover{
+ height: 2.2rem;
+ width: 2.2rem;
+}
+.card-effect {
+  max-width: 13rem;
+  border-radius: 1rem;
+  box-shadow: 3px 1px 5px 0px grey;
 }
 
 .title-main{
@@ -15,29 +22,34 @@
   text-align: center;
 }
 
-.row-spacing{
-  margin: 1em;
+.card-spacing{
+  margin: 1rem;
+  line-height: .5rem;
 }
 
 .button-effect{
-  background-color: whitesmoke;
-  // margin-top: 1rem;
-  outline: none;
-  box-shadow: 1px 1px 5px 0px black;
+  @extend .button-effect;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  margin-right: 2rem;
+  float: right;
+}
+.button-effect:hover{
+  background-color: grey;
+  cursor:pointer;
 }
 
-.in-stock{
-  color:green;
-  font-weight: 400;
-  font-size: .9em;
-}
 .out-of-stock{
   color: red;
   font-weight: 400;
-  font-size: .9em;
+  font-size: .9rem;
 }
-.linear-grid{
+.grid-view{
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: auto auto ;
   margin: 0%;
+}
+
+.container{
+  max-width:80%;
 }

@@ -7,6 +7,7 @@
 .nav-effect{
   position: relative;
   box-shadow: 1px 1px 5px 0px black;
+  background-color:white;
 }
 
 .mobile-sidebar{
@@ -18,3 +19,28 @@
   top: 0%;
   height: 100%;
 }
+
+
+
+.button-effect{
+@extend .button-effect;
+  padding: .2rem;
+  width: 7rem;
+  margin-right: 1rem;
+  border-radius: 1rem;
+}
+.button-effect:hover{
+  background-color: grey;
+  cursor:pointer;
+}
+
+.manage-effect{
+  outline: none;
+}
+
+.user-icon{
+  height: 2.5rem;
+  width: 2.5rem;
+}
+//-------------------------------------------------------------------------
+

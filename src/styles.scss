@@ -1,29 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
-$primary-color : rgb(20, 111, 248);
-
+$primary-color : black;
+$secondary-color : white;
 
 *{
   //margin:0;
   //padding: 0;
   box-sizing: border-box;
   outline: none;
-
 }
-
+.add-button{
+  height: 2rem;
+  width: 2rem;
+  color: black;
+  float: right;
+  background-color: white;
+  border-radius: 50%;
+}
+.add-button :hover{
+  height: 2.2rem;
+  width: 2.2rem;
+}
+.button-effect{
+  background-color: $primary-color;
+  color:white;
+  outline: none;
+  box-shadow: 1px 1px 5px 0px black;
+}
 html, body { height: calc(100% - 2em); }
 body {
-
    font-family: 'Open Sans','Helvetica Neue', sans-serif !important;
-   background:
-   linear-gradient(
-     to right,
-     rgba(rgb(20, 111, 248), 0.6),
-     rgba(black,0.3)
-   );
+   background: #485563;  /* fallback for old browsers */
+   background: -webkit-linear-gradient(to right, #f6f8fa, #d5e4f3);  /* Chrome 10-25, Safari 5.1-6 */
+   background: linear-gradient(to right, #d3d5d6, #f0f2f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
    background-repeat: no-repeat;
    background-attachment: fixed;
-
-
-
-
   }

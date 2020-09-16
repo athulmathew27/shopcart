@@ -1,6 +1,9 @@
-
-  <div class="row-fluid">
-    <div class="col-sm-6">
+<!-- <div>
+  <button class="ovel-button" >category</button>
+</div><br> -->
+<!--Add new product button-->
+  <div class="row">
+    <div class="col">
       <button class="button-effect" mat-raised-button (click)="addProduct()">Add new Product</button>
     </div>
   </div>
@@ -9,27 +12,22 @@
 <!-- display card : product details -->
 <div class="container">
   <div class="row" >
-      <div class="col-md-3" class="row-spacing" *ngFor="let product of productList | async; let i = index">
-        <mat-card class="example-card" >
+      <div class="col-md-3" class="card-spacing" *ngFor="let product of productList | async; let i = index">
+        <mat-card class="card-effect" >
           <img mat-card-image src="https://source.unsplash.com/1600x900/?product" alt="Photo">
             <mat-card-content>
                 <p class="title-main">{{ product.name | titlecase }}</p>
             </mat-card-content>
-            <mat-card-header class="title-sub">
+            <mat-card-content class="title-sub">
               <mat-card-subtitle >{{ product.category | titlecase}}</mat-card-subtitle>
-            </mat-card-header>
-
-
-           <!-- <mat-card-content>
-            <p class="title-sub">{{ product.category | titlecase}}</p>
-          </mat-card-content>-->
-
-          <mat-card-content class="linear-grid">
-          <h6> {{product.price | currency :'USD'}} </h6>
-          <h6 *ngIf="product.stock > 0" class="in-stock">IN-STOCK</h6>
-          <h6 *ngIf="product.stock == 0" class="out-of-stock">OUT OF STOCK</h6>
-          </mat-card-content>
-
+            </mat-card-content>
+            <mat-card-content class="grid-view">
+              <h6> {{product.price | currency :'USD'}} </h6>
+              <h6 *ngIf="product.stock == 0" class="out-of-stock">OUT OF STOCK</h6>
+            </mat-card-content>
+            <div class="add-button-bg" *ngIf="product.stock > 0">
+              <ion-icon name="add-circle" class="add-button"></ion-icon>
+            </div>
       </mat-card>
 
     </div>

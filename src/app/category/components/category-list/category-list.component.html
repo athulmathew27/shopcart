@@ -4,10 +4,10 @@
 <button class="button-effect" mat-raised-button (click)="addCategory()  ">Add new Category</button>
   </div>
 </div>
-<br>
 
+<div class="container-fluid">
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-12">
     <table mat-table [dataSource]="categories" class="mat-elevation-z8 " >
 
       <ng-container matColumnDef="index">
@@ -17,7 +17,7 @@
 
       <ng-container matColumnDef="category_name">
         <th mat-header-cell *matHeaderCellDef> Category </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.name}} <ion-icon name="create" class="edit-icon"></ion-icon></td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayColumn"></tr>
@@ -25,6 +25,7 @@
 
     </table>
   </div>
+</div>
 </div>
 
 
