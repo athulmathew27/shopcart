@@ -1,13 +1,24 @@
 @import '../../styles.scss';
 
 
-footer{
+.footer{
   color: $secondary-color;
   background-color: $primary-color;
   font-size: 1rem;
-  bottom: 0rem;
-  right: 1rem;
-  text-align: right;
-  width: auto;
-  height: auto;
+  opacity: .7;
+
+  .logo{
+    color: white;
+    text-align: center;
+
+    &__design{
+      font-size: 2rem;
+    }
+    &__content{
+      font-size: 2rem;
+    }
+  }
+  &__content{
+    bottom: 0%;
+  }
 }

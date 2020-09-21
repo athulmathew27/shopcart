@@ -5,42 +5,63 @@
 }
 
 .nav-effect{
-  position: relative;
   box-shadow: 1px 1px 5px 0px black;
-  background-color:white;
+  background-color:$secondary-color;
+  color: $primary-color;
+  padding-left: 1rem;
+  font-size: 1.3rem;
+  width: 100%;
+
+  &__search-icon{
+    font-size: 1.7rem;
+    border-radius: 50%;
+    float: left;
+    padding-left: .2rem;
+    color: black;
+
+  }
+
+  &__search-box{
+    margin-right: -2.1rem;
+    padding-right: 2rem;
+    border-radius: .4rem;
+    border-color: rgb(207, 204, 204);
+
+  }
+
+  &__user-icon{
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: $secondary-color;
+    color:$primary-color;
+    margin-left: 2rem;
+    &:hover{
+      background-color: $primary-color;
+      color:$secondary-color;
+      border-radius: 50%;
+      }
+  }
+
+
 }
 
-.mobile-sidebar{
-  position: absolute;
-  display: block;
-  background :#fff;
-  width: 50%;
-  left:0%;
-  top: 0%;
-  height: 100%;
-}
 
 
 
-.button-effect{
-@extend .button-effect;
-  padding: .2rem;
-  width: 7rem;
-  margin-right: 1rem;
-  border-radius: 1rem;
-}
-.button-effect:hover{
-  background-color: grey;
-  cursor:pointer;
-}
 
-.manage-effect{
-  outline: none;
-}
 
-.user-icon{
-  height: 2.5rem;
-  width: 2.5rem;
-}
+// .content{
+//   display: flex;
+// }
+// .sidebar{
+//   width: 18%;
+//   background-color: red;
+// }
+// .workarea{
+//   background-color: green;
+//   width: 80%;
+// }
+
+
 //-------------------------------------------------------------------------
 

@@ -9,6 +9,7 @@ import { Store } from '@ngrx/store';
 import * as fromProductAction from '../../store/actions/products.action';
 import * as fromApp from '../../../app.state';
 import { map } from 'rxjs/operators';
+import { Category } from 'src/app/category/model/category.model';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
@@ -17,9 +18,11 @@ import { map } from 'rxjs/operators';
 export class ProductListComponent implements OnInit {
 
   productList: Observable<Product[]>;
+  categoryList : Observable<Category[]>;
   outOfStock : string = "Out Of Stock";
   inStock : string = "IN-STOCK";
   valid:boolean = false;
+
 
   constructor(private firestore: AngularFirestore,
               private dialog: MatDialog,
@@ -29,8 +32,12 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit(): void {
       this.listProducts();
+
+      this.categoryList = this.firestore.collection<Category>('category').valueChanges();
    }
 
+   popupShow(){
+   }
   addProduct()
   {
       const dialogRef = this.dialog.open(ProductAddComponent);

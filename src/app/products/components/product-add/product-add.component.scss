@@ -1,16 +1,18 @@
-.example-form
+@import '../../../../styles.scss';
+
+.form-style
  {
   min-width: 150px;
   max-width: 500px;
   width: 100%;
 }
 
-.example-full-width
+.full-width
  {
   width: 100%;
 }
 
-.example-half-width
+.half-width
  {
   width: 50%;
 }
@@ -21,14 +23,12 @@
   font-size: 12px;
 }
 
-.button-effect
-{
-  background-color: whitesmoke;
-  margin-top: 1rem;
-  outline: none;
-  box-shadow: 1px 1px 5px 0px black;
-}
-
-// .dialog-effect{
-//   background-color: blueviolet;
+// .button-effect
+// {
+//   background-color: $primary-color;
+//   margin-top: 1rem;
+//   outline: none;
+//   box-shadow: 1px 1px 5px 0px $secondary-color;
 // }
+
+

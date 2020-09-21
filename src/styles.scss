@@ -2,6 +2,13 @@
 $primary-color : black;
 $secondary-color : white;
 
+@mixin absCenter {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 *{
   //margin:0;
   //padding: 0;
@@ -9,29 +16,39 @@ $secondary-color : white;
   outline: none;
 }
 .add-button{
-  height: 2rem;
-  width: 2rem;
-  color: black;
-  float: right;
-  background-color: white;
+  height: 2.5rem;
+  width: 2.5rem;
+  color: $primary-color;
+  background-color: $secondary-color;
   border-radius: 50%;
 }
-.add-button :hover{
-  height: 2.2rem;
-  width: 2.2rem;
-}
-.button-effect{
+
+.primary-button{
   background-color: $primary-color;
-  color:white;
+  color:$secondary-color;
   outline: none;
-  box-shadow: 1px 1px 5px 0px black;
+  box-shadow: 1px 1px 5px 0px $primary-color;
+  font-size: 1.1rem;
 }
-html, body { height: calc(100% - 2em); }
+
+.dialog-header-font{
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+html, body {
+  height: calc(100% - 2em);
+  font-size: 12px;
+  font-family: 'Lato', sans-serif !important;
+}
 body {
-   font-family: 'Open Sans','Helvetica Neue', sans-serif !important;
-   background: #485563;  /* fallback for old browsers */
-   background: -webkit-linear-gradient(to right, #f6f8fa, #d5e4f3);  /* Chrome 10-25, Safari 5.1-6 */
-   background: linear-gradient(to right, #d3d5d6, #f0f2f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  //  font-family: 'Open Sans','Helvetica Neue', sans-serif !important;
+  font-family: 'Lato', sans-serif !important;
+
+   background:white;  /* fallback for old browsers  #485563*/
+  //  background: -webkit-linear-gradient(to right, #f6f8fa, #d5e4f3);  /* Chrome 10-25, Safari 5.1-6 */
+  //  background: linear-gradient(to right, #d3d5d6, #f0f2f5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
    background-repeat: no-repeat;
    background-attachment: fixed;
+
   }

@@ -1,23 +1,26 @@
-<hr>
+
 <div class="row">
-  <div class="col-sm-3">
-<button class="button-effect" mat-raised-button (click)="addCategory()  ">Add new Category</button>
+  <div class="col">
+<button class="primary-button" mat-raised-button (click)="addCategory()  ">Add new Category</button>
   </div>
 </div>
 
 <div class="container-fluid">
 <div class="row">
-  <div class="col-sm-12">
-    <table mat-table [dataSource]="categories" class="mat-elevation-z8 " >
+  <div class="col">
+    <table mat-table [dataSource]="categories" class="mat-elevation-z8" >
 
       <ng-container matColumnDef="index">
-        <th mat-header-cell *matHeaderCellDef> SI. No. </th>
-        <td mat-cell *matCellDef="let element; let i = index"> {{i+1}} </td>
+        <th mat-header-cell *matHeaderCellDef class="table-header-font"> SI. No. </th>
+        <td mat-cell *matCellDef="let element; let i = index" class="table-text"> {{i+1}} </td>
       </ng-container>
 
       <ng-container matColumnDef="category_name">
-        <th mat-header-cell *matHeaderCellDef> Category </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} <ion-icon name="create" class="edit-icon"></ion-icon></td>
+        <th mat-header-cell *matHeaderCellDef class="table-header-font"> Category </th>
+        <td mat-cell *matCellDef="let element" class="table-text"> {{element.name}}
+          <ion-icon name="trash-outline" class="edit-icon"></ion-icon>
+          <ion-icon name="pencil-outline" class="delete-icon"></ion-icon>
+        </td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayColumn"></tr>

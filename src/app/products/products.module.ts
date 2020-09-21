@@ -17,6 +17,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatChipsModule } from '@angular/material/chips';
 
 import { StoreModule } from '@ngrx/store';
 import * as fromProduct from './store/reducers/products.reducer';
@@ -46,6 +47,7 @@ import { ProductsEffect } from './store/effects/products.effects';
     MatInputModule,
     MatCardModule,
     MatPaginatorModule,
+    MatChipsModule,
     ProductsRoutingModule,
     // StoreModule.forFeature({ products : fromProduct.productsReducer} ),
     // EffectsModule.forFeature([ProductsEffect]),

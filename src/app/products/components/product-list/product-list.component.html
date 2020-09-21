@@ -1,34 +1,54 @@
-<!-- <div>
-  <button class="ovel-button" >category</button>
-</div><br> -->
-<!--Add new product button-->
+
   <div class="row">
     <div class="col">
-      <button class="button-effect" mat-raised-button (click)="addProduct()">Add new Product</button>
+      <button class="primary-button" mat-raised-button (click)="addProduct()">Add new Product</button>
     </div>
   </div>
 
 
+<mat-chip-list  aria-label="category list">
+    <mat-chip *ngFor="let category of categoryList |async"> {{ category.name }}</mat-chip>
+</mat-chip-list>
+
+
+
+
 <!-- display card : product details -->
 <div class="container">
-  <div class="row" >
-      <div class="col-md-3" class="card-spacing" *ngFor="let product of productList | async; let i = index">
-        <mat-card class="card-effect" >
+  <div class="row content" >
+      <div class="col-md-3" class="card-block" *ngFor="let product of productList | async; let i = index" (click)="popupShow()">
+        <mat-card class="card" #popup>
           <img mat-card-image src="https://source.unsplash.com/1600x900/?product" alt="Photo">
             <mat-card-content>
-                <p class="title-main">{{ product.name | titlecase }}</p>
+                <p class="card__title">{{ product.name | titlecase }}</p>
             </mat-card-content>
-            <mat-card-content class="title-sub">
-              <mat-card-subtitle >{{ product.category | titlecase}}</mat-card-subtitle>
+            <mat-card-content >
+              <p class="card__title__sub">{{ product.category | titlecase}}</p>
             </mat-card-content>
             <mat-card-content class="grid-view">
-              <h6> {{product.price | currency :'USD'}} </h6>
-              <h6 *ngIf="product.stock == 0" class="out-of-stock">OUT OF STOCK</h6>
+              <h6 class="grid-view__text"> {{product.price | currency :'USD'}} </h6>
+              <h6 *ngIf="product.stock == 0" class="out-of-stock grid-view__text">OUT OF STOCK</h6>
             </mat-card-content>
             <div class="add-button-bg" *ngIf="product.stock > 0">
-              <ion-icon name="add-circle" class="add-button"></ion-icon>
+              <a  [routerLink]="['/products/list/']" > <ion-icon name="add-circle" class="add-button"></ion-icon> </a>
+
             </div>
       </mat-card>
+
+
+      <div class="popup" id="popup">
+        <div class="popup__content">
+          <div class="popup__left">
+            <img class="popup__img"src="https://source.unsplash.com/1600x900/?product" alt="image not supported">
+          </div>
+          <div class="popup__right">
+            <a class="popup__close" href="#">&times;close icn</a>
+            <p class="popup__text">{{product.name}}</p>
+            <h1 class="popup__text">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+              xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</h1>
+          </div>
+        </div>
+      </div>
 
     </div>
   </div>

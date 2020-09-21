@@ -1,7 +1,7 @@
-<h6>Add a new Category for products here...</h6>
+<h6 class="dialog-header-font">Add a new Category for products here...</h6>
 <hr>
 <div class="row">
-  <div class="col-xs-12">
+  <div class="col">
     <form class="example-form" #addCategoryForm="ngForm" (ngSubmit)="onCategorySave(addCategoryForm)">
       <mat-form-field class="example-full-width">
         <mat-label>Product Name </mat-label>
@@ -16,7 +16,7 @@
           </div>
         </div>
       </mat-form-field>
-      <button mat-raised-button [disabled]="addCategoryForm.invalid" [mat-dialog-close]="true" type="submit">Add</button>
+      <button class="primary-button" mat-raised-button [disabled]="addCategoryForm.invalid" [mat-dialog-close]="true" type="submit">Add</button>
     </form>
   </div>
 </div>
