@@ -2,11 +2,10 @@
 <hr>
 <div class="row">
   <div class="col">
-    <form class="example-form" #addCategoryForm="ngForm" (ngSubmit)="onCategorySave(addCategoryForm)">
-      <mat-form-field class="example-full-width">
+    <form class="example-form" #addCategoryForm="ngForm" (ngSubmit)="onCategorySave(addCategoryForm.value)">
+      <mat-form-field class="full-width">
         <mat-label>Product Name </mat-label>
         <input matInput  name="name" ngModel #name="ngModel" required minlength="3">
-        <!--<span class="errormessage" *ngIf="name.invalid && name.touched  ">Name is required and must contain atleast 3 character</span> -->
         <div *ngIf="name.invalid && (name.dirty || name.touched)"  class="errormessage">
           <div *ngIf="name.errors.required">
             Name is required.
@@ -16,6 +15,23 @@
           </div>
         </div>
       </mat-form-field>
+
+      <mat-form-field class="full-width">
+      <mat-label>Colors</mat-label>
+      <mat-select matInput name="color" ngModel #color="ngModel" required>
+        <mat-option value="palegreen">Palegreen</mat-option>
+        <mat-option value="coral">Coral</mat-option>
+        <mat-option value="slateblue">Slateblue</mat-option>
+        <mat-option value="skyblue">Skyblue</mat-option>
+        <mat-option value="orange">Orange</mat-option>
+      </mat-select>
+
+      </mat-form-field>
+      <div *ngIf="color.invalid && (color.dirty || color.touched)"  class="errormessage">
+        <div *ngIf="color.errors.required">
+          Color is required.
+        </div>
+      </div>
       <button class="primary-button" mat-raised-button [disabled]="addCategoryForm.invalid" [mat-dialog-close]="true" type="submit">Add</button>
     </form>
   </div>

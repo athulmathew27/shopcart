@@ -11,7 +11,7 @@ export class ProductsService {
   constructor( private firestore: AngularFirestore) { }
 
   addNewProduct(productData : Product){
-   // return this.firestore.collection<Product>('products').add(productData);
+    return this.firestore.collection<Product>('products').add(productData);
   }
 
   showProducts() : Observable<Product[]>

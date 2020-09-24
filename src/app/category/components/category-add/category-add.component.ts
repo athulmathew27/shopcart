@@ -20,8 +20,9 @@ export class CategoryAddComponent implements OnInit {
   ngOnInit(): void {  }
   onCategorySave(categoryData : Category)
   {
-    this.store.dispatch(new fromCategoryAction.AddCategory(categoryData))
+
+    //this.store.dispatch(new fromCategoryAction.AddCategory(categoryData.value))
     //this.categoryService.addCategory(categoryData)
-   // this.firestore.collection('category').add(CategoryItem);
+    this.firestore.collection<Category>('category').add(categoryData);
   }
 }

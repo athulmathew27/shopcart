@@ -6,9 +6,9 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../../environments/environment';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductAddComponent } from './components/product-add/product-add.component';
+import { ProductComponent } from './components/product/product.component';
 
 import { ProductsRoutingModule } from './products-routing.module';
-
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 // import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -19,6 +19,9 @@ import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatChipsModule } from '@angular/material/chips';
 
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { RatingModule } from 'ngx-bootstrap/rating';
+
 import { StoreModule } from '@ngrx/store';
 import * as fromProduct from './store/reducers/products.reducer';
 import { EffectsModule } from '@ngrx/effects';
@@ -28,7 +31,7 @@ import { ProductsEffect } from './store/effects/products.effects';
 @NgModule({
   declarations: [
     ProductListComponent, // every imported components
-    ProductAddComponent,
+    ProductAddComponent, ProductComponent,
 
   ],
   exports : [
@@ -48,6 +51,8 @@ import { ProductsEffect } from './store/effects/products.effects';
     MatCardModule,
     MatPaginatorModule,
     MatChipsModule,
+    CarouselModule,
+    RatingModule,
     ProductsRoutingModule,
     // StoreModule.forFeature({ products : fromProduct.productsReducer} ),
     // EffectsModule.forFeature([ProductsEffect]),

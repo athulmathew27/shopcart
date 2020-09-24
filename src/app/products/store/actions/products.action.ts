@@ -24,6 +24,8 @@ export class ListProductsFailure implements Action {
   constructor(public payload : string){}
 }
 
+
+
 //Add Products
 export class AddProducts implements Action {
   readonly type = ADD_PRODUCT;
@@ -45,6 +47,7 @@ export type ProductsAction =
 | ListProducts
 | ListProductsSuccess
 | ListProductsFailure
+
 | AddProducts
 | AddProductsFailure
 | AddProductsSuccess;

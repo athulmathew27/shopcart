@@ -3,8 +3,8 @@ import * as fromProductsAction from '../actions/products.action';
 import { Action } from '@ngrx/store';
 
 export interface ProductState {
-  products : Product[],
-  error : string
+  products : Product[];
+  error : string;
 }
 export const initialState : ProductState={
   products : [],
@@ -30,6 +30,8 @@ export function productsReducer(state : ProductState = initialState,
           ...state,
           error : [action.payload],
         };
+
+
 //ADD PRODUCTS
       case fromProductsAction.ADD_PRODUCT:
         return {

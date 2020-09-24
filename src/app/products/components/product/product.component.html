@@ -1,0 +1,49 @@
+
+    <div class="row">
+        <div class="col-md-12">
+          <div class="content">
+            <div class="content__left">
+              <!-- <img src="https://source.unsplash.com/1600x900/?product" alt="" class="img"> -->
+              <carousel>
+                <slide>
+                  <img src="https://source.unsplash.com/1600x900/?product" alt="first slide" style="display: block; width: 100%;">
+                </slide>
+                <slide>
+                  <img src="https://source.unsplash.com/1610x910/?product" alt="second slide" style="display: block; width: 100%;">
+                </slide>
+                <slide>
+                  <img src="https://source.unsplash.com/1620x910/?product" alt="third slide" style="display: block; width: 100%;">
+                </slide>
+              </carousel>
+            </div>
+
+            <div class="content__right">
+              <div class="heading">
+                {{product}}
+              </div>
+              <div class="text">
+                {{price | currency}}
+              </div>
+              <div class="stock">
+                <p class="stock__main">stock left: {{ stock }}</p>
+                <span class="stock__sub">Hurry !</span>
+              </div>
+              <div class="quantity">
+                Quantity: <input type="number" class="quantity__input">
+                <rating class="rating" [(ngModel)]="rate" [max]="max"></rating>
+              </div>
+              <div class="text-detail">
+                <h1 class="text-detail__heading"> Product Details </h1>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!
+              </div>
+            <div class="button">
+              <button class="secondary-button">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+

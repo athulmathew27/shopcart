@@ -5,42 +5,30 @@
       <hr>
       <mat-form-field class="full-width">
         <mat-label>Product Name </mat-label>
-        <input
-          matInput
-          formControlName="name"
-          placeholder="Ex. Carrot" >
+        <input matInput formControlName="name" placeholder="Ex. Carrot" >
         <span class="errormessage" *ngIf="name.invalid && name.touched  ">Name is required</span>
       </mat-form-field>
       <mat-form-field class="full-width">
         <mat-label>Category</mat-label>
         <mat-select   formControlName="category">
-          <mat-option
-            *ngFor="let cat of category | async" [value]="cat.name">  {{cat.name}}
+          <mat-option *ngFor="let cat of category | async" [value]="cat">  {{cat.name}}
           </mat-option>
         </mat-select>
+
       </mat-form-field>
       <mat-form-field class="half-width">
         <mat-label>Price/Kg </mat-label>
-        <input
-          matInput
-          type="number"
-          formControlName="price"
-          placeholder="">
+        <input matInput type="number" formControlName="price" placeholder="">
         <span class="errormessage" *ngIf="price.invalid && price.touched  ">Price is required</span>
       </mat-form-field>
+
       <mat-form-field class="half-width">
         <mat-label>Stock </mat-label>
-        <input
-          matInput
-          type="number"
-          formControlName="stock"
-          placeholder="">
+        <input matInput type="number" formControlName="stock" placeholder="">
         <span class="errormessage" *ngIf="stock.invalid && stock.touched  ">stock is required</span>
       </mat-form-field>
 
-      <input
-        type="file"
-        formControlName="image">
+      <input type="file" formControlName="image">
       <span class="errormessage" *ngIf="image.invalid && image.touched  ">Image is required</span>
 
       <button mat-raised-button [disabled]="!addProductForm.valid" mat-dialog-close type="submit" class="primary-button">Add</button>

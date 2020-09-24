@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { FormControl, FormGroup, Validators} from '@angular/forms';
 import { ProductsService } from '../../services/products.service';
 import { Product } from '../../models/products.model';
+import { Category } from 'src/app/category/model/category.model';
 import { Store } from '@ngrx/store';
 import * as fromApp from '../../../app.state';
 import  * as fromProductAction from '../../store/actions/products.action';
@@ -16,13 +17,13 @@ import  * as fromProductAction from '../../store/actions/products.action';
 export class ProductAddComponent implements OnInit {
 
   category : Observable<any[]>;
+  product : Product;
   constructor( private firestore: AngularFirestore,
                private productService : ProductsService,
                private store : Store<fromApp.AppState>
                )
   {
     this.category = firestore.collection('category').valueChanges();
-    console.log(this.category);
   }
   ngOnInit(): void {  }
 
@@ -33,6 +34,7 @@ export class ProductAddComponent implements OnInit {
     price:new FormControl('',Validators.required),
     stock: new FormControl('',Validators.required),
     image:new FormControl('',Validators.required),
+    color:new FormControl('')
   })
   get name(){return this.addProductForm.get('name')}
   get price(){return this.addProductForm.get('price')}
@@ -40,10 +42,18 @@ export class ProductAddComponent implements OnInit {
   get image(){return this.addProductForm.get('image')}
 
 //add product to firestore
-  onProductSave(productData : Product)
+  onProductSave(productData)
   {
-      // this.productService.addNewProduct(productData);
-      this.store.dispatch(new fromProductAction.AddProducts(productData))
+    this.product= {
+      name : productData.name,
+      categoryName : productData.category.name,
+      categoryColor : productData.category.color,
+      stock : productData.stock,
+      price : productData.price,
+      image : productData.image
+    }
+       this.productService.addNewProduct(this.product);
+     // this.store.dispatch(new fromProductAction.AddProducts(productData))
   }
 
 }

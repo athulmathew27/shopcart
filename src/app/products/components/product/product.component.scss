@@ -1,0 +1,106 @@
+@import '../../../../styles.scss';
+.row{
+  margin-top: 2%;
+  @include absCenter;
+  min-height: 130%;
+  min-width: 80%;
+  max-width: 90%;
+  position: relative;
+}
+
+.content{
+  position: absolute;
+  top: 5rem;
+  border-radius: 1rem;
+
+  &__left{
+    max-width: 45%;
+    min-width: 28rem;
+    float: left;
+
+  }
+  &__right{
+    width: 55%;
+    float: right;
+    padding-left: 1.5rem ;
+    @media screen and (max-width: 845px) {
+      min-width: 100%;
+    }
+    .heading{
+      text-align: left;
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    .text{
+        font-size: 1.3rem;
+    }
+    .text-detail{
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      float: right;
+
+      &__heading{
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+    }
+  }
+}
+.img{
+  width: 100%;
+  height: 100%;
+}
+
+.secondary-button{
+
+  @extend .primary-button;
+  height: 2.5rem;
+  width: 10rem;
+  // color: black;
+  // background-color: palegoldenrod;
+   border-radius: .2rem;
+  // outline: none;
+   margin-top: 1rem;
+}
+.button{
+
+}
+
+.stock{
+  font-size: 1.3rem;
+  line-height: .8rem;
+  margin-top: 1rem;
+
+  &__sub{
+    color: green;
+  }
+}
+.rating{
+  float: right;
+  font-size: 2rem;
+}
+.quantity{
+  font-size: 1.3rem;
+  font-weight: 900;
+  margin: 1rem 0;
+  &__input{
+    width: 4rem;
+    height: 2rem;
+    margin-left: 1rem;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
