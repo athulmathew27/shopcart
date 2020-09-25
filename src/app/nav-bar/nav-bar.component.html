@@ -1,0 +1,31 @@
+<mat-sidenav-container class="sidenav-container" >
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar> <ion-icon name="grid-outline" class="icon-side__main"></ion-icon>Menu</mat-toolbar><hr>
+    <mat-nav-list>
+      <a routerLinkActive="active" class="nav-link" mat-list-item  routerLink="/products/list"> <ion-icon name="pricetags-outline" class="icon-side"></ion-icon> Products</a>
+      <a routerLinkActive="active" class="nav-link" mat-list-item  routerLink="/category/list"> <ion-icon name="list-circle-outline" class="icon-side"></ion-icon>Category</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="section" >
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()" *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <div class="section__left">
+        <span><ion-icon name="leaf"></ion-icon>ShopCart</span>
+      </div>
+      <div class="section__right">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" class="nav__search-box">
+          <ion-icon name="search" class="nav__search-icon"></ion-icon>
+        </form>
+        <ion-icon name="person-circle" class="nav__user-icon"></ion-icon>
+      </div>
+    </mat-toolbar>
+    <!-- Add Content Here -->
+    <ng-content ></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

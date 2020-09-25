@@ -9,7 +9,7 @@
 <!-- display card : product details -->
 <div class="container">
   <div class="row content" >
-      <div class="col-md-3" class="card-block" *ngFor="let product of productList | async; let i = index"  (click)=" showProduct(product)">
+      <div class="col-md-3" class="card-block" *ngFor="let product of productList | async; let i = index"  (click)=" showProduct(product, product.productId)">
         <mat-card class="card" >
           <img mat-card-image src="https://source.unsplash.com/1600x900/?product" alt="Photo">
             <mat-card-content>

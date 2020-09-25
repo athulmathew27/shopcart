@@ -1,0 +1,93 @@
+@import '../../styles.scss';
+
+.sidenav-container {
+  height: 100%;
+  background-color: white;
+}
+.mat-sidenav-content
+{
+  position : relative;
+}
+
+.sidenav {
+  width: 200px;
+  top: 15rem;
+  position: absolute;
+
+}
+
+.sidenav .mat-toolbar {
+  background: inherit;
+}
+
+.mat-toolbar.mat-primary {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  box-shadow: 1px 1px 5px 0px black;
+  color: black;
+  width: 100%;
+}
+
+.nav-link{
+  text-decoration: none;
+  list-style: none;
+}
+
+.nav{
+  &__search-icon{
+    font-size: 1.7rem;
+    border-radius: 50%;
+    float: left;
+    padding-left: .2rem;
+    color: black;
+  }
+
+  &__search-box{
+    margin-right: -2.1rem;
+    padding-right: 2rem;
+    border-radius: .4rem;
+    border-color: rgb(207, 204, 204);
+    width: 14rem;
+    height: 2.7rem;
+    font-size: 1.2rem;
+  }
+
+  &__user-icon{
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: $secondary-color;
+    color:$primary-color;
+    margin-left: 2rem;
+    &:hover{
+      background-color: $primary-color;
+      color:$secondary-color;
+      border-radius: 50%;
+      }
+  }
+}
+
+.section{
+  display: flex;
+  justify-content: space-between;
+
+  &__right{
+    display: flex;
+    align-items: center;
+  }
+}
+
+.main-content{
+  display: flex;
+}
+
+.icon-side{
+  font-size: 2rem;
+  margin-right: 1rem;
+
+  &__main{
+    font-size: 2.3rem;
+    margin-right: 1.3rem;
+  }
+}

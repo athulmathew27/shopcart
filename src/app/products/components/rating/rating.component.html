@@ -1,0 +1,16 @@
+<div class="col">
+  <div  class="rating-all-users">
+    {{rateTotal}} <rating  [(ngModel)]="rateTotal" [max]="maxTotal" readonly="true"></rating>
+    <p class="review">{{totalReview}} Reviews</p>
+  </div>
+</div>
+<div class="col-8">
+  <section *ngFor="let review of ratingList$ | async">
+    <div class="head-section">
+      <h6 class="user-name">Username </h6>
+      <rating [(ngModel)]="review.rating" class="rating-section"></rating>
+    </div>
+    <p class="user-review">{{review.review}}</p>
+      <hr>
+  </section>
+</div>

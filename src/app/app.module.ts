@@ -18,6 +18,13 @@ import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductsEffect } from './products/store/effects/products.effects';
 import { FooterComponent } from './footer/footer.component';
+import { NavBarComponent } from './nav-bar/nav-bar.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatListModule } from '@angular/material/list';
 // import { reducers, metaReducers } from './reducers';
 
 
@@ -28,6 +35,7 @@ import { FooterComponent } from './footer/footer.component';
     PageNotFoundComponent,
     HeaderComponent,
     FooterComponent,
+    NavBarComponent,
   ],
  // entryComponents : [ProductAddComponent],
   imports: [
@@ -39,6 +47,12 @@ import { FooterComponent } from './footer/footer.component';
     StoreModule.forRoot(fromApp.appReducer),
     EffectsModule.forRoot([ProductsEffect]),
     StoreDevtoolsModule.instrument({ logOnly: environment.production }),
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,23 @@
+.rating-all-users{
+  font-size: 3rem;
+
+  .review{
+    font-size: 1.3rem;
+  }
+}
+.user-name{
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.user-review{
+  font-size: 1.2rem;
+}
+.head-section{
+  display: flex;
+  min-width: 15rem;
+  .rating-section{
+    color: gold;
+    margin-left: 1rem;
+    font-size: 1.2rem;
+  }
+}

@@ -7,6 +7,7 @@ import { environment } from '../../environments/environment';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import { ProductComponent } from './components/product/product.component';
+import { RatingComponent } from './components/rating/rating.component';
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -31,7 +32,7 @@ import { ProductsEffect } from './store/effects/products.effects';
 @NgModule({
   declarations: [
     ProductListComponent, // every imported components
-    ProductAddComponent, ProductComponent,
+    ProductAddComponent, ProductComponent, RatingComponent,
 
   ],
   exports : [

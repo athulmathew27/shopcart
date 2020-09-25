@@ -1,16 +1,20 @@
 @import '../../../../styles.scss';
-.row{
-  margin-top: 2%;
-  @include absCenter;
-  min-height: 130%;
-  min-width: 80%;
-  max-width: 90%;
-  position: relative;
+.product-detail{
+   //@include absCenter;
+  // min-height: 130%;
+  min-width: 90%;
+  max-width: 100%;
+  margin-top: 2rem;
+  // position: relative;
 }
-
+.main-content{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .content{
-  position: absolute;
-  top: 5rem;
+  // position: absolute;
+  // top: 5rem;
   border-radius: 1rem;
 
   &__left{
@@ -62,9 +66,6 @@
   // outline: none;
    margin-top: 1rem;
 }
-.button{
-
-}
 
 .stock{
   font-size: 1.3rem;
@@ -79,6 +80,7 @@
   float: right;
   font-size: 2rem;
 }
+
 .quantity{
   font-size: 1.3rem;
   font-weight: 900;
@@ -91,11 +93,25 @@
 }
 
 
+.rating-section{
+//  @include absCenter;
+margin-top: 3rem;
+}
 
+.rating-form{
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  &__input{
+    width: 100%;
+    height: 5rem;
+    resize: none;
+    border: 1px solid #888;
+  }
+}
 
-
-
-
+.errormessage{
+  color: red;
+}
 
 
 

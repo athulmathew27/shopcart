@@ -52,8 +52,8 @@ export class ProductListComponent implements OnInit {
 
   }
 
-  showProduct(product : Product)
+  showProduct(product : Product, productID : string)
   {
-       this.router.navigate(['products/product',  product.name,  product.categoryName, product.image, product.price, product.stock]);
+       this.router.navigate(['products/product',productID,  product.name,  product.categoryName, product.image, product.price, product.stock]);
   }
 }

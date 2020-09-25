@@ -11,7 +11,7 @@ const routes: Routes = [
   component: ProductListComponent
 },
 {
-  path: 'product/:product/:category/:image/:price/:stock',
+  path: 'product/:id/:product/:category/:image/:price/:stock',
    component: ProductComponent
  }
 ];

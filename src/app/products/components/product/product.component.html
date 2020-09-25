@@ -1,5 +1,5 @@
-
-    <div class="row">
+<div class="container main-content">
+    <div class="row product-detail">
         <div class="col-md-12">
           <div class="content">
             <div class="content__left">
@@ -15,6 +15,18 @@
                   <img src="https://source.unsplash.com/1620x910/?product" alt="third slide" style="display: block; width: 100%;">
                 </slide>
               </carousel>
+
+              <form class="rating-form" #reviewForm="ngForm" (ngSubmit)="onRating(reviewForm)">
+                <textarea  name="reviewContent" ngModel #reviewContent="ngModel" required
+                cols="30" rows="10" class="rating-form__input"
+                placeholder="what do you fell about this product?"></textarea>
+                <div *ngIf="reviewContent.invalid && (reviewContent.dirty || reviewContent.touched)"  class="errormessage">
+                  <div *ngIf="reviewContent.errors.required">
+                    Rate me !
+                  </div>
+                </div>
+                <button class="secondary-button" [hidden]="reviewForm.invalid">Send Feedback</button>
+              </form>
             </div>
 
             <div class="content__right">
@@ -44,6 +56,10 @@
           </div>
         </div>
       </div>
+      <div class="row rating-section">
+        <app-rating [productID]="productID"></app-rating>
+      </div>
     </div>
+</div>
 
 
