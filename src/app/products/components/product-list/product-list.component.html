@@ -9,10 +9,17 @@
 <!-- display card : product details -->
 <div class="container">
   <div class="row content" >
-      <div class="col-md-3" class="card-block" *ngFor="let product of productList | async; let i = index"  (click)=" showProduct(product, product.productId)">
+      <div class="col-md-3" class="card-block" *ngFor="let product of productList | async; let i = index">
         <mat-card class="card" >
-          <img mat-card-image src="https://source.unsplash.com/1600x900/?product" alt="Photo">
-            <mat-card-content>
+
+          <img mat-card-image src="https://source.unsplash.com/1600x900/?product" alt="Photo" (click)=" showProduct(product, product.productId)">
+
+          <ion-icon name="heart" class=" heart-icon fav-color-inactive" *ngIf="product.productId != favProductsID[ii]" (click)=" addToFavourite( product)"></ion-icon>
+          <div class="heart-icon" *ngFor="let fav of favProductsID; let ii = index">
+            <ion-icon name="heart" class=" fav-color-active" *ngIf="product.productId == favProductsID[ii]"  (click)=" removeFromFavourite( product)" ></ion-icon>
+          </div>
+
+           <mat-card-content>
                 <p class="card__title">{{ product.name | titlecase }}</p>
             </mat-card-content>
             <mat-card-content >
@@ -29,8 +36,6 @@
               <a  [routerLink]="['/products/list/']" > <ion-icon name="add-circle" class="add-button"></ion-icon> </a>
             </div>
       </mat-card>
-
-
     </div>
   </div>
 </div>

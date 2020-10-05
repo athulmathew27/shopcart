@@ -55,13 +55,23 @@
       //   background-color: red;
       // }
      }
+
+     .heart-icon{
+       font-size: 1.7rem;
+     }
+     .fav-color-active{
+       color: red;
+     }
+     .fav-color-inactive{
+       color: black;
+     }
   }
 
 }
 
 .primary-button{
   @extend .primary-button;
-  margin-top: 5rem;
+  margin-top: 1rem;
   margin-bottom: 1rem;
   margin-right: 2rem;
   float: right;

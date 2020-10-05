@@ -1,5 +1,5 @@
 <mat-sidenav-container class="sidenav-container" >
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+    <mat-sidenav #drawer class="sidenav" fixedInViewport
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
@@ -22,10 +22,17 @@
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" class="nav__search-box">
           <ion-icon name="search" class="nav__search-icon"></ion-icon>
         </form>
-        <ion-icon name="person-circle" class="nav__user-icon"></ion-icon>
+        <button mat-raised-button class="nav__login" (click)="onLogout()">Logout</button>
+        <ion-icon name="heart-outline" class="nav__heart-icon" routerLink="products/favourite"></ion-icon>
+        <ion-icon name="cart-outline" class="nav__cart-icon" routerLink="products/cart"></ion-icon>
+
+
+        <ion-icon (click)="onManageUser()" name="person-circle" class="nav__user-icon" ></ion-icon>
+
       </div>
     </mat-toolbar>
     <!-- Add Content Here -->
     <ng-content ></ng-content>
+    <app-manage-user [ngClass]="{ 'show-manage-user': showManageUser, 'hide-manage-user' : !showManageUser}"></app-manage-user>
   </mat-sidenav-content>
 </mat-sidenav-container>

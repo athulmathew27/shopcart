@@ -23,30 +23,30 @@ export function productsReducer(state : ProductState = initialState,
       case fromProductsAction.LIST_PRODUCTS_SUCCESS:
         return {
           ...state,
-          products : [action.payload],
+          products : action.payload,
         };
       case fromProductsAction.LIST_PRODUCTS_FAILURE:
         return {
           ...state,
-          error : [action.payload],
+          error : action.payload,
         };
 
 
 //ADD PRODUCTS
-      case fromProductsAction.ADD_PRODUCT:
-        return {
-            ...state,
-        };
-      case fromProductsAction.ADD_PRODUCT_SUCCESS:
-        return {
-          ...state,
-          products : [...state.products, action.payload]
-        };
-      case fromProductsAction.ADD_PRODUCT_FAILURE:
-          return {
-            ...state,
-            error : [action.payload]
-          };
+//       case fromProductsAction.ADD_PRODUCT:
+//         return {
+//             ...state,
+//         };
+//       case fromProductsAction.ADD_PRODUCT_SUCCESS:
+//         return {
+//           ...state,
+//           products : [...state.products, action.payload]
+//         };
+//       case fromProductsAction.ADD_PRODUCT_FAILURE:
+//           return {
+//             ...state,
+//             error : [action.payload]
+//           };
       default:
         return state;
     }

@@ -41,7 +41,6 @@ export class RatingComponent implements OnInit {
           for (var i=0;i<val.length;i++){
             if(val[i].rating != null){
               this.sumRating = this.sumRating + val[i].rating;
-                console.log(this.sumRating);
             }
         }
           this.averageRating = this.sumRating / this.totalReview;

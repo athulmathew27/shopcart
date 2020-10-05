@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row content" >
+      <div class="col-md-3" class="card-block" *ngFor="let product of products; let i = index">
+        <mat-card class="card"  >
+          <img mat-card-image src="https://source.unsplash.com/1600x900/?product" alt="Photo" (click)="showProduct(product, productID[i])">
+          <ion-icon name="heart" class="heart-icon" (click)="removeFromFavourite(productID[i])"></ion-icon>
+            <mat-card-content>
+                <p class="card__title">{{product.name |titlecase}}</p>
+            </mat-card-content>
+            <mat-card-content >
+              <!-- <p class="card__title__sub">{{ product.category | titlecase}}</p> -->
+              <mat-chip-list class="chips"  aria-label="category list">
+                <mat-chip class="chips__content" [ngStyle]="{ 'background-color': product.categoryColor }" >{{ product.categoryName }}</mat-chip>
+              </mat-chip-list>
+            </mat-card-content>
+            <mat-card-content class="grid-view">
+              <h6 class="grid-view__text"> {{product.price | currency :'USD'}} </h6>
+              <h6 *ngIf="product.stock < 1" class="out-of-stock grid-view__text">OUT OF STOCK</h6>
+            </mat-card-content>
+            <div class="add-button-bg" *ngIf="product.stock > 0">
+              <a  [routerLink]="['/products/list/']" > <ion-icon name="add-circle" class="add-button"></ion-icon> </a>
+            </div>
+      </mat-card>
+
+
+    </div>
+  </div>
+</div>

@@ -1,5 +1,5 @@
 export interface Rating{
-  productID : string,
-  rating : number,
-  review : string
+  productID : string;
+  rating : number;
+  review : string;
 }

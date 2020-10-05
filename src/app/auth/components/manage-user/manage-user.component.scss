@@ -1,0 +1,41 @@
+.img-section{
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  .img{
+    height: 8rem;
+    width: 8rem;
+    border-radius: 50%;
+  }
+}
+.profile{
+  text-align: center;
+  line-height: .7rem;
+
+  .edit-section{
+    display: flex;
+
+    .edit-icon{
+      font-size: 1.4rem;
+      margin-left: 1rem;
+    }
+  }
+  .text{
+    font-size: 1.3rem;
+    text-align: center;
+
+    &-sub{
+      font-size: 1rem;
+    }
+  }
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  width: 100%;
+  display: flex;
+}
+
+.half-width {
+  width: 70%;
+}

@@ -1,0 +1,40 @@
+<div class="row">
+  <div class="col">
+    <mat-card class="main-container">
+      <div class="heading">
+        <p class="head-text">ORDER SUMMERY</p>
+        <hr>
+      </div>
+      <p class="text">No. of items in card : {{totalitems}}</p>
+      <p class="text-sec" *ngFor="let product of products; let i = index">{{product.name}} : {{product.price}} * {{quantity[i]}} = {{product.price * quantity[i]}}</p>
+      <p class="text-sec">Cart Total: {{toPay}}</p>
+      <div class="center">
+        <button mat-raised-button class="primary-button" >Check Out <ion-icon name="cash" class="cash-icon"></ion-icon></button>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
+<div class="row">
+  <div class="col">
+    <mat-card class="main-container">
+      <div class="heading">
+        <p class="head-text">ADDRESS</p>
+        <hr>
+      </div>
+      <div class="new-section">
+        <button mat-raised-button class="primary-button" (click)="addNewAddress()">New Address</button>
+      </div>
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="addressSelected" (change)="selectDeliveryAddress(addressSelected)">
+          <mat-radio-button class="example-radio-button" *ngFor="let address of address$ |async" [value]="address.addressID">
+            <mat-card class="card-address" >
+              <p>{{address.address}}</p>
+              <p>{{address.postoffice}},{{address.district}}</p>
+              <p>{{address.state}},{{address.country}}</p>
+              <p>Pincode: {{address.pincode}}</p>
+            </mat-card>
+          </mat-radio-button>
+      </mat-radio-group>
+    </mat-card>
+  </div>
+</div>

@@ -59,12 +59,29 @@
     width: 2.5rem;
     background-color: $secondary-color;
     color:$primary-color;
-    margin-left: 2rem;
+    margin-left: 1rem;
     &:hover{
       background-color: $primary-color;
       color:$secondary-color;
       border-radius: 50%;
       }
+  }
+  &__cart-icon{
+    font-size: 2rem;
+  }
+  &__heart-icon{
+    font-size: 2rem;
+    margin-right: 1rem;
+  }
+
+  &__login{
+    @extend .primary-button;
+    margin: 0 1rem;
+
+    &:hover{
+      background-color: gray;
+      color: black;
+    }
   }
 }
 
@@ -91,3 +108,18 @@
     margin-right: 1.3rem;
   }
 }
+////////////////////////////////////////
+.show-manage-user{
+  min-width: 250px;
+  min-height: 500px;
+  position: fixed;
+  top: 6rem;
+  right: 1rem;
+  z-index: 1000;
+}
+.hide-manage-user{
+  display: none;
+  width: 0%;
+  height: 0%;
+}
+

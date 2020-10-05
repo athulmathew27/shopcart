@@ -1,0 +1,14 @@
+              <form class="rating-form" #reviewForm="ngForm" (ngSubmit)="onRating(reviewForm)">
+                <h3> Share your Experience..</h3>
+                <rating class="rating" [(ngModel)]="rate" name="rating" [max]="max"></rating>
+                <textarea  name="reviewContent" ngModel #reviewContent="ngModel" required
+                cols="30" rows="10" class="rating-form__input"
+                placeholder="what do you fell about this product?"></textarea>
+                <div *ngIf="reviewContent.invalid && (reviewContent.dirty || reviewContent.touched)"  class="errormessage">
+                  <div *ngIf="reviewContent.errors.required">
+                    Rate me !
+                  </div>
+                </div>
+                <button mat-raised-button class="secondary-button" [disabled]="reviewForm.invalid" mat-dialog-close type="submit">Send Feedback</button>
+              </form>
+

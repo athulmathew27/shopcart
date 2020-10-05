@@ -4,10 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../../environments/environment';
+
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductAddComponent } from './components/product-add/product-add.component';
 import { ProductComponent } from './components/product/product.component';
 import { RatingComponent } from './components/rating/rating.component';
+import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
 
 import { ProductsRoutingModule } from './products-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +21,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatChipsModule } from '@angular/material/chips';
+import { MatRadioModule } from '@angular/material/radio';
+
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { RatingModule } from 'ngx-bootstrap/rating';
@@ -27,12 +31,17 @@ import { StoreModule } from '@ngrx/store';
 import * as fromProduct from './store/reducers/products.reducer';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductsEffect } from './store/effects/products.effects';
+import { CartComponent } from './components/cart/cart.component';
+import { BillingComponent } from './components/billing/billing.component';
+import { DeliveryAddressComponent } from './components/delivery-address/delivery-address.component';
+import { FavouriteComponent } from './components/favourite/favourite.component';
+import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 
 
 @NgModule({
   declarations: [
     ProductListComponent, // every imported components
-    ProductAddComponent, ProductComponent, RatingComponent,
+    ProductAddComponent, ProductComponent, RatingComponent, FeedbackFormComponent, CartComponent, BillingComponent, DeliveryAddressComponent, FavouriteComponent, MyOrdersComponent,
 
   ],
   exports : [
@@ -51,6 +60,7 @@ import { ProductsEffect } from './store/effects/products.effects';
     MatInputModule,
     MatCardModule,
     MatPaginatorModule,
+    MatRadioModule,
     MatChipsModule,
     CarouselModule,
     RatingModule,

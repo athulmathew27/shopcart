@@ -1,6 +1,4 @@
-
 import { ActionReducerMap } from '@ngrx/store';
-import { from } from 'rxjs';
 
 import * as fromProductList from './products/store/reducers/products.reducer';
 import * as fromCategoryList from './category/store/category.reducer';

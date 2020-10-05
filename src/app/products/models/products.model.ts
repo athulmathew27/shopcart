@@ -1,4 +1,3 @@
-import { Category } from 'src/app/category/model/category.model';
 
 export interface Product{
   name : string,

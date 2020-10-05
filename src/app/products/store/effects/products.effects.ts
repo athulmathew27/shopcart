@@ -17,7 +17,7 @@ export class ProductsEffect {
     return this.action$.pipe(
       ofType(fromProductAction.LIST_PRODUCTS),
       switchMap((data: fromProductAction.ListProducts) =>
-      this.firestore.collection<Product>('products').valueChanges()//{ idField: 'productId' }
+      this.firestore.collection<Product>('products').valueChanges({ idField: 'productId' })//
           .pipe(
             switchMap((products : Product[]) => [
               new fromProductAction.ListProductsSuccess(products)

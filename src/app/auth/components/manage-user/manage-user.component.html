@@ -1,0 +1,19 @@
+<mat-card >
+  <div class="img-section">
+    <img class="img" src="https://source.unsplash.com/1600x900/?product" alt="">
+  </div>
+  <div class="profile">
+    <!-- <P class="text" *ngIf="name">{{name}}</P>
+    <p class="text" *ngIf="!name">Name</p> -->
+
+    <mat-form-field class="half-width">
+      <div class="edit-section">
+        <input class="text"  matInput [(ngModel)]="name" [readonly]="editName" #displayName (change)="onUpdateName(displayName.value)">
+        <ion-icon class="edit-icon" name="pencil-outline"(click)="oneditName()"></ion-icon>
+      </div>
+    </mat-form-field>
+
+
+    <p class="text-sub">{{email}}</p>
+  </div>
+</mat-card>
