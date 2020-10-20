@@ -1,0 +1,42 @@
+@import '../../../../styles.scss';
+
+.main-container{
+  margin-top: 5rem;
+
+  .heading{
+    text-align: center;
+    margin-top: 1rem;
+
+    .head-text{
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+  }
+  .text{
+    font-size: 1.3rem;
+  }
+  .text-sec{
+    font-size: 1.1rem;
+  }
+}
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}
+
+.new-section{
+  margin-bottom: 1rem;
+}
+.card-address{
+  padding : 1rem;
+  margin-top: 1rem;
+  line-height: .7rem;
+  font-size: 1.3rem;
+  min-width: 90vh;
+}
+

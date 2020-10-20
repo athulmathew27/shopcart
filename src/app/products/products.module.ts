@@ -22,6 +22,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatStepperModule } from '@angular/material/stepper';
+import { MatExpansionModule } from '@angular/material/expansion';
+
 
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
@@ -36,12 +40,18 @@ import { BillingComponent } from './components/billing/billing.component';
 import { DeliveryAddressComponent } from './components/delivery-address/delivery-address.component';
 import { FavouriteComponent } from './components/favourite/favourite.component';
 import { MyOrdersComponent } from './components/my-orders/my-orders.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
+import { CheckoutComponent } from './components/checkout/checkout.component';
+import { ShowDeliveryAddressComponent } from './components/show-delivery-address/show-delivery-address.component';
+import { PaymentComponent } from './components/payment/payment.component';
+import { PayUMoneyComponent } from './components/pay-u-money/pay-u-money.component';
+import { CashOnDeliveryComponent } from './components/cash-on-delivery/cash-on-delivery.component';
 
 
 @NgModule({
   declarations: [
     ProductListComponent, // every imported components
-    ProductAddComponent, ProductComponent, RatingComponent, FeedbackFormComponent, CartComponent, BillingComponent, DeliveryAddressComponent, FavouriteComponent, MyOrdersComponent,
+    ProductAddComponent, ProductComponent, RatingComponent, FeedbackFormComponent, CartComponent, BillingComponent, DeliveryAddressComponent, FavouriteComponent, MyOrdersComponent, ProductCardComponent, CheckoutComponent, ShowDeliveryAddressComponent, PaymentComponent, PayUMoneyComponent, CashOnDeliveryComponent,
 
   ],
   exports : [
@@ -62,6 +72,9 @@ import { MyOrdersComponent } from './components/my-orders/my-orders.component';
     MatPaginatorModule,
     MatRadioModule,
     MatChipsModule,
+    MatSnackBarModule,
+    MatStepperModule,
+    MatExpansionModule,
     CarouselModule,
     RatingModule,
     ProductsRoutingModule,

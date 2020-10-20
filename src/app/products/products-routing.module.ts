@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { CartComponent } from './components/cart/cart.component';
 import { FavouriteComponent } from './components/favourite/favourite.component';
+import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductComponent } from './components/product/product.component';
@@ -23,6 +24,10 @@ const routes: Routes = [
 {
   path: 'favourite',
   component : FavouriteComponent
+},
+{
+  path: 'myorders',
+  component : MyOrdersComponent
 }
 ];
 

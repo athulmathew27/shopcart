@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, validateEventsArray } from '@angular/fire/firestore';
 import { from, Observable, Subject } from 'rxjs';
 import { Rating } from '../../models/rating.model';
@@ -7,7 +7,7 @@ import { Rating } from '../../models/rating.model';
   templateUrl: './rating.component.html',
   styleUrls: ['./rating.component.scss']
 })
-export class RatingComponent implements OnInit {
+export class RatingComponent implements OnInit, OnChanges {
 
   maxTotal : number = 5;
   rateTotal : number = 1;
@@ -24,14 +24,16 @@ export class RatingComponent implements OnInit {
    }
   ngOnInit(): void {
 
-    this.ratingList$ = this.firestore.collection<Rating>('product_rating', ref => ref.where('productID', '==', this.productID)).valueChanges();
 
-    // this.firestore.collection<Rating>('product_rating', ref => ref.where('productID', '==', this.productID)).valueChanges().subscribe(
-    //   val=> {
-    //      this.totalReview = val.length
-    // });
+  }
 
-    this.firestore.collection<Rating>('product_rating', ref => ref.where('productID', '==', this.productID)).valueChanges().subscribe(
+  ngOnChanges(changes : SimpleChanges)
+  {
+    console.log("sssssss",changes.productID.currentValue)
+
+    this.ratingList$ = this.firestore.collection<Rating>('product_rating', ref => ref.where('productID', '==', changes.productID.currentValue)).valueChanges();
+
+    this.firestore.collection<Rating>('product_rating', ref => ref.where('productID', '==', changes.productID.currentValue)).valueChanges().subscribe(
       val=> {
         this.totalReview = val.length;
         if(this.totalReview < 1){

@@ -1,3 +1,7 @@
+.card{
+  padding-bottom: 2rem;
+}
+
 .img-section{
   display: flex;
   justify-content: center;
@@ -28,6 +32,30 @@
       font-size: 1rem;
     }
   }
+  .link-section{
+    text-align: left;
+    line-height: 2rem;
+    font-size: 1.1rem;
+    text-decoration: none;
+    list-style: none;
+    padding-left: 0%;
+
+    .links{
+      display: flex;
+      align-items: center;
+      margin-top: 1.1rem;
+
+      &:hover{
+        background-color: #ece8e8;
+      }
+
+      .material-icons{
+        font-size: 1.5rem;
+        margin-right: 1rem;
+
+      }
+    }
+  }
 }
 .example-form {
   min-width: 150px;
@@ -39,3 +67,28 @@
 .half-width {
   width: 70%;
 }
+
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+.signout-sec{
+  display: flex;
+  align-items: center;
+  float: right;
+
+
+  .lock-icon{
+    font-size: 1.4rem;
+    margin-right: .5rem;
+  }
+  .text{
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+}
+

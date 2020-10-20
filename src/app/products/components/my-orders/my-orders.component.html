@@ -1,1 +1,18 @@
-<p>my-orders works!</p>
+<div class="row">
+  <div class="col-7 main-content">
+    <p class="heading">My-orders</p>
+    <hr>
+    <mat-card class="card-section" *ngFor="let product of products; let i = index">
+      <div class="left">
+        <img src="https://source.unsplash.com/1600x900/?product" alt="image" class="image">
+      </div>
+      <div class="right">
+        <p class="head">{{product.name }}</p>
+        <p class="text">Quantity : {{quantity[i]}}</p>
+        <p class="text">status : {{status[i]}}</p>
+      </div>
+      <ion-icon class="close-icon" name="close-outline"></ion-icon>
+    </mat-card>
+  </div>
+</div>
+<div>

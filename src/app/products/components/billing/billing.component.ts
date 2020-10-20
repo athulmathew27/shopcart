@@ -3,8 +3,11 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
+import { timeout } from 'rxjs/operators';
 import { Address } from '../../models/address.model';
 import { Cart } from '../../models/cart.model';
+import { Product } from '../../models/products.model';
+import { CheckoutComponent } from '../checkout/checkout.component';
 import { DeliveryAddressComponent } from '../delivery-address/delivery-address.component';
 @Component({
   selector: 'app-billing',
@@ -19,43 +22,36 @@ export class BillingComponent implements OnInit, OnChanges {
   totalitems : number;
   toPay : number = 0;
 
-  products : any;
-  quantity : any;
+  products : [];
+  quantity : [];
+  cartProductId : [];
+  cartId : [];
   address$ : Observable<Address[]>;
   addressSelected : string;
-  constructor( private firestore : AngularFirestore,
-                private dialog : MatDialog,
-                ) { }
+  constructor(private firestore : AngularFirestore,
+              private dialog : MatDialog,
+            ) { }
 
   ngOnInit(): void {  }
 
   ngOnChanges(changes : SimpleChanges){
-    const billingData1 = changes['billingData']
-    if(billingData1){
-      console.log(billingData1.currentValue[0].quantity)
-      // var user = firebase.auth().currentUser;
-      // if(user){
-      //   this.userData = user;
-      //   this.products = this.billingData[0].products;
-      //   this.quantity = this.billingData[0].quantity;
+      setTimeout(()=>{
+         this.totalitems = this.billingData.product.length
+         this.products = this.billingData.product
+         this.quantity = this.billingData.quantity
+         this.cartProductId = this.billingData.cartProductId
+         this.cartId = this.billingData.cartId
+         var total = 0;
+        for(let i = 0; i < this.totalitems; i++){
+          total = total + (this.billingData.product[i].price * this.billingData.quantity[i])
+        }
+        this.toPay = total
+      },3000)
+  }
 
-      //  var length = JSON.stringify(this.products).length;
-      //  this.totalitems = length
+  onCheckOut(){
+    this.dialog.open(CheckoutComponent,{data:{toPay : this.toPay,cartQuantity : this.quantity, cartProductId : this.cartProductId, cartId : this.cartId}})
+  }
 
-      //  for(let i =0; i < length; i++)
-      //  {
-      //   console.log("xxxxxxxxxxxxx",this.products);
-      //  }
-      //   this.address$ = this.firestore.collection('users').doc(this.userData.uid).collection<Address>('address').valueChanges({idField : 'addressID'})
-      // }
-    }
-  }
-  addNewAddress(){
-    this.dialog.open(DeliveryAddressComponent);
-  }
-  selectDeliveryAddress(addressSelected){
-   // this.firestore.collection('users').doc(this.userData.uid).collection<Address>('address', ref => ref.where('status', '==', "selected"))
-    this.firestore.collection('users').doc(this.userData.uid).collection<Address>('address').doc(addressSelected).update({status : "selected"})
-  }
 
 }

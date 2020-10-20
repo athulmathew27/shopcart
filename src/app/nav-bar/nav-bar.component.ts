@@ -22,18 +22,9 @@ export class NavBarComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver,
-              private authService : AuthService,
-              private fireAuth : AngularFireAuth,
-              private router : Router) {}
+              private authService : AuthService,) {}
 
-  onLogout(){
-      this.fireAuth.signOut().then(()=>{
-          localStorage.removeItem('user')
-          window.location.reload();
-          this.router.navigate(['/auth/login'])
-        }
-      );
-  }
+
 
   onManageUser(){
     this.showManageUser = !this.showManageUser;

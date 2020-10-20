@@ -1,19 +1,38 @@
-<mat-card >
+<mat-card class="card">
   <div class="img-section">
     <img class="img" src="https://source.unsplash.com/1600x900/?product" alt="">
   </div>
   <div class="profile">
     <!-- <P class="text" *ngIf="name">{{name}}</P>
     <p class="text" *ngIf="!name">Name</p> -->
-
     <mat-form-field class="half-width">
       <div class="edit-section">
-        <input class="text"  matInput [(ngModel)]="name" [readonly]="editName" #displayName (change)="onUpdateName(displayName.value)">
+        <input  class="text"  matInput [(ngModel)]="name" [readonly]="editName" #displayName (change)="onUpdateName(displayName.value)">
         <ion-icon class="edit-icon" name="pencil-outline"(click)="oneditName()"></ion-icon>
       </div>
     </mat-form-field>
-
-
     <p class="text-sub">{{email}}</p>
+    <hr>
+    <nav>
+      <ul class="link-section">
+        <div class="links">
+          <span class="material-icons">shopping_cart</span>
+          <li><a routerLink="products/cart">My cart</a></li>
+        </div>
+        <div class="links">
+          <span class="material-icons">assessment</span>
+          <li><a routerLink="products/myorders">My orders</a></li>
+        </div>
+        <div class="links">
+          <span class="material-icons">favorite_border</span>
+          <li><a routerLink="products/favourite">My favourites</a></li>
+        </div>
+      </ul>
+    </nav>
+    <div class="signout-sec">
+      <span class="material-icons lock-icon">lock</span>
+      <span class="text"(click)="onLogout()">Sign Out</span>
+    </div>
+
   </div>
 </mat-card>

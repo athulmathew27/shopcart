@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { Observable } from 'rxjs';
 
@@ -12,12 +14,14 @@ import { Observable } from 'rxjs';
 export class ManageUserComponent implements OnInit {
 
   userData$ : Observable<any>;
-  public name : string;
+  name : string;
   editName : boolean = true;
   email : string;
   user : any
 
-  constructor(private firestore : AngularFirestore) { }
+  constructor(private firestore : AngularFirestore,
+              private fireAuth : AngularFireAuth,
+              private router : Router) { }
 
   ngOnInit(): void {
     firebase.auth().onAuthStateChanged((user)=> {
@@ -34,6 +38,7 @@ export class ManageUserComponent implements OnInit {
   oneditName(){
     this.editName = false;
   }
+
   onUpdateName(name){
     this.user.updateProfile({displayName: name}).then(()=> {
         alert("updated")
@@ -42,4 +47,12 @@ export class ManageUserComponent implements OnInit {
     });
   }
 
+  onLogout(){
+    this.fireAuth.signOut().then(()=>{
+        localStorage.removeItem('user')
+        window.location.reload();
+        this.router.navigate(['/auth/login'])
+      }
+    );
+}
 }

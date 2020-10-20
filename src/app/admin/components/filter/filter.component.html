@@ -1,0 +1,29 @@
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <mat-select>
+      <mat-option><mat-label>Payment Type</mat-label>
+        <mat-select>
+          <mat-option (click)="filterByPreference('paymentTypeCOD')">COD</mat-option>
+          <mat-option (click)="filterByPreference('paymentTypeNetBank')">Net Banking</mat-option>
+        </mat-select>
+      </mat-option>
+
+      <mat-option><mat-label>Order Status</mat-label>
+        <mat-select>
+          <mat-option (click)="filterByPreference('OrderPlaced')">Order Placed</mat-option>
+          <mat-option (click)="filterByPreference('OrderDelivered')">Delivered</mat-option>
+          <mat-option (click)="filterByPreference('OrderProcessing')">Processing</mat-option>
+        </mat-select>
+      </mat-option>
+
+      <mat-option><mat-label>Date</mat-label>
+        <mat-select>
+          <mat-option (click)="filterByPreference('dateToday')">Today</mat-option>
+          <mat-option (click)="filterByPreference('dateYesterday')">Yesterday</mat-option>
+          <mat-option (click)="filterByPreference('date3days')">Last 3 days</mat-option>
+          <mat-option (click)="filterByPreference('dateBefore3days')">Before 3 days</mat-option>
+        </mat-select>
+      </mat-option>
+
+  </mat-select>
+</mat-form-field>

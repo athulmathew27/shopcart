@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <mat-accordion class="example-headers-align sub-container">
+      <mat-expansion-panel class="card" [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Pay using Cash on Delivery</mat-panel-title>
+        </mat-expansion-panel-header>
+          <app-cash-on-delivery [paymentDetails]="paymentDetails" [selectedAddress]="selectedAddress"></app-cash-on-delivery>
+        <mat-action-row>
+          <button mat-button color="primary" (click)="nextStep()">Next</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel class="card" [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+        <mat-expansion-panel-header>
+          <mat-panel-title> Pay using NetBanking </mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-pay-u-money [paymentDetails]="paymentDetails" [selectedAddress]="selectedAddress"></app-pay-u-money>
+        <mat-action-row>
+          <button mat-button color="warn" (click)="prevStep()">Previous</button>
+          <button mat-button color="primary" (click)="nextStep()">Next</button>
+        </mat-action-row>
+      </mat-expansion-panel>
+    </mat-accordion>
+  </div>
+</div>

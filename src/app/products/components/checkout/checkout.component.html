@@ -1,0 +1,35 @@
+<mat-horizontal-stepper linear #stepper>
+  <mat-step  [editable]="isEditable" [completed]="isCompletedStep1">
+    <form >
+      <ng-template matStepLabel>Fill out your address</ng-template>
+      <app-show-delivery-address (callParent)="isAddressSelected($event)" ></app-show-delivery-address>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step  [editable]="isEditable" completed=false>
+    <form >
+      <ng-template matStepLabel>Select the Payment</ng-template>
+      <div class=""*ngIf="selectedAddress && data">
+        <app-payment [paymentDetails]="data" [selectedAddress]="selectedAddress"></app-payment>
+      </div>
+
+      <!--  -->
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+
+  <mat-step completed=false>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>

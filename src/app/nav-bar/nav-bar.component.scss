@@ -73,6 +73,9 @@
     font-size: 2rem;
     margin-right: 1rem;
   }
+  &__my-order-icon{
+    margin-right: 1rem;
+  }
 
   &__login{
     @extend .primary-button;

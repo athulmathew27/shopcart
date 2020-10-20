@@ -19,9 +19,9 @@ export class CartComponent implements OnInit {
   cartQuantity = []
   productID = []
   cartID = []
-  length ;
+  length : number ;
 
-  billingdata = []
+  billingdata;
 
   constructor(
               private firestore : AngularFirestore
@@ -29,12 +29,12 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
 
-    this.billingdata = [{products : this.products, productID : this.productID, cartID :this.cartID, quantity :this.cartQuantity, length : this.length}];
+
 
     var user = firebase.auth().currentUser;
     this.user = user;
     if(user){
-      this.firestore.collection('users').doc(this.user.uid).collection('cart').valueChanges({idField : 'cartId'})
+      this.firestore.collection('users').doc(this.user.uid).collection<Cart>('cart').valueChanges({idField : 'cartId'})
       .subscribe(val =>{
         this.length = val.length;
         for(let i = 0; i < this.length; i++)
@@ -42,12 +42,13 @@ export class CartComponent implements OnInit {
 
           this.cartQuantity.push(val[i].quantity)
           this.cartID.push(val[i].cartId)
-          this.firestore.collection<Product>('products').doc(val[i].productID).valueChanges()
-          .subscribe(products =>{
-            this.products.push(products)
+          this.firestore.collection<Product>('products').doc(val[i].productID).ref.get()
+          .then(products =>{
+            this.products.push(products.data())
             this.productID.push(val[i].productID)
           })
         }
+        this.billingdata = {product : this.products, quantity : this.cartQuantity, cartProductId : this.productID, cartId : this.cartID};
       })
     }
     else{

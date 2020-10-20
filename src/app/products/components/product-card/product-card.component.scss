@@ -1,0 +1,73 @@
+@import '../../../../styles.scss';
+
+.add-button{
+  @extend .add-button;
+  transition: transform .2s;
+  float: right;
+
+  @import '../../../../styles.scss';
+
+  &:hover{
+    transform: scale(1.2);
+   }
+}
+
+.chips{
+  display: flex;
+  justify-content: center;
+
+  &__content{
+  }
+}
+
+.grid-view{
+  display: flex;
+  justify-content: space-between;
+  margin: 0%;
+
+  &__text{
+    font-size: 1.2rem;
+  }
+
+  .out-of-stock{
+    color: red;
+  }
+}
+
+.card {
+  max-width: 17rem;
+  border-radius: 1.3rem;
+  box-shadow: 3px 1px 5px 0px grey;
+  transition: transform all .8s;
+  line-height: .2rem;
+
+  &__title{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 500;
+    font-family: 'Lato', sans-serif !important;
+    &__sub{
+      text-align: center;
+      font-size: 1.1rem;
+      opacity: .9;
+    }
+  }
+
+  &:hover{
+    transform: scale(1.01);
+    // transform: rotateY(181deg);
+    // :not(&:hover){
+    //   background-color: red;
+    // }
+   }
+
+   .heart-icon{
+     font-size: 1.7rem;
+   }
+   .fav-color-active{
+     color: red;
+   }
+   .fav-color-inactive{
+     color: black;
+   }
+}

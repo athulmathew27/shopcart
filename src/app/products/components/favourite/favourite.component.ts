@@ -52,7 +52,6 @@ export class FavouriteComponent implements OnInit {
   }
 
   showProduct(product, productId){
-    console.log(productId)
     this.router.navigate(['products/product',productId,  product.name,  product.categoryName, product.image, product.price, product.stock]);
   }
 

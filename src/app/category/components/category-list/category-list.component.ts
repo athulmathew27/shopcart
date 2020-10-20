@@ -23,7 +23,4 @@ export class CategoryListComponent implements OnInit {
   }
   ngOnInit(): void {  }
 
-  addCategory(){
-    this.dialog.open(CategoryAddComponent);
-  }
 }
