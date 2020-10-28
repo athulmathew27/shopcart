@@ -3,8 +3,9 @@
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
-    <mat-toolbar> <ion-icon name="grid-outline" class="icon-side__main"></ion-icon>Menu</mat-toolbar><hr>
+    <!-- <mat-toolbar><app-manage-user></app-manage-user></mat-toolbar> -->
     <mat-nav-list>
+      <app-manage-user></app-manage-user>
       <a routerLinkActive="active" class="nav-link" mat-list-item  routerLink="/products/list"> <ion-icon name="pricetags-outline" class="icon-side"></ion-icon> Products</a>
       <a routerLinkActive="active" class="nav-link" mat-list-item  routerLink="/category/list"> <ion-icon name="list-circle-outline" class="icon-side"></ion-icon>Category</a>
     </mat-nav-list>
@@ -24,12 +25,12 @@
         </form>
 
 
-        <ion-icon (click)="onManageUser()" name="person-circle" class="nav__user-icon" ></ion-icon>
+        <!-- <ion-icon (click)="onManageUser()" name="person-circle" class="nav__user-icon" ></ion-icon> -->
 
       </div>
     </mat-toolbar>
     <!-- Add Content Here -->
     <ng-content ></ng-content>
-    <app-manage-user [ngClass]="{ 'show-manage-user': showManageUser, 'hide-manage-user' : !showManageUser}"></app-manage-user>
+    <!-- <app-manage-user [ngClass]="{ 'show-manage-user': showManageUser, 'hide-manage-user' : !showManageUser}"></app-manage-user> -->
   </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,0 +1,58 @@
+.centered{
+  display: flex;
+  justify-content: center;
+}
+.card{
+  margin-top: 2rem;
+}
+.address-sec{
+  max-width: 18rem;
+}
+.main-text{
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+.sub-text{
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+.text{
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+.mini-text{
+  font-size: 1rem;
+  opacity: .8;
+}
+.left-sec{
+  width: 100%;
+  margin: 0%;
+  padding: 0%;
+  display: flex;
+  .image{
+    width: 82px;
+    min-height: 72px;
+    margin-top: .1rem;
+    margin-left: .5rem;
+    .image-size{
+      height: 70%;
+    }
+  }
+  .product-sec{
+    line-height: .7rem;
+    margin-left: .9rem;
+  }
+}
+.right-sec{
+  float: right;
+  margin-left: 5rem;
+}
+
+.content{
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+.head-text{
+  font-weight: 400;
+  font-size: 14px;
+}

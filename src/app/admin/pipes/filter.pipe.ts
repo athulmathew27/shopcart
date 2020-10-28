@@ -1,15 +1,16 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { Myorders } from 'src/app/products/models/my-orders.model';
+import { MyorderFull } from 'src/app/products/models/myorder-full.model';
 
 @Pipe({
   name: 'filter'
 })
 export class FilterPipe implements PipeTransform {
 
-   filteredData : Myorders[]= [];
-   filteredDataTemp : Myorders[] = [];
+   filteredData : MyorderFull[]= [];
+   filteredDataTemp : MyorderFull[] = [];
 
-  transform(value: Myorders[], filterVal: string): unknown {
+  transform(value: MyorderFull[], filterVal: string): unknown {
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -106,14 +107,12 @@ else if(filterVal=="OrderDelivered") {
     this.filteredData = this.filteredDataTemp;
   }
   }
-
-  // order processing
-
-  else if(filterVal=="OrderProcessing") {
+  // shipped
+  else if(filterVal=="OrderShipped") {
 
     if(this.filteredData.length == 0){
       for(let i = 0; i < value.length; i++){
-        if(value[i].status == "Processing"){
+        if(value[i].status == "Shipped"){
         this.filteredData.push(value[i])
         }
       }
@@ -121,7 +120,29 @@ else if(filterVal=="OrderDelivered") {
     else{
       console.log(this.filteredData)
       for(let i = 0; i < this.filteredData.length; i++){
-        if(this.filteredData[i].status == "Processing"){
+        if(this.filteredData[i].status == "Shipped"){
+        this.filteredDataTemp.push(this.filteredData[i])
+        }
+      }
+      this.filteredData = this.filteredDataTemp;
+    }
+    }
+
+  // order Near By
+
+  else if(filterVal=="OrderNearBy") {
+
+    if(this.filteredData.length == 0){
+      for(let i = 0; i < value.length; i++){
+        if(value[i].status == "Near By"){
+        this.filteredData.push(value[i])
+        }
+      }
+    }
+    else{
+      console.log(this.filteredData)
+      for(let i = 0; i < this.filteredData.length; i++){
+        if(this.filteredData[i].status == "Near By"){
         this.filteredDataTemp.push(this.filteredData[i])
         }
       }

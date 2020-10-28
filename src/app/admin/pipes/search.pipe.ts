@@ -1,13 +1,13 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Myorders } from 'src/app/products/models/my-orders.model';
+import { MyorderFull } from 'src/app/products/models/myorder-full.model';
 
 @Pipe({
   name: 'search'
 })
 export class SearchPipe implements PipeTransform {
 
-  filteredData : Myorders[] = []
-  transform(value: Myorders[], searchBy: string): unknown {
+  filteredData :MyorderFull = []
+  transform(value: MyorderFull[], searchBy: string): unknown {
     if(!searchBy){
       this.filteredData = [];
       return value

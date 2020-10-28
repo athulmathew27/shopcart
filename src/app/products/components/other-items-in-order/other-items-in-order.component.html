@@ -1,0 +1,26 @@
+<mat-card class="card" >
+  <p class="main-text">Other items in order</p>
+  <div class="content" *ngFor="let product of otherProducts" >
+    <div class="row" *ngIf="otherProducts.length >1 && product.productID != productDetails.productID" (click)="showOrderStatusDetail(product)">
+      <div class="col-4 left-sec">
+        <div class="image">
+          <img class="image-size" src="https://source.unsplash.com/1600x900/?product" alt="first slide" style="display: block; width: 100%;">
+        </div>
+        <div class="product-sec">
+          <p class="head-text">{{product.product |titlecase}}</p>
+          <p class="mini-text">{{product.category}}</p>
+          <p class="mini-text">Quantity: {{product.quantity}}</p>
+          <p class="mini-text">Seller: Nilagiris</p>
+          <p class="sub-text">{{product.quantity * product.price |currency}}</p>
+        </div>
+      </div>
+      <div class="col-3"></div>
+      <div class="col-4 right-sec" *ngIf="product.productID != productDetails.productID">
+        <app-track-order [orderId]="product.orderId" [user]="user"></app-track-order>
+      </div>
+    </div>
+    <div class="row" *ngIf="otherProducts.length == 1">
+      No other products
+    </div>
+  </div>
+</mat-card>

@@ -1,4 +1,4 @@
-<mat-card class="card">
+
   <div class="img-section">
     <img class="img" src="https://source.unsplash.com/1600x900/?product" alt="">
   </div>
@@ -12,27 +12,37 @@
       </div>
     </mat-form-field>
     <p class="text-sub">{{email}}</p>
-    <hr>
-    <nav>
-      <ul class="link-section">
-        <div class="links">
-          <span class="material-icons">shopping_cart</span>
-          <li><a routerLink="products/cart">My cart</a></li>
-        </div>
-        <div class="links">
-          <span class="material-icons">assessment</span>
-          <li><a routerLink="products/myorders">My orders</a></li>
-        </div>
-        <div class="links">
-          <span class="material-icons">favorite_border</span>
-          <li><a routerLink="products/favourite">My favourites</a></li>
-        </div>
-      </ul>
-    </nav>
-    <div class="signout-sec">
-      <span class="material-icons lock-icon">lock</span>
-      <span class="text"(click)="onLogout()">Sign Out</span>
-    </div>
 
+    <mat-accordion class="example-headers-align">
+      <mat-expansion-panel>
+        <mat-expansion-panel-header class="expand-header"></mat-expansion-panel-header>
+        <div class="expand">
+          <div class="vertical" routerLink="products/cart">
+            <span class="material-icons">shopping_cart</span>
+            <a class="text" >My Cart</a>
+          </div>
+          <div class="vertical" routerLink="products/myorders">
+            <span class="material-icons">assessment</span>
+            <a >My orders</a>
+          </div>
+          <div class="vertical" routerLink="products/favourite">
+            <span class="material-icons">favorite_border</span>
+            <a >My favourites</a>
+          </div>
+          <div class="vertical" routerLink="auth/profile">
+            <span class="material-icons">person</span>
+            <a >Profile info</a>
+          </div>
+          <div class="vertical" routerLink="auth/manage_address">
+            <span class="material-icons">mail</span>
+            <a >Manage Address</a>
+          </div>
+          <div class="signout-sec">
+            <span class="material-icons lock-icon">lock</span>
+            <span class="text"(click)="onLogout()">Sign Out</span>
+          </div>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
   </div>
-</mat-card>
+

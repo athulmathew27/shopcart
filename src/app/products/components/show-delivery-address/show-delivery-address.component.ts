@@ -36,7 +36,6 @@ export class ShowDeliveryAddressComponent implements OnInit {
 
   selectDeliveryAddress(addressSelected : string){
     this.callParent.emit(addressSelected)
-    console.log(addressSelected)
   }
 
 }

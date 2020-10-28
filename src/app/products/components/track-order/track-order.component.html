@@ -1,0 +1,31 @@
+<!-- <div class="content">
+  <p [ngClass]="{'text_order-placed': newStatus === 'Order Placed', 'text_shipped':newStatus === 'Shipped', 'text_near-by':newStatus === 'Near By', 'text_delivered':newStatus === 'Delivered' }">
+    {{newStatus}}</p>
+</div> -->
+<div class="main-content">
+  <div class="text-section">
+    <div class="content text-ordered" *ngIf="status == 'order placed' && statusData.orderPlacedTime != null">
+      <p>Order Placed</p>
+      <p class="mini-text">Your Order has been placed</p>
+      <!-- <p>{{statusData.orderPlacedTime.seconds *1000 |date}}</p> -->
+    </div>
+    <div class="content text-shipped" *ngIf="status == 'shipped' && statusData.shippedTime != null">
+      <p>Shipped</p>
+      <p class="mini-text">Ordered item is shipped</p>
+      <!-- <p>{{statusData.shippedTime.seconds *1000 |date}}</p> -->
+    </div>
+    <div class="content text-near" *ngIf="status == 'near by' && statusData.nearByTime != null">
+      <p>Near by</p>
+      <p class="mini-text">Your is near, be ready to accept your order</p>
+      <!-- <p>{{statusData.nearByTime.seconds *1000 |date}}</p> -->
+    </div>
+    <div class="content text-delivered" *ngIf="status == 'delivered' && statusData.deliveredTime != null">
+      <p>Order Placed</p>
+      <p class="mini-text">Your order has been delivered</p>
+      <!-- <p>{{statusData.deliveredTime.seconds *1000 |date}}</p> -->
+    </div>
+  </div>
+
+  <!-- <mat-progress-bar mode="determinate" [value]="percentage"></mat-progress-bar> -->
+</div>
+

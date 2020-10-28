@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatAccordion} from '@angular/material/expansion';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
@@ -18,7 +19,7 @@ export class ManageUserComponent implements OnInit {
   editName : boolean = true;
   email : string;
   user : any
-
+  @ViewChild(MatAccordion) accordion: MatAccordion;
   constructor(private firestore : AngularFirestore,
               private fireAuth : AngularFireAuth,
               private router : Router) { }

@@ -1,7 +1,10 @@
 import { importType } from '@angular/compiler/src/output/output_ast';
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 import * as firebase from 'firebase';
+import { Myorders,Myproducts } from '../../models/my-orders.model';
+import { MyorderFull} from '../../models/myorder-full.model';
 import { Product } from '../../models/products.model';
 
 @Component({
@@ -11,31 +14,36 @@ import { Product } from '../../models/products.model';
 })
 export class MyOrdersComponent implements OnInit {
 
-  quantity : number[] = [];
-  products : Product[] = [];
-  status : string[] = [];
+  products :MyorderFull[] = [];
+  productDetails :MyorderFull = [];
+  user : any;
+  showOrderDetailPage : boolean = false;
 
-  constructor(private firestore : AngularFirestore) { }
+  constructor(private firestore : AngularFirestore,
+              private router : Router) { }
 
   ngOnInit(): void {
     var user = firebase.auth().currentUser;
     if(user){
+      this.user = user;
       this.firestore.collection('users').doc(user.uid).collection('myorders')
       .ref.get().then((querySnapshot)=> {
-        querySnapshot.forEach((doc)=> {
-            // console.log(doc.id, " => ", doc.data());
-
-            this.quantity.push(doc.data().quantity)
-            this.status.push(doc.data().status)
-            this.firestore.collection('products').doc(doc.data().productID).ref.get().then
-            (doc=>{
-              if(doc.exists){
-                this.products.push(doc.data())
-              }
+        querySnapshot.forEach((myorderDoc)=> {
+          this.firestore.collection('users').doc(user.uid).collection('myorders').doc(myorderDoc.id).collection('myproducts').ref.get().then(myproductsQuerySnap=>{
+            myproductsQuerySnap.forEach((myproductsDoc)=>{
+              let orderID = { orderId : myorderDoc.id}
+              var newObj = Object.assign({}, myproductsDoc.data(), myorderDoc.data(), orderID)
+              this.products.push(newObj)
             })
+          })
       });
     });
     }
+  }
+
+  trackOrderDetail(product){
+    this.productDetails = product;
+    this.showOrderDetailPage = true;
   }
 
 }

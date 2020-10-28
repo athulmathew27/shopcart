@@ -1,0 +1,39 @@
+
+
+.main-content{
+  margin-right: 3rem;
+  margin-top: 2rem;
+  .text-section{
+    display: flex;
+    .content{
+      line-height: .1rem;
+    }
+  }
+
+}
+.text-ordered{
+  color: green;
+  font-size: 1.2rem;
+}
+.text-shipped{
+  color : orangered;
+  font-size: 1.2rem;
+ // margin-left: 17%;
+}
+.text-near{
+  color: orange;
+ // margin-left: 17%;
+  font-size: 1.2rem;
+}
+.text-delivered{
+  color: green;
+  // margin-left: 17%;
+  font-size: 1.2rem;
+}
+
+.mini-text{
+  font-size: .9rem;
+  color: black;
+  opacity: .8;
+  margin-top: 1.2rem;
+}

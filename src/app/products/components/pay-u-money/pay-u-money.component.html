@@ -1,1 +1,41 @@
-<button mat-raised-button (click)="onPayUMoney()">Pay {{payAmt}}</button>
+ <button mat-raised-button (click)="onPayUMoney()">Pay {{payAmt}}</button>
+<form action="https://sandboxsecure.payu.in/_payment"name="payuform" method="POST">
+  <input type="text" name="key"[value]="key" />
+  <input type="text" name="hash" [value]="hashed">
+  <input type="text" name="txnid" [value]="txnid"/>
+  <table>
+  <tr>
+  <td><b>Mandatory Parameters</b></td>
+  </tr>
+  <tr>
+  <td>Amount: </td>
+  <td><input name="amount" [value]="amount" /></td>
+  <td>First Name: </td>
+  <td><input name="firstname" id="firstname" [value]="firstname" /></td>
+  </tr>
+  <tr>
+  <td>Email: </td>
+  <td><input name="email" id="email" [value]="email"  /></td>
+  <td>Phone: </td>
+  <td><input name="phone" [value]="phone" /></td>
+  </tr>
+  <tr>
+  <td>Product Info: </td>
+  <td colspan="3"><textarea name="productinfo" [value]="productinfo">  </textarea></td>
+  </tr>
+  <tr>
+  <td>Success URI: </td>
+  <td colspan="3"><input name="surl"  size="64" [value]="surl" /></td>
+  </tr>
+  <tr>
+  <td>Failure URI: </td>
+  <td colspan="3"><input name="furl"  size="64" [value]="furl"/></td>
+  </tr>
+  <input mat-raised-button type="submit" value="submit" name="submit">
+  </table>
+</form>
+
+
+
+
+

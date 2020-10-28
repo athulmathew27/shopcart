@@ -26,7 +26,7 @@ export class NavBarComponent {
 
 
 
-  onManageUser(){
-    this.showManageUser = !this.showManageUser;
-  }
+  // onManageUser(){
+  //   this.showManageUser = !this.showManageUser;
+  // }
 }

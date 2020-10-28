@@ -1,0 +1,45 @@
+<div class="row centered">
+  <div class="col-md-11">
+    <mat-card class="card">
+      <div class="address-sec">
+        <p class="main-text">Delivery Address</p>
+        <p class="sub-text">Athul</p>
+        <span class="text">{{productDetails.delivaryAddress}}</span>
+        <p class="sub-text">Phone number <span class="text">7034870589</span></p>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<div class="row centered">
+  <div class="col-md-11">
+    <mat-card class="card">
+      <div class="row">
+        <div class="col-md-3 left-sec">
+          <div class="image">
+            <img class="image-size"src="https://source.unsplash.com/1600x900/?product" alt="first slide" style="display: block; width: 100%;">
+          </div>
+          <div class="product-sec">
+            <p class="head-text">{{productDetails.product |titlecase}}</p>
+            <p class="mini-text">{{productDetails.category}}</p>
+            <p class="mini-text">Quantity: {{productDetails.quantity}}</p>
+            <p class="mini-text">Seller: Nilagiris</p>
+            <p class="sub-text">{{productDetails.quantity * productDetails.price |currency}}</p>
+          </div>
+        </div>
+        <div class="col-md-7 right-sec">
+          <app-track-myorders-stepper [statusData]="statusData" [currentProcess]="currentStep"></app-track-myorders-stepper>
+        </div>
+        <div class="col-md-2">
+          <li class="sub-text link-style">CANCEL ORDER</li>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+</div>
+<div class="row centered">
+  <div class="col-md-11">
+    <app-other-items-in-order [productDetails]="productDetails" (parentFunction)="parentFunction($event)"></app-other-items-in-order>
+  </div>
+</div>
+
+

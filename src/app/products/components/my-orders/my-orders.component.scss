@@ -1,22 +1,29 @@
 @import '../../../../styles.scss';
 
+.row{
+  display: flex;
+  justify-content: center;
+}
+
 .main-content{
   margin: 1rem;
 
   .heading{
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   .card-section{
     display: flex;
     justify-content: space-between;
-    margin: 1rem;
+    margin: 2rem;
     padding: 0%;
     max-height: 15rem;
     .left{
         max-height: 10rem;
-        max-width: 15rem;
       .image{
-        max-height: 10rem;
+        height: 75px;
+        width: 75px;
+        margin-left: 4rem;
+        margin-top: 1rem;
       }
     }
     .right{
@@ -24,15 +31,17 @@
       width: 100%;
       padding-top: 1rem;
       padding-left: 2rem;
-      line-height: .8rem;
+      line-height: 1.4;
       margin-left: 1rem;
 
       .head{
-        font-size: 1.5rem;
-        font-weight: bold;
+        font-size: 1.4rem;
+        font-weight: 400;
+
       }
       .text{
-        font-size: 1.2rem;
+        font-size: 1.1rem;
+        opacity: .8;
       }
       .input{
         width: 4rem;
@@ -45,4 +54,7 @@
     font-size: 2.5rem;
     border-radius: 50%;
   }
+}
+.orderId{
+  margin-right: 2rem;
 }

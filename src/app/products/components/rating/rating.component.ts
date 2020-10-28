@@ -29,8 +29,6 @@ export class RatingComponent implements OnInit, OnChanges {
 
   ngOnChanges(changes : SimpleChanges)
   {
-    console.log("sssssss",changes.productID.currentValue)
-
     this.ratingList$ = this.firestore.collection<Rating>('product_rating', ref => ref.where('productID', '==', changes.productID.currentValue)).valueChanges();
 
     this.firestore.collection<Rating>('product_rating', ref => ref.where('productID', '==', changes.productID.currentValue)).valueChanges().subscribe(

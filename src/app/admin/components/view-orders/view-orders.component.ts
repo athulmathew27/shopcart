@@ -36,12 +36,45 @@ export class ViewOrdersComponent implements  OnInit {
     this.firestore.collection('orders').ref.get().then((querysnap)=>{
       querysnap.forEach(doc=>{
         this.firestore.collection('users').doc(doc.data().userId).collection('myorders').doc(doc.data().orderId).ref.get()
-        .then((myorderData)=>{
-            this.orderData.push(myorderData.data())
-            this.isLoadingResults=false;
-            this.resultsLength = this.orderData.length;
-            this.date.push(this.orderData[i].date.seconds*1000)
-            i++;
+        .then((myorderDoc)=>{
+          this.firestore.collection('users').doc(doc.data().userId).collection('myorders').doc(myorderDoc.id).collection('myproducts').ref.get().then(myproductsSnap=>{
+            myproductsSnap.forEach(myproductsDoc=>{
+              var orderId = {orderId : myorderDoc.id}
+              this.firestore.collection('users').doc(doc.data().userId).collection('myorders').doc(myorderDoc.id).collection('status').ref.get().then((statusSnap)=>{
+                statusSnap.forEach(statusDoc=>{
+                  var statusTime = "";
+                  var status = "";
+                  if(statusDoc.data().orderPlacedTime != null){
+                    statusTime = statusDoc.data().orderPlacedTime;
+                    status = "Order Placed";
+                  }
+                  if(statusDoc.data().deliveredTime != null){
+                    status = "Delivered";
+                  }
+                  if(statusDoc.data().nearByTime != null){
+                    status = "Near By";
+                  }
+                  if(statusDoc.data().shippedTime != null){
+                    status = "Shipped";
+                  }
+
+                  var status = { status : status, date : statusTime}
+                  var newObj = Object.assign({}, myproductsDoc.data(), myorderDoc.data(), orderId, status)
+                  this.orderData.push(newObj);
+                  this.isLoadingResults = false;
+                  this.resultsLength = this.resultsLength + 1;
+                  console.log(this.resultsLength)
+                })
+              })
+
+            })
+          })
+
+            // this.orderData.push(myorderData.data())
+            // this.isLoadingResults=false;
+            // this.resultsLength = this.orderData.length;
+            // this.date.push(this.orderData[i].date.seconds*1000)
+            // i++;
         })
       })
       // this.dataSource = new MatTableDataSource(this.orderData)

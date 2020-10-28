@@ -1,18 +1,27 @@
-<div class="row">
-  <div class="col-7 main-content">
+<div class="row" *ngIf="!showOrderDetailPage">
+  <div class="col-10 main-content">
     <p class="heading">My-orders</p>
     <hr>
-    <mat-card class="card-section" *ngFor="let product of products; let i = index">
+    <mat-card class="card-section" *ngFor="let product of products; let i = index" (click)="trackOrderDetail(product)">
       <div class="left">
-        <img src="https://source.unsplash.com/1600x900/?product" alt="image" class="image">
+        <img class="image" src="https://source.unsplash.com/1600x900/?product" alt="image">
       </div>
-      <div class="right">
-        <p class="head">{{product.name }}</p>
-        <p class="text">Quantity : {{quantity[i]}}</p>
-        <p class="text">status : {{status[i]}}</p>
+      <div class=" row right">
+        <div class="col-md-4">
+          <p class="head">{{product.product |titlecase }}</p>
+          <p class="text">Category: {{product.category}} </p>
+          <p class="text">Quantity: {{product.quantity}}</p>
+        </div>
+        <div class="col-md-4 ">
+          <p class="text">Pay : {{product.quantity * product.price}}</p>
+        </div>
+        <div class="col-md-4">
+          <app-track-order [orderId]="product.orderId" [user]="user"></app-track-order>
+        </div>
+
       </div>
-      <ion-icon class="close-icon" name="close-outline"></ion-icon>
     </mat-card>
   </div>
 </div>
-<div>
+
+<app-track-order-detail *ngIf="showOrderDetailPage" [productDetails]="productDetails"></app-track-order-detail>

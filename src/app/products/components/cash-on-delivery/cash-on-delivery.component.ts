@@ -1,5 +1,7 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges  } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Myorders,Myproducts} from '../../models/my-orders.model';
+import { OrderStatus} from '../../models/order-status.model';
 import * as firebase from 'firebase';
 
 @Component({
@@ -17,6 +19,7 @@ export class CashOnDeliveryComponent implements OnInit, OnChanges {
   cartId : string[];
   address :string;
   user : any;
+  myOrderID :string = "";
   constructor(private firestore : AngularFirestore) { }
 
   ngOnInit(): void {
@@ -38,50 +41,49 @@ export class CashOnDeliveryComponent implements OnInit, OnChanges {
     }
 }
 onPay(){
-  for(let i =0; i<this.cartProductId.length;i++){
+  var delivaryAddress = this.address.address + ", "+ this.address.postoffice + ", "+ this.address.district + ", "+ this.address.state + ", "+ this.address.country + ", "+ this.address.pincode;
+  var orderData :Myorders = {
+  toPay : this.payAmt,
+  paymentType : "COD",
+  delivaryAddress : delivaryAddress
+  }
 
-    this.firestore.collection('products').doc(this.cartProductId[i]).ref.get().then((doc)=> {
-      if (doc.exists) {
-        let currentStock =  doc.data().stock;
-        let updatedStock = currentStock - this.cartQuantity[i];
-        this.firestore.collection('products').doc(this.cartProductId[i]).update({stock : updatedStock})
-        .then(()=>{
-
-          var cash = this.cartQuantity[i]*doc.data().price;
-          var date = new Date();
-          var delivaryAddress = this.address.address + ", "+ this.address.postoffice + ", "+ this.address.district + ", "+ this.address.state + ", "+ this.address.country + ", "+ this.address.pincode;
-          var orderData :Myorders = {
+  this.firestore.collection('users').doc(this.user.uid).collection('myorders').add(orderData).then(myorderDocRef=>{
+    this.myOrderID = myorderDocRef.id;
+    for(let i =0; i<this.cartProductId.length;i++){
+      this.firestore.collection('products').doc(this.cartProductId[i]).ref.get().then(productsDocRef=>{
+        if(productsDocRef.exists){
+          let currentStock =  productsDocRef.data().stock;
+          let updatedStock = currentStock - this.cartQuantity[i];
+          var myproductsData : Myproducts = {
             productID : this.cartProductId[i],
             quantity : this.cartQuantity[i],
-            status : "Order Placed",
-            date : date,
-            toPay : cash,
-            paymentType : "COD",
-            product : doc.data().name,
-            category : doc.data().categoryName,
-            delivaryAddress : delivaryAddress
+            product : productsDocRef.data().name,
+            category : productsDocRef.data().categoryName,
+            price : productsDocRef.data().price
           }
+          this.firestore.collection('products').doc(this.cartProductId[i]).update({stock : updatedStock})
+          this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.myOrderID).collection('myproducts').add(myproductsData)
+          this.firestore.collection('users').doc(this.user.uid).collection('cart').doc(this.cartId[i]).delete()
+           // })
+          //})
+        }
+      })
+    }
+  }).then(()=>{
+    var date = new Date();
+    var statusData :OrderStatus= {
+      orderPlacedTime : date,
+      shippedTime : null,
+      nearByTime : null,
+      deliveredTime : null
+    }
+    this.firestore.collection('orders').add({userId : this.user.uid, orderId : this.myOrderID }).then(()=>{
+    this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.myOrderID).collection('status').add(statusData)
+    window.location.reload()
+    })
+  })
 
-          this.firestore.collection('users').doc(this.user.uid).collection('myorders').add(orderData)
-          .then((docRef)=>{
-            this.firestore.collection('users').doc(this.user.uid).collection('cart').doc(this.cartId[i]).delete()
-            .then(()=>{
-              this.firestore.collection('orders').add({userId : this.user.uid, orderId : docRef.id })
-              .then(()=>{
-                window.location.reload();
-              })
-            })
-          })
-        })
-      }
-      else {
-        console.log("No such document!");
-      }
-    }).catch(function(error) {
-      console.log("Error getting document:", error);
-    });
-
-  }
 
 }
 

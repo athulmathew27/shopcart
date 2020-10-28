@@ -25,7 +25,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatExpansionModule } from '@angular/material/expansion';
-
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatIconModule } from '@angular/material/icon';
 
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
@@ -46,12 +47,34 @@ import { ShowDeliveryAddressComponent } from './components/show-delivery-address
 import { PaymentComponent } from './components/payment/payment.component';
 import { PayUMoneyComponent } from './components/pay-u-money/pay-u-money.component';
 import { CashOnDeliveryComponent } from './components/cash-on-delivery/cash-on-delivery.component';
+import { TrackOrderComponent } from './components/track-order/track-order.component';
+import { TrackOrderDetailComponent } from './components/track-order-detail/track-order-detail.component';
+import { TrackMyordersStepperComponent } from './components/track-myorders-stepper/track-myorders-stepper.component';
+import { OtherItemsInOrderComponent } from './components/other-items-in-order/other-items-in-order.component';
 
 
 @NgModule({
   declarations: [
     ProductListComponent, // every imported components
-    ProductAddComponent, ProductComponent, RatingComponent, FeedbackFormComponent, CartComponent, BillingComponent, DeliveryAddressComponent, FavouriteComponent, MyOrdersComponent, ProductCardComponent, CheckoutComponent, ShowDeliveryAddressComponent, PaymentComponent, PayUMoneyComponent, CashOnDeliveryComponent,
+    ProductAddComponent,
+    ProductComponent,
+    RatingComponent,
+    FeedbackFormComponent,
+    CartComponent,
+    BillingComponent,
+    DeliveryAddressComponent,
+    FavouriteComponent,
+    MyOrdersComponent,
+    ProductCardComponent,
+    CheckoutComponent,
+    ShowDeliveryAddressComponent,
+    PaymentComponent,
+    PayUMoneyComponent,
+    CashOnDeliveryComponent,
+    TrackOrderComponent,
+    TrackOrderDetailComponent,
+    TrackMyordersStepperComponent,
+    OtherItemsInOrderComponent,
 
   ],
   exports : [
@@ -75,6 +98,8 @@ import { CashOnDeliveryComponent } from './components/cash-on-delivery/cash-on-d
     MatSnackBarModule,
     MatStepperModule,
     MatExpansionModule,
+    MatProgressBarModule,
+    MatIconModule,
     CarouselModule,
     RatingModule,
     ProductsRoutingModule,

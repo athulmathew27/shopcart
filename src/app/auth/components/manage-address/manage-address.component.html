@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-11">
+    <mat-card>
+      <h3>Manage Addresses</h3>
+      <div class="top-box">
+        <li class="link" (click)="addNewAddress()">
+          <mat-icon class="icon">add</mat-icon>
+          <a class="text">ADD A NEW ADDRESS</a>
+        </li>
+      </div>
+
+      <div *ngIf="isEdit ==false">
+        <div class="bottom-box" *ngFor="let addressData of addresses |async">
+          <div class="vertical">
+            <p class="text-head">{{displayName}}</p>
+
+            <mat-select class="select-box">
+              <mat-label><mat-icon>more_vert</mat-icon></mat-label>
+              <mat-option (click)="onEdit(addressData)">Edit</mat-option>
+              <mat-option (click)="onDelete(addressData.addressId)">Delete</mat-option>
+            </mat-select>
+          </div>
+          <p class="text">{{addressData.address}}, {{addressData.district}},{{addressData.state}},{{addressData.country}},{{addressData.postoffice}},{{addressData.pincode}}</p>
+        </div>
+      </div>
+
+      <app-update-address [currentAddress]="selectedAddress" (parentFunction)="isEditToggler($event)" [user]="user" *ngIf="isEdit == true"></app-update-address>
+    </mat-card>
+  </div>
+</div>
