@@ -1,6 +1,7 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { OrderStatus } from '../../models/order-status.model';
+import { RatingEstential } from '../../models/rating-esential.model';
 
 @Component({
   selector: 'app-track-order',
@@ -11,6 +12,11 @@ export class TrackOrderComponent implements OnInit, OnChanges {
 
   @Input() orderId : string;
   @Input() user  :any;
+  @Input() myproductId : string;
+  @Input() productId :string;
+
+  @Output() callParentFunction :EventEmitter<any> = new EventEmitter();
+
   status : string = null;
   statusData : OrderStatus;
   constructor(private firestore : AngularFirestore) { }
@@ -18,8 +24,8 @@ export class TrackOrderComponent implements OnInit, OnChanges {
   ngOnInit(): void {  }
 
   ngOnChanges(changes : SimpleChanges){
-    if(changes.orderId.currentValue && changes.user.currentValue){
-      this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.orderId).collection('status').ref.get().then((querySnap)=>{
+    if(changes.orderId.currentValue && changes.user.currentValue && changes.myproductId.currentValue){
+      this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.orderId).collection('myproducts').doc(this.myproductId).collection('status').ref.get().then((querySnap)=>{
         querySnap.forEach(doc => {
           this.statusData = doc.data();
           if(this.statusData.orderPlacedTime != null  && this.statusData.shippedTime ==null && this.statusData.nearByTime == null && this.statusData.deliveredTime == null){
@@ -39,5 +45,9 @@ export class TrackOrderComponent implements OnInit, OnChanges {
     }
   }
 
+  doRating(){
+    var ratingEsentialData :RatingEstential = {orderId : this.orderId, productId : this.productId, myproductId : this.myproductId, user : this.user}
+    this.callParentFunction.emit(ratingEsentialData);
+  }
 }
 

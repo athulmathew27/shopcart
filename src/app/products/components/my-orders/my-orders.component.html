@@ -1,22 +1,22 @@
-<div class="row" *ngIf="!showOrderDetailPage">
-  <div class="col-10 main-content">
+<div class="row" *ngIf="!showOrderDetailPage && !isRatingPage" >
+  <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 main-content">
     <p class="heading">My-orders</p>
     <hr>
-    <mat-card class="card-section" *ngFor="let product of products; let i = index" (click)="trackOrderDetail(product)">
+    <mat-card class="card-section" *ngFor="let product of products; let i = index">
       <div class="left">
         <img class="image" src="https://source.unsplash.com/1600x900/?product" alt="image">
       </div>
       <div class=" row right">
-        <div class="col-md-4">
-          <p class="head">{{product.product |titlecase }}</p>
+        <div class="col-4">
+          <p class="head" (click)="trackOrderDetail(product)">{{product.product |titlecase }}</p>
           <p class="text">Category: {{product.category}} </p>
           <p class="text">Quantity: {{product.quantity}}</p>
         </div>
-        <div class="col-md-4 ">
+        <div class="col-4 ">
           <p class="text">Pay : {{product.quantity * product.price}}</p>
         </div>
-        <div class="col-md-4">
-          <app-track-order [orderId]="product.orderId" [user]="user"></app-track-order>
+        <div class="col-4">
+          <app-track-order [orderId]="product.orderId" [user]="user" [myproductId]="product.myproductId" [productId]="product.productID" (callParentFunction)="parentFunction($event)"></app-track-order>
         </div>
 
       </div>
@@ -25,3 +25,4 @@
 </div>
 
 <app-track-order-detail *ngIf="showOrderDetailPage" [productDetails]="productDetails"></app-track-order-detail>
+<app-rating-review (callParentFunToMyorderPage)="callParentFunToMyorderPage($event)" *ngIf="isRatingPage" [productId]="productIdForRating" [user]="userForRating" [orderId]="orderIdForRating" [myproductId]="myproductIdForRating"></app-rating-review>

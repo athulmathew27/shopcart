@@ -27,7 +27,7 @@ export class OtherItemsInOrderComponent implements OnInit,OnChanges {
       this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.productDetails.orderId).ref.get().then(myorderDoc=>{
         this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.productDetails.orderId).collection('myproducts').ref.get().then(myproductsSnap=>{
           myproductsSnap.forEach(myproductDoc=>{
-            this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.productDetails.orderId).collection('status').ref.get().then(statusSnap=>{
+            this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.productDetails.orderId).collection('myproducts').doc(this.productDetails.myproductId).collection('status').ref.get().then(statusSnap=>{
               statusSnap.forEach(statusDoc=>{
                 var orderId = {orderId : this.productDetails.orderId};
                 var newObj = Object.assign({},myproductDoc.data(), statusDoc.data(), orderId, myorderDoc.data());

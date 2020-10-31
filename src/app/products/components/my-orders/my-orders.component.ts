@@ -6,6 +6,7 @@ import * as firebase from 'firebase';
 import { Myorders,Myproducts } from '../../models/my-orders.model';
 import { MyorderFull} from '../../models/myorder-full.model';
 import { Product } from '../../models/products.model';
+import { RatingEstential } from '../../models/rating-esential.model';
 
 @Component({
   selector: 'app-my-orders',
@@ -19,6 +20,11 @@ export class MyOrdersComponent implements OnInit {
   user : any;
   showOrderDetailPage : boolean = false;
 
+  isRatingPage :boolean = false;
+  productIdForRating :string;
+  orderIdForRating :string;
+  myproductIdForRating :string;
+  userForRating :any;
   constructor(private firestore : AngularFirestore,
               private router : Router) { }
 
@@ -32,7 +38,8 @@ export class MyOrdersComponent implements OnInit {
           this.firestore.collection('users').doc(user.uid).collection('myorders').doc(myorderDoc.id).collection('myproducts').ref.get().then(myproductsQuerySnap=>{
             myproductsQuerySnap.forEach((myproductsDoc)=>{
               let orderID = { orderId : myorderDoc.id}
-              var newObj = Object.assign({}, myproductsDoc.data(), myorderDoc.data(), orderID)
+              let myproductId = { myproductId :myproductsDoc.id }
+              var newObj = Object.assign({}, myproductsDoc.data(), myorderDoc.data(), orderID, myproductId)
               this.products.push(newObj)
             })
           })
@@ -45,5 +52,16 @@ export class MyOrdersComponent implements OnInit {
     this.productDetails = product;
     this.showOrderDetailPage = true;
   }
-
+  parentFunction(ratingEsentialData :RatingEstential){
+    this.isRatingPage = true;
+    this.productIdForRating = ratingEsentialData.productId;
+    this.myproductIdForRating = ratingEsentialData.myproductId;
+    this.orderIdForRating = ratingEsentialData.orderId;
+    this.userForRating = ratingEsentialData.user;
+  }
+  callParentFunToMyorderPage(data){
+    console.log(data)
+    this.isRatingPage = false;
+    this.showOrderDetailPage=false;
+  }
 }

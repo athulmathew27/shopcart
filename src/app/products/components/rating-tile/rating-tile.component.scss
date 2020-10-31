@@ -1,0 +1,32 @@
+
+.content{
+  display: flex;
+  .box{
+    width: 40px;
+    height: 18px;
+    line-height: normal;
+    color: #fff;
+    padding: 2px 4px 2px 2px;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 12px;
+    vertical-align: middle;
+    background-color: #388e3c;
+    display: flex;
+    .text{
+      margin-left: 3px;
+    }
+    .star-icon{
+        font-size: 14px;
+        margin-right: 0%;
+        padding-right: 0%;
+        margin-left: 3px;
+    }
+  }
+  .total-review{
+    padding-left: 8px;
+    font-weight: 500;
+    color: #878787;
+    font-size: 14px;
+  }
+}

@@ -1,7 +1,4 @@
-<!-- <div class="content">
-  <p [ngClass]="{'text_order-placed': newStatus === 'Order Placed', 'text_shipped':newStatus === 'Shipped', 'text_near-by':newStatus === 'Near By', 'text_delivered':newStatus === 'Delivered' }">
-    {{newStatus}}</p>
-</div> -->
+
 <div class="main-content">
   <div class="text-section">
     <div class="content text-ordered" *ngIf="status == 'order placed' && statusData.orderPlacedTime != null">
@@ -20,9 +17,13 @@
       <!-- <p>{{statusData.nearByTime.seconds *1000 |date}}</p> -->
     </div>
     <div class="content text-delivered" *ngIf="status == 'delivered' && statusData.deliveredTime != null">
-      <p>Order Placed</p>
+      <p>Delivered</p>
       <p class="mini-text">Your order has been delivered</p>
       <!-- <p>{{statusData.deliveredTime.seconds *1000 |date}}</p> -->
+    </div>
+    <div class="rating-sec" *ngIf="status == 'delivered'" (click)="doRating()">
+      <mat-icon>star</mat-icon>
+      <span class="text">Rating and review </span>
     </div>
   </div>
 

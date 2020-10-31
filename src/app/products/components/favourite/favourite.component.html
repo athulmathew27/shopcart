@@ -1,4 +1,28 @@
-<div class="container">
+<div class="row">
+  <div class="col-10">
+    <div class="top-card">
+    <p class="head">My Wishlist ({{totItems}})</p>
+    </div>
+    <div class="bottom-card" *ngFor="let product of products; let i = index">
+        <div class="img-block">
+          <img class="image" src="https://source.unsplash.com/1600x900/?product" alt="Photo">
+        </div>
+        <div class="content-block">
+          <div class="top-sec">
+            <p class="title-text" (click)="showProduct(product, productID[i])">{{product.name |titlecase}}</p>
+            <mat-icon class="delete-icon"(click)="removeFromFavourite(productID[i])">delete</mat-icon>
+          </div>
+          <app-rating-tile [productId]="productID[i]"></app-rating-tile>
+          <p class="amount-text">{{product.price | currency :'USD'}}</p>
+        </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- <div class="container">
   <div class="row content" >
       <div class="col-md-3" class="card-block" *ngFor="let product of products; let i = index">
         <mat-card class="card"  >
@@ -22,4 +46,4 @@
         </mat-card>
     </div>
   </div>
-</div>
+</div> -->

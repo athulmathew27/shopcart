@@ -40,22 +40,25 @@ export class ViewOrdersComponent implements  OnInit {
           this.firestore.collection('users').doc(doc.data().userId).collection('myorders').doc(myorderDoc.id).collection('myproducts').ref.get().then(myproductsSnap=>{
             myproductsSnap.forEach(myproductsDoc=>{
               var orderId = {orderId : myorderDoc.id}
-              this.firestore.collection('users').doc(doc.data().userId).collection('myorders').doc(myorderDoc.id).collection('status').ref.get().then((statusSnap)=>{
+              this.firestore.collection('users').doc(doc.data().userId).collection('myorders').doc(myorderDoc.id).collection('myproducts').doc(myproductsDoc.id).collection('status').ref.get().then((statusSnap)=>{
                 statusSnap.forEach(statusDoc=>{
                   var statusTime = "";
                   var status = "";
-                  if(statusDoc.data().orderPlacedTime != null){
-                    statusTime = statusDoc.data().orderPlacedTime;
+                  if(statusDoc.data().orderPlacedTime != null  && statusDoc.data().shippedTime == null && statusDoc.data().nearByTime == null && statusDoc.data().deliveredTime == null){
                     status = "Order Placed";
+                    statusTime = statusDoc.data().orderPlacedTime;
                   }
-                  if(statusDoc.data().deliveredTime != null){
-                    status = "Delivered";
-                  }
-                  if(statusDoc.data().nearByTime != null){
-                    status = "Near By";
-                  }
-                  if(statusDoc.data().shippedTime != null){
+                  if(statusDoc.data().orderPlacedTime != null  && statusDoc.data().shippedTime != null && statusDoc.data().nearByTime == null && statusDoc.data().deliveredTime == null){
                     status = "Shipped";
+                    statusTime = statusDoc.data().orderPlacedTime;
+                  }
+                  if(statusDoc.data().orderPlacedTime != null  && statusDoc.data().shippedTime != null && statusDoc.data().nearByTime != null && statusDoc.data().deliveredTime == null){
+                    status = "Near By";
+                    statusTime = statusDoc.data().orderPlacedTime;
+                  }
+                  if(statusDoc.data().orderPlacedTime != null  && statusDoc.data().shippedTime != null && statusDoc.data().nearByTime != null && statusDoc.data().deliveredTime != null){
+                    status = "Delivered";
+                    statusTime = statusDoc.data().orderPlacedTime;
                   }
 
                   var status = { status : status, date : statusTime}

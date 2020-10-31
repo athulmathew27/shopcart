@@ -51,6 +51,9 @@ import { TrackOrderComponent } from './components/track-order/track-order.compon
 import { TrackOrderDetailComponent } from './components/track-order-detail/track-order-detail.component';
 import { TrackMyordersStepperComponent } from './components/track-myorders-stepper/track-myorders-stepper.component';
 import { OtherItemsInOrderComponent } from './components/other-items-in-order/other-items-in-order.component';
+import { RatingTileComponent } from './components/rating-tile/rating-tile.component';
+import { RatingReviewComponent } from './components/rating-review/rating-review.component';
+import { RatingStarsComponent } from './components/rating-stars/rating-stars.component';
 
 
 @NgModule({
@@ -75,6 +78,9 @@ import { OtherItemsInOrderComponent } from './components/other-items-in-order/ot
     TrackOrderDetailComponent,
     TrackMyordersStepperComponent,
     OtherItemsInOrderComponent,
+    RatingTileComponent,
+    RatingReviewComponent,
+    RatingStarsComponent,
 
   ],
   exports : [

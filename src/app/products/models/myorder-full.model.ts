@@ -9,5 +9,6 @@ export interface MyorderFull {
   toPay: number,
   status? :string,
   date? : Date,
-  price : number
+  price : number,
+  myproductId : string
 }

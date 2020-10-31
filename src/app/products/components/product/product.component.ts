@@ -65,9 +65,6 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   }
 
-  showFeedbackForm(){
-    this.dialog.open(FeedbackFormComponent,  {data: {productID: this.productID}});
-  }
 
   showProduct(product : Product, productID : string){
       this.router.navigate(['products/product',productID,  product.name,  product.categoryName, product.image, product.price, product.stock]);

@@ -16,7 +16,7 @@ export class FavouriteComponent implements OnInit {
   products = [];
   productID = [];
   user : any;
-  tester : Observable<any>
+  totItems :number;
   constructor( private firestore : AngularFirestore,
                 private router : Router) { }
 
@@ -27,6 +27,7 @@ export class FavouriteComponent implements OnInit {
         this.user = user;
         this.firestore.collection('users').doc(user.uid).collection('favourite').valueChanges()
         .subscribe(val =>{
+          this.totItems = val.length;
           for(let i = 0; i < val.length; i++)
           {
             this.firestore.collection<Product>('products').doc(val[i].productID).valueChanges()

@@ -16,7 +16,7 @@
       </div>
       <div class="col-3"></div>
       <div class="col-4 right-sec" *ngIf="product.productID != productDetails.productID">
-        <app-track-order [orderId]="product.orderId" [user]="user"></app-track-order>
+        <app-track-order [orderId]="product.orderId" [user]="user" [myproductId]="product.myproductId"></app-track-order>
       </div>
     </div>
     <div class="row" *ngIf="otherProducts.length == 1">

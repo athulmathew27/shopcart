@@ -1,147 +1,54 @@
-@import '../../../../styles.scss';
-
-.content{
+.row{
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-.add-button{
-  @extend .add-button;
-  transition: transform .2s;
-  float: right;
-
-  &:hover{
-    transform: scale(1.2);
-   }
-}
-
-.chips{
-  display: flex;
-  justify-content: center;
-
-  &__content{
-  }
-}
-
-.card-block{
-  margin: 1.15rem 3rem;
-
-  line-height: .6rem;
-
-  .card {
-    max-width: 17rem;
-    border-radius: 1.3rem;
-    box-shadow: 3px 1px 5px 0px grey;
-    transition: transform all .8s;
-    line-height: .2rem;
-
-    &__title{
-      text-align: center;
-      font-size: 1.5rem;
+  .top-card{
+    margin-top: 3rem;
+    padding: 2rem 2rem 1rem 2rem;
+    border: 1px solid #e0e0e0;
+    border-radius: 3px;
+    .head{
+      font-size: 17px;
       font-weight: 500;
-      font-family: 'Lato', sans-serif !important;
-      &__sub{
-        text-align: center;
-        font-size: 1.1rem;
-        opacity: .9;
+    }
+  }
+  .bottom-card{
+    display: flex;
+    border: 1px solid #e0e0e0;
+    padding: 2rem;
+    .img-block{
+      display: flex;
+      align-items: center;
+      padding: 1.5rem;
+      .image{
+        width: 100px;
+        height: 56px;
       }
     }
-
-    &:hover{
-      transform: scale(1.1);
-      // transform: rotateY(181deg);
-      // :not(&:hover){
-      //   background-color: red;
-      // }
-     }
-
-     .heart-icon{
-       font-size: 1.7rem;
-       color : red;
-     }
-  }
-
-}
-
-.primary-button{
-  @extend .primary-button;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-  margin-right: 2rem;
-  float: right;
-
-  &:hover{
-    background-color:rgb(196, 191, 191);
-    color: black;
-  }
-}
-
-
-
-.grid-view{
-  display: flex;
-  justify-content: space-between;
-  margin: 0%;
-
-  &__text{
-    font-size: 1.2rem;
-  }
-
-  .out-of-stock{
-    color: red;
-  }
-}
-
-.popup{
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0%;
-  left: 0;
-  background-color:rgba( #000000, .8);
-  z-index: 9999;
-  transition: all .5;
-  //to hide during start
-  opacity: 0;
-  visibility: hidden;
-
-  &:target{
-    opacity: 1;
-    visibility: visible;
-  }
-
-  &__close{
-    opacity: 0;
-    visibility: hidden;
-  }
-  &__content{
-    width: 75%;
-    background-color: white;
-    box-shadow: 0 1.5rem 3rem rgba($color: #000000, $alpha: .2);
-    border-radius: .2rem;
-    padding: .1rem;
-    @include absCenter;
-  }
-  &__left{
-    width: 45%;
-    float: left;
-  }
-  &__right{
-    width: 55%;
-    float: right;
-  }
-  &__img{
-    display: block;
-    width: 100%;
-    overflow: hidden;
-  }
-  &__text{
-    font-size: 1.2rem;
-    font-weight: 300;
-    // column-count: 2;
-    // column-gap: 4rem;
-    // column-rule: salmon;
-    // column-width: 5rem;
+    .content-block{
+      width: 100%;
+      .top-sec{
+        display: flex;
+        justify-content: space-between;
+        .title-text{
+          font-weight: 400;
+          font-size: 15px;
+          display: block;
+          cursor: pointer;
+          margin-bottom: 5px;
+          &:hover{
+            color: blue;
+          }
+        }
+        .delete-icon{
+          opacity: .5;
+          cursor: pointer;
+        }
+      }
+      .amount-text{
+        font-size: 22px;
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
   }
 }

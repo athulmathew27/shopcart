@@ -1,16 +1,4 @@
 
-
-.main-content{
-  margin-right: 3rem;
-  margin-top: 2rem;
-  .text-section{
-    display: flex;
-    .content{
-      line-height: .1rem;
-    }
-  }
-
-}
 .text-ordered{
   color: green;
   font-size: 1.2rem;
@@ -36,4 +24,20 @@
   color: black;
   opacity: .8;
   margin-top: 1.2rem;
+}
+.rating-sec{
+  text-transform: uppercase;
+  cursor: pointer;
+  line-height: 24px;
+  width: auto;
+  vertical-align: top;
+  color: #2874f0;
+  word-break: break-all;
+  display: flex;
+  align-items: center;
+  .text{
+    padding-left: .5rem;
+    font-size: 14px;
+    font-weight: 500;
+  }
 }

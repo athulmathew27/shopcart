@@ -20,6 +20,7 @@ export class CashOnDeliveryComponent implements OnInit, OnChanges {
   address :string;
   user : any;
   myOrderID :string = "";
+  myproductId : string = [];
   constructor(private firestore : AngularFirestore) { }
 
   ngOnInit(): void {
@@ -40,6 +41,8 @@ export class CashOnDeliveryComponent implements OnInit, OnChanges {
       this.address = this.selectedAddress
     }
 }
+
+
 onPay(){
   var delivaryAddress = this.address.address + ", "+ this.address.postoffice + ", "+ this.address.district + ", "+ this.address.state + ", "+ this.address.country + ", "+ this.address.pincode;
   var orderData :Myorders = {
@@ -63,7 +66,9 @@ onPay(){
             price : productsDocRef.data().price
           }
           this.firestore.collection('products').doc(this.cartProductId[i]).update({stock : updatedStock})
-          this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.myOrderID).collection('myproducts').add(myproductsData)
+          this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.myOrderID).collection('myproducts').add(myproductsData).then(ref=>{
+            this.myproductId.push(ref.id);
+          })
           this.firestore.collection('users').doc(this.user.uid).collection('cart').doc(this.cartId[i]).delete()
            // })
           //})
@@ -79,8 +84,17 @@ onPay(){
       deliveredTime : null
     }
     this.firestore.collection('orders').add({userId : this.user.uid, orderId : this.myOrderID }).then(()=>{
-    this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.myOrderID).collection('status').add(statusData)
-    window.location.reload()
+      setTimeout(()=>{
+        if(this.myproductId.length > 0){
+          console.log("mt id", this.myproductId)
+          for (let i = 0; i < this.myproductId.length; i++) {
+            this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.myOrderID).collection('myproducts').doc(this.myproductId[i]).collection('status').add(statusData)
+          }
+          setTimeout(()=>{
+            window.location.reload()
+          },5000)
+        }
+      },3000)
     })
   })
 

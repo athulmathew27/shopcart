@@ -25,7 +25,7 @@ export class TrackOrderDetailComponent implements OnInit {
     var user = firebase.auth().currentUser;
     if(user){
       this.user = user;
-      this.firstore.collection('users').doc(this.user.uid).collection('myorders').doc(this.productDetails.orderId).collection('status').ref.get().then((statusSnap)=>{
+      this.firstore.collection('users').doc(this.user.uid).collection('myorders').doc(this.productDetails.orderId).collection('myproducts').doc(this.productDetails.myproductId).collection('status').ref.get().then((statusSnap)=>{
         statusSnap.forEach(statusDoc=>{
           this.statusData = statusDoc.data();
           if(this.statusData.orderPlacedTime != null && this.statusData.shippedTime == null && this.statusData.nearByTime == null && this.statusData.deliveredTime == null){

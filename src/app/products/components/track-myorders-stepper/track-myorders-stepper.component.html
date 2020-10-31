@@ -1,4 +1,4 @@
-<mat-horizontal-stepper [linear]="isLinear" [selectedIndex]="currentStep" #stepper>
+<mat-horizontal-stepper [linear]="isLinear" [selectedIndex]="currentStep" #stepper class="hide-under-900px">
   <ng-container *ngFor="let step of steps; index as i">
       <ng-template matStepperIcon="home">
           <mat-icon>home</mat-icon>
@@ -13,3 +13,20 @@
       </mat-step>
   </ng-container>
 </mat-horizontal-stepper>
+
+
+<mat-vertical-stepper [linear]="isLinear" [selectedIndex]="currentStep" #stepper class="show-under-900px">
+  <ng-container *ngFor="let step of steps; index as i">
+      <ng-template matStepperIcon="home">
+          <mat-icon>home</mat-icon>
+      </ng-template>
+      <mat-step #matStep [editable]="isEditable" [completed]="matStep.interacted || i < currentStep" class="step">
+          <ng-template matStepLabel>{{step}}
+            <P *ngIf="i == 0 && statusData.orderPlacedTime != null"> {{statusData.orderPlacedTime.seconds *1000 | date}}</P>
+            <P *ngIf="i == 1 && statusData.shippedTime != null"> {{statusData.shippedTime.seconds *1000 | date}}</P>
+            <P *ngIf="i == 2 && statusData.nearByTime != null"> {{statusData.nearByTime.seconds *1000 | date}}</P>
+            <P *ngIf="i == 3 && statusData.deliveredTime != null"> {{statusData.deliveredTime.seconds *1000 | date}}</P>
+          </ng-template>
+      </mat-step>
+  </ng-container>
+</mat-vertical-stepper>
