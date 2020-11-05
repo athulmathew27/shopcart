@@ -53,8 +53,6 @@ export class CartComponent implements OnInit {
     else{
       alert("Please Login to view cart")
     }
-
-
   }
 
   removeFromCart(cartId : string){
@@ -75,13 +73,9 @@ export class CartComponent implements OnInit {
     else{
       this.firestore.collection('users').doc(this.user.uid).collection('cart').doc(cartId).update({quantity : quantity})
       .then( ()=>{
-                   alert("cart updated");
                    window.location.reload()
       })
-      .catch(
-        err =>{
-               alert(err)
-     })
+
     }
   }
 }

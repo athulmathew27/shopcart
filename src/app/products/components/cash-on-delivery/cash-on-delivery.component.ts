@@ -92,9 +92,9 @@ onPay(){
           }
           setTimeout(()=>{
             window.location.reload()
-          },5000)
+          },2000)
         }
-      },3000)
+      },2000)
     })
   })
 
