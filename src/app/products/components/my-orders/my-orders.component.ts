@@ -16,7 +16,8 @@ import { RatingEstential } from '../../models/rating-esential.model';
 export class MyOrdersComponent implements OnInit {
 
   products :MyorderFull[] = [];
-  productDetails :MyorderFull = [];
+  productDetails :any = [];
+  //productDetails :MyorderFull = [];
   user : any;
   showOrderDetailPage : boolean = false;
 

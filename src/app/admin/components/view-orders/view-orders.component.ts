@@ -61,12 +61,11 @@ export class ViewOrdersComponent implements  OnInit {
                     statusTime = statusDoc.data().orderPlacedTime;
                   }
 
-                  var status = { status : status, date : statusTime}
-                  var newObj = Object.assign({}, myproductsDoc.data(), myorderDoc.data(), orderId, status)
+                  var newStatus = { status : status, date : statusTime}
+                  var newObj = Object.assign({}, myproductsDoc.data(), myorderDoc.data(), orderId, newStatus)
                   this.orderData.push(newObj);
                   this.isLoadingResults = false;
                   this.resultsLength = this.resultsLength + 1;
-                  console.log(this.resultsLength)
                 })
               })
 

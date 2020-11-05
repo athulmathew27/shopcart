@@ -1,5 +1,5 @@
 export interface OrderStatus{
-  orderPlacedTime : Date,
+  orderPlacedTime? : Date,
   shippedTime? : Date,
   nearByTime? : Date,
   deliveredTime? : Date

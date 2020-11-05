@@ -10,7 +10,7 @@ import { Category } from 'src/app/category/model/category.model';
 })
 export class CategoryTopListComponent implements OnInit {
 
-  category$ :Observable<Category[]>
+  category$ :Observable<any[]>
   @Output() callParentFunction :EventEmitter<any> = new EventEmitter();
   constructor(private firestore :AngularFirestore) { }
 

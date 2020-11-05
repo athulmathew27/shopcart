@@ -14,7 +14,7 @@ export class FeedbackFormComponent implements OnInit {
   rate : number = 1;
   max : number = 5;
 
-  constructor(@Inject(MAT_DIALOG_DATA) public data : string,
+  constructor(@Inject(MAT_DIALOG_DATA) public data : any,
               private firestore : AngularFirestore,) { }
   ngOnInit(): void {
 

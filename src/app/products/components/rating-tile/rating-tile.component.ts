@@ -9,7 +9,6 @@ import { ReviewFull } from '../../models/review.model';
 export class RatingTileComponent implements OnInit, OnChanges {
 
   @Input() productId :string;
-  ratingList$ : Observable<any>;
   totalReview : number;
   averageRating : number;
   sumRating : number = 0;

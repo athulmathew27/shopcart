@@ -122,50 +122,49 @@ export class PayUMoneyComponent implements OnInit,OnChanges {
   ngOnInit(): void {
 
 
-    this.hashSequence = this.key+"|"+this.txnid+"|"+this.amount+"|"+this.productinfo+"|"+this.firstname+"|"+this.email+"|||||||||||"+this.salt;
-    this.hashed = sha512.create().update(this.hashSequence).hex()
-    console.log(this.hashed)
+    // this.hashSequence = this.key+"|"+this.txnid+"|"+this.amount+"|"+this.productinfo+"|"+this.firstname+"|"+this.email+"|||||||||||"+this.salt;
+    // this.hashed = sha512.create().update(this.hashSequence).hex()
+    // console.log(this.hashed)
 
-    this.data = {
-      key: 'ljBOWL9o',
-      txnid: '123456789',
-      hash: this.hashed,
-      amount: 100,
-      firstname: 'Jaysinh',
-      email: 'dummyemail@dummy.com',
-      phone: 6111111111,
-      productinfo: 'Bag',
-      surl : 'https://stackoverflow.com/',
-      furl: 'https://stackoverflow.com/questions/tagged/payumone',
-      mode:'dropout'// non-mandatory for Customized Response Handling
-    }
+    // this.data = {
+    //   key: 'ljBOWL9o',
+    //   txnid: '123456789',
+    //   hash: this.hashed,
+    //   amount: 100,
+    //   firstname: 'Jaysinh',
+    //   email: 'dummyemail@dummy.com',
+    //   phone: 6111111111,
+    //   productinfo: 'Bag',
+    //   surl : 'https://stackoverflow.com/',
+    //   furl: 'https://stackoverflow.com/questions/tagged/payumone',
+    //   mode:'dropout'// non-mandatory for Customized Response Handling
+    // }
 
     }
   ngOnChanges(changes : SimpleChanges){
-    if(changes.paymentDetails.currentValue && changes.selectedAddress){
-      this.payAmt = this.paymentDetails.toPay
-      this.cartProductId = this.paymentDetails.cartProductId
-      this.cartQuantity = this.paymentDetails.cartQuantity
-      this.cartId = this.paymentDetails.cartId;
+    // if(changes.paymentDetails.currentValue && changes.selectedAddress){
+    //   this.payAmt = this.paymentDetails.toPay
+    //   this.cartProductId = this.paymentDetails.cartProductId
+    //   this.cartQuantity = this.paymentDetails.cartQuantity
+    //   this.cartId = this.paymentDetails.cartId;
 
-      this.address = this.selectedAddress
-    }
+    //   this.address = this.selectedAddress
+    // }
 }
 
   onPayUMoney(){
 
 
-   // window.location.href = "https://sandboxsecure.payu.in/_payment/";
 
-    var handler = {
-      responseHandler: function(BOLT){
-        console.log(BOLT.response)
-      },
-      catchException: function(BOLT){
-        console.log(BOLT)
-      }
-    }
-    bolt.launch(this.data,handler)
+    // var handler = {
+    //   responseHandler: function(BOLT){
+    //     console.log(BOLT.response)
+    //   },
+    //   catchException: function(BOLT){
+    //     console.log(BOLT)
+    //   }
+    // }
+    // bolt.launch(this.data,handler)
   }
 
 

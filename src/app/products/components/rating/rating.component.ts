@@ -20,38 +20,26 @@ export class RatingComponent implements OnInit, OnChanges {
   @Input() productID : string;
 
 
-  constructor(private firestore : AngularFirestore) {
-
-   }
+  constructor(private firestore : AngularFirestore) {}
   ngOnInit(): void {}
-
   ngOnChanges(changes : SimpleChanges)
   {
-    // this.ratingList$ = this.firestore.collection<Rating>('product_rating', ref => ref.where('productID', '==', changes.productID.currentValue)).valueChanges();
-
-    // this.firestore.collection<Rating>('product_rating', ref => ref.where('productID', '==', changes.productID.currentValue)).valueChanges().subscribe(
-    //   val=> {
-    //     this.totalReview = val.length;
-    //     if(this.totalReview < 1){
-    //       this.rateTotal = 0;
-    //     }
-    //     else{
-    //       for (var i=0;i<val.length;i++){
-    //         if(val[i].rating != null){
-    //           this.sumRating = this.sumRating + val[i].rating;
-    //         }
-    //     }
-    //       this.averageRating = this.sumRating / this.totalReview;
-    //       this.rateTotal = parseFloat(this.averageRating.toFixed(1));
-    //   }
-    // });
     this.firestore.collection('products').doc(this.productID).collection('rating').ref.get().then((snap)=>{
       snap.forEach(ratingDoc=>{
-        this.ratingList.push(ratingDoc.data())
+        var ratingData :any = {
+          description: ratingDoc.data().description,
+          displayName: ratingDoc.data().displayName,
+          myproductId: ratingDoc.data().myproductId,
+          orderId: ratingDoc.data().orderId,
+          productId: ratingDoc.data().productId,
+          rating: ratingDoc.data().rating,
+          title: ratingDoc.data().title,
+          userId: ratingDoc.data().userId,
+        }
+        this.ratingList.push(ratingData)
       })
     }).then(()=>{
       this.totalReview = this.ratingList.length;
-      console.log(this.totalReview)
       if(this.totalReview < 1){
         this.rateTotal = 0;
       }

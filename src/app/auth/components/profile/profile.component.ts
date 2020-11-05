@@ -13,17 +13,17 @@ export class ProfileComponent implements OnInit {
   user :any;
   displayName :string = "";
   email :string = "";
-  phoneNumber :number = 0;
+  phoneNumber :any;
   constructor() { }
   ngOnInit(): void {
     firebase.auth().onAuthStateChanged((user)=> {
       if(user){
-        console.log(user);
-
         this.user = user;
         this.displayName = user.displayName;
         this.email = user.email;
-        this.phoneNumber = user.phoneNumber;
+        if(user.phoneNumber != null){
+          this.phoneNumber = user.phoneNumber;
+        }
       }
     })
   }

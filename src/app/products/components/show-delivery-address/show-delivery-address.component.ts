@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatDialog } from '@angular/material/dialog';
 import * as firebase from 'firebase';
+import { Observable } from 'rxjs';
 
 import { Address } from '../../models/address.model';
 import { DeliveryAddressComponent } from '../delivery-address/delivery-address.component';
@@ -14,7 +15,7 @@ import { DeliveryAddressComponent } from '../delivery-address/delivery-address.c
 export class ShowDeliveryAddressComponent implements OnInit {
 
   user : any;
-  address$ : Address[];
+  address$ : Observable<Address[]>;
   addressSelected = "";
 
   @Output() callParent = new EventEmitter<string>();

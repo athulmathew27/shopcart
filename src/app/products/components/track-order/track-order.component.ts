@@ -28,6 +28,13 @@ export class TrackOrderComponent implements OnInit, OnChanges {
       this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.orderId).collection('myproducts').doc(this.myproductId).collection('status').ref.get().then((querySnap)=>{
         querySnap.forEach(doc => {
           this.statusData = doc.data();
+          // var orderData = {
+          //   deliveredTime: doc.data().deliveredTime,
+          //   nearByTime: doc.data().nearByTime,
+          //   orderPlacedTime: doc.data().shippedTime,
+          //   shippedTime: doc.data().shippedTime,
+          // }
+          // this.statusData = orderData;
           if(this.statusData.orderPlacedTime != null  && this.statusData.shippedTime ==null && this.statusData.nearByTime == null && this.statusData.deliveredTime == null){
             this.status = "order placed";
           }

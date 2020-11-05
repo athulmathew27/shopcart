@@ -7,8 +7,8 @@
     <!-- <mat-toolbar><app-manage-user></app-manage-user></mat-toolbar> -->
     <mat-nav-list>
       <app-manage-user></app-manage-user>
-      <a routerLinkActive="active" class="nav-link" mat-list-item  routerLink="/products/list"> <ion-icon name="pricetags-outline" class="icon-side"></ion-icon> Products</a>
-      <a routerLinkActive="active" class="nav-link" mat-list-item  routerLink="/category/list"> <ion-icon name="list-circle-outline" class="icon-side"></ion-icon>Category</a>
+      <a routerLinkActive="active" class="nav-link" mat-list-item  routerLink="/products/list"> 	<mat-icon class="icon-side">label</mat-icon> Products</a>
+      <a routerLinkActive="active" class="nav-link" mat-list-item  routerLink="/category/list"> 	<mat-icon class="icon-side">label</mat-icon>Category</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -17,7 +17,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <div class="section__left">
-        <span routerLink="products/list"><ion-icon name="leaf"></ion-icon>ShopCart</span>
+        <span routerLink="products/list">	<mat-icon> local_dining</mat-icon>ShopCart</span>
         <div class="search-sec">
           <input class="search-box" type="text" placeholder="search product" (keyup.enter)="onSearch(item.value)" #item>
           <mat-icon class="search-icon">search</mat-icon>

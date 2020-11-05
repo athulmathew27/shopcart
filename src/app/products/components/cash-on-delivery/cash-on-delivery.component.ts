@@ -17,10 +17,10 @@ export class CashOnDeliveryComponent implements OnInit, OnChanges {
   cartProductId : string[];
   cartQuantity : number[];
   cartId : string[];
-  address :string;
+  address :any;
   user : any;
   myOrderID :string = "";
-  myproductId : string = [];
+  myproductId : any = [];
   constructor(private firestore : AngularFirestore) { }
 
   ngOnInit(): void {

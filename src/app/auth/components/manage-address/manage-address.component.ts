@@ -15,7 +15,7 @@ export class ManageAddressComponent implements OnInit {
 
   user : any;
   displayName : string;
-  addresses :Observable<Address[]>;
+  addresses :Observable<any[]>;
   selectedAddress :Address;
   isEdit : boolean = false;
   constructor(private firestore : AngularFirestore,

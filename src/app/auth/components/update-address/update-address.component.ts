@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Address } from 'src/app/products/models/address.model';
 import {NgForm} from '@angular/forms'
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -18,7 +18,7 @@ export class UpdateAddressComponent implements OnInit,OnChanges {
   districtVal:string;
   stateVal:string;
   countryVal:string;
-  pincodeVal:number;
+  pincodeVal:any;
   postofficeVal : string;
   addressId :string;
   isEdit :boolean = true;

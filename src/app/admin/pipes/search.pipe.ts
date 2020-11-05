@@ -6,7 +6,8 @@ import { MyorderFull } from 'src/app/products/models/myorder-full.model';
 })
 export class SearchPipe implements PipeTransform {
 
-  filteredData :MyorderFull = []
+  filteredData :any = []
+  //  filteredData :MyorderFull = []
   transform(value: MyorderFull[], searchBy: string): unknown {
     if(!searchBy){
       this.filteredData = [];

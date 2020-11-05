@@ -19,7 +19,8 @@ export class PaymentComponent implements OnInit, OnChanges {
   cartQuantity : number[];
   cartId : string[];
   user : any;
-  address : Address = [];
+  // address : Address = [];
+  address : any = [];
 
 
   @Input() paymentDetails;
