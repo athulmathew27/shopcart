@@ -35,55 +35,41 @@
   list-style: none;
 }
 
-.nav{
-  &__search-icon{
-    font-size: 1.7rem;
+.search-sec{
+  margin-left: 3rem;
+  display: flex;
+  align-items: center;
+  .search-icon{
+    font-size: 2rem;
     border-radius: 50%;
-    float: left;
     padding-left: .2rem;
     color: black;
   }
 
-  &__search-box{
-    margin-right: -2.1rem;
+  .search-box{
+    margin-right: -2.9rem;
     padding-right: 2rem;
-    border-radius: .4rem;
-    border-color: rgb(207, 204, 204);
-    width: 14rem;
-    height: 2.7rem;
+    border-radius: 2px;
+    padding-left: .5rem;
+    width: 50rem;
     font-size: 1.2rem;
+    border: 1px solid #dbdbdb;
+
   }
 
-  &__user-icon{
-    height: 2.5rem;
-    width: 2.5rem;
-    background-color: $secondary-color;
-    color:$primary-color;
-    margin-left: 1rem;
-    &:hover{
-      background-color: $primary-color;
-      color:$secondary-color;
-      border-radius: 50%;
-      }
+  @media screen and (max-width: 980px) {
+    .search-box{
+      width: 40rem;
+    }
   }
-  &__cart-icon{
-    font-size: 2rem;
+  @media screen and (max-width: 920px) {
+    .search-box{
+      width: 30rem;
+    }
   }
-  &__heart-icon{
-    font-size: 2rem;
-    margin-right: 1rem;
-  }
-  &__my-order-icon{
-    margin-right: 1rem;
-  }
-
-  &__login{
-    @extend .primary-button;
-    margin: 0 1rem;
-
-    &:hover{
-      background-color: gray;
-      color: black;
+  @media screen and (max-width: 770px) {
+    .search-box{
+      width: 20rem;
     }
   }
 }
@@ -92,6 +78,10 @@
   display: flex;
   justify-content: space-between;
 
+  &__left{
+    display: flex;
+    align-items: center;
+  }
   &__right{
     display: flex;
     align-items: center;
@@ -124,5 +114,23 @@
   display: none;
   width: 0%;
   height: 0%;
+}
+
+.vertical{
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 1rem;
+
+  .material-icons{
+    font-size: 1.2rem;
+    margin-right: .3rem;
+    float: left;
+  }
+  .text{
+    font-size: 1.2rem;
+    color: black;
+    text-decoration: none;
+  }
 }
 

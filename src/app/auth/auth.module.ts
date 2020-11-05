@@ -19,12 +19,13 @@ import { ManageUserComponent } from './components/manage-user/manage-user.compon
 import { ProfileComponent } from './components/profile/profile.component';
 import { ManageAddressComponent } from './components/manage-address/manage-address.component';
 import { UpdateAddressComponent } from './components/update-address/update-address.component';
+import { MyaccountComponent } from './components/myaccount/myaccount.component';
 
 
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent, ManageUserComponent, ProfileComponent, ManageAddressComponent, UpdateAddressComponent],
-  exports: [LoginComponent,SignupComponent,ManageUserComponent],
+  declarations: [LoginComponent, SignupComponent, ManageUserComponent, ProfileComponent, ManageAddressComponent, UpdateAddressComponent, MyaccountComponent],
+  exports: [LoginComponent,SignupComponent,ManageUserComponent, MyaccountComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,

@@ -1,0 +1,50 @@
+<mat-form-field class="section" >
+  <mat-label class="title">My Account</mat-label>
+  <mat-select class="box">
+
+    <mat-option class="content">
+      <div class="vertical" routerLink="products/favourite">
+        <span class="material-icons">favorite_border</span>
+        <a class="text">Wishlist</a>
+      </div>
+    </mat-option>
+
+    <mat-option class="content">
+      <div class="vertical" routerLink="products/cart">
+        <span class="material-icons">shopping_cart</span>
+        <a class="text" >My Cart</a>
+      </div>
+    </mat-option>
+
+    <mat-option class="content">
+      <div class="vertical" routerLink="auth/profile">
+        <span class="material-icons">person</span>
+        <a class="text" >Profile info</a>
+      </div>
+    </mat-option>
+
+    <mat-option class="content">
+      <div class="vertical" routerLink="products/myorders">
+      <span class="material-icons">assessment</span>
+      <a class="text">My orders</a>
+      </div>
+    </mat-option>
+
+    <mat-option class="content">
+      <div class="vertical" routerLink="auth/manage_address">
+      <span class="material-icons">mail</span>
+      <a class="text">Manage Address</a>
+      </div>
+    </mat-option>
+
+    <mat-option class="content">
+      <div class="vertical" routerLink="auth/manage_address">
+        <span class="material-icons">lock</span>
+        <span class="text"(click)="onLogout()">Sign Out</span>
+      </div>
+    </mat-option>
+
+  </mat-select>
+</mat-form-field>
+
+

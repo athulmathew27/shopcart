@@ -1,0 +1,32 @@
+.main-row{
+  height: 3rem;
+  border: 1px solid rgb(192, 191, 191);
+  .vertical{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+    .text{
+      margin: auto 0 auto 0;
+      font-size: 1.2rem;
+      font-weight: 600;
+      cursor: pointer;
+
+      &:last-child{
+        margin-right: 10rem;
+      }
+    }
+    @media screen and (max-width: 750px) {
+      .text:last-child{
+        margin-right: 2;
+      }
+    }
+    .text-all{
+      margin-left: 10rem;
+    }
+    @media screen and (max-width: 750px) {
+      .text-all {
+        margin-left: 2rem;
+      }
+    }
+  }
+}

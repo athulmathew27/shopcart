@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
@@ -17,10 +17,11 @@ import { Category } from 'src/app/category/model/category.model';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class ProductListComponent implements OnInit, OnChanges {
 
-  productList: Observable<Product[]>;
-
+  productList:Product[];
+  categoryName :string;
+  @Input() filteredProductList :Product[]
   constructor(private dialog: MatDialog,
               private productService : ProductsService,
               private store : Store<fromApp.AppState>,
@@ -30,15 +31,20 @@ export class ProductListComponent implements OnInit {
       this.listProducts();
    }
 
-
-  addProduct()
-  {
-      const dialogRef = this.dialog.open(ProductAddComponent);
+  ngOnChanges(changes :SimpleChanges){
+    if(changes.filteredProductList.currentValue){
+      this.productList = this.filteredProductList;
+    }
+  }
+  parentFunction(data){
+    this.categoryName = data;
   }
 
   listProducts()
   {
-     this.productList = this.productService.showProducts();
+     this.productService.showProducts().subscribe(val=>{
+      this.productList = val;
+     });
     //  this.store.dispatch(new fromProductAction.ListProducts())
     //  this.store.subscribe(state =>(
     //    this.product = state.products.products

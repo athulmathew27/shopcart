@@ -1,0 +1,68 @@
+.main-row{
+  display: flex;
+  justify-content: center;
+  .main-card{
+    margin-top: 2rem;
+    padding: 3rem;
+    .title-sec{
+      margin-top: 4rem;
+      &:first-child{
+        margin-top: 1rem;
+      }
+      .title{
+        font-size: 18px;
+        font-weight: 600;
+      }
+      .title-sub{
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 1rem;
+      }
+      .title-mini{
+        font-size: 14px;
+        font-weight: 500;
+        margin-top: 1rem;
+      }
+      .input-sec{
+        margin-top: 1rem;
+        font-size: 14px;
+        .input-box{
+          height: 50px;
+          margin-right: 1rem;
+          border: 1px solid #e0e0e0;
+          outline: none;
+          border-radius: 2px;
+          padding: 10px;
+          width: 20rem;
+        }
+      }
+    }
+
+    .button-sec{
+      display: flex;
+      margin-top: 2rem;
+      font-size: 14px;
+      font-weight: 600;
+      float: right;
+      .button-save{
+        color: white;
+        background-color: black;
+        margin-right: 1rem;
+        width: 10rem;
+        height: 4rem;
+        border: none;
+        outline: none;
+        border-radius: 2px;
+      }
+      .button-cancel{
+        color: black;
+        background-color: white;
+        width: 10rem;
+        height: 4rem;
+        border: 1px solid #e0e0e0;
+        outline: none;
+        border-radius: 2px;
+      }
+    }
+  }
+}

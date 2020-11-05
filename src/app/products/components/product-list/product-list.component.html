@@ -1,15 +1,10 @@
 
-  <div class="row">
-    <div class="col">
-      <button class="primary-button" mat-raised-button (click)="addProduct()">Add new Product</button>
-    </div>
-  </div>
-
+<app-category-top-list (callParentFunction)="parentFunction($event)"></app-category-top-list>
 
 <!-- display card : product details -->
 <div class="container">
   <div class="row content" >
-      <div class="col-md-3" class="card-block" *ngFor="let product of productList | async; let i = index">
+      <div class="col-md-3" class="card-block" *ngFor="let product of productList |categoryBasedFilter :categoryName; let i = index">
         <app-product-card [productData]="product"></app-product-card>
     </div>
   </div>

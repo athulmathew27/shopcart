@@ -1,1 +1,44 @@
-<p>profile works!</p>
+<div class="row main-row">
+  <div class="col-lg-10 col-md-10 col-sm-11 col-xs-12">
+    <mat-card class="main-card">
+      <form #profileForm="ngForm" (ngSubmit)="onSubmit(profileForm.value)" >
+      <div class="title-sec">
+        <p class="title">Personal Information</p>
+        <div class="input-sec">
+          <input class="input-box" name="fname" type="text" [(ngModel)]="displayName" placeholder="FirstName">
+          <input class="input-box" name="lname" type="text" placeholder="LastName">
+        </div>
+      </div>
+      <div class="title-sec">
+        <p class="title">Email Address</p>
+        <div class="input-sec">
+          <input class="input-box" name="emailid" [(ngModel)]="email" type="email" placeholder="Email">
+        </div>
+      </div>
+      <div class="title-sec">
+        <p class="title">Mobile Number</p>
+        <div class="input-sec">
+          <input class="input-box" name="number" [(ngModel)]="phoneNumber" type="text" placeholder="Mobile Number">
+        </div>
+      </div>
+
+      <div class="button-sec">
+        <button class="button-save" type="submit">SAVE</button>
+        <button class="button-cancel" type="button">CANCEL</button>
+      </div>
+
+      <div class="title-sec">
+        <div class="title">FAQ</div>
+        <div class="title-sub">What happens when I update my email address (or mobile number)?</div>
+        <div class="title-mini">Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your updated email address (or mobile number).</div>
+
+        <div class="title-sub">When will my Flipkart account be updated with the new email address (or mobile number)?</div>
+        <div class="title-mini">It happens as soon as you confirm the verification code sent to your email (or mobile) and save the changes.</div>
+
+        <div class="title-sub">What happens to my existing Flipkart account when I update my email address (or mobile number)?</div>
+        <div class="title-mini">Updating your email address (or mobile number) doesn't invalidate your account. Your account remains fully functional. You'll continue seeing your Order history, saved information and personal details.</div>
+      </div>
+    </form>
+    </mat-card>
+  </div>
+</div>

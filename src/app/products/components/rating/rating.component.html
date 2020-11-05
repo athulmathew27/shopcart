@@ -8,7 +8,7 @@
   <section class="bottom-sec" *ngFor="let review of ratingList">
     <div class="head-section">
       <h6 class="user-name">{{review.displayName}}</h6>
-      <rating [(ngModel)]="review.rating" class="rating-section"></rating>
+      <rating [(ngModel)]="review.rating" class="rating-section" readonly="true"></rating>
     </div>
     <p class="title">{{review.title}}</p>
     <p class="user-review">{{review.description}}</p>

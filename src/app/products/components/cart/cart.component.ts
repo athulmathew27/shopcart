@@ -23,8 +23,7 @@ export class CartComponent implements OnInit {
 
   billingdata;
 
-  constructor(
-              private firestore : AngularFirestore
+  constructor(private firestore : AngularFirestore
   ) { }
 
   ngOnInit(): void {

@@ -115,3 +115,8 @@
 .error{
   color: red;
 }
+textarea:active,textarea:hover,textarea:focus{
+  outline:0px !important;
+  -webkit-appearance:none;
+  box-shadow: none !important;
+}

@@ -55,7 +55,7 @@
         <div class="col-md-7">
           <app-rating [productID]="productID"></app-rating>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
           <mat-card class="similer" *ngFor="let similer of similerProducts | async" (click)=" showProduct(similer, similer.productId)">
             <div class="left">
                 <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fsproutsocial.com%2Finsights%2Fsocial-media-image-sizes-guide%2F&psig=AOvVaw0jDfiCJZVm2cPckyu9H4DN&ust=1601370899052000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPC56pbBi-wCFQAAAAAdAAAAABAD" alt="similer products">

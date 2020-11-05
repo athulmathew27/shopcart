@@ -1,0 +1,35 @@
+.section{
+  margin: auto 1rem auto 2rem;
+  width: 8rem;
+  .title{
+    font-size: 1.2rem;
+  }
+  .box{
+    width: 8rem;
+  }
+}
+
+
+.vertical{
+  display: flex;
+  align-items: center;
+  .material-icons{
+    font-size: 1.2rem;
+    margin-right: 1rem;
+    float: left;
+  }
+  .text{
+    font-size: 1.2rem;
+    color: black;
+  }
+}
+
+::ng-deep .mat-select-panel{
+  max-height: none!important;
+}
+::ng-deep .mat-option{
+  max-height: 4rem;
+}
+::ng-deep .mat-form-field-underline {
+  display: none;
+}

@@ -54,6 +54,8 @@ import { OtherItemsInOrderComponent } from './components/other-items-in-order/ot
 import { RatingTileComponent } from './components/rating-tile/rating-tile.component';
 import { RatingReviewComponent } from './components/rating-review/rating-review.component';
 import { RatingStarsComponent } from './components/rating-stars/rating-stars.component';
+import { CategoryTopListComponent } from './components/category-top-list/category-top-list.component';
+import { CategoryBasedFilterPipe } from './pipes/category-based-filter.pipe';
 
 
 @NgModule({
@@ -81,10 +83,13 @@ import { RatingStarsComponent } from './components/rating-stars/rating-stars.com
     RatingTileComponent,
     RatingReviewComponent,
     RatingStarsComponent,
+    CategoryTopListComponent,
+    CategoryBasedFilterPipe,
 
   ],
   exports : [
-    ProductListComponent // to fetch <app-product-list> in app.component.html, import it in app.component.ts
+    ProductListComponent, // to fetch <app-product-list> in app.component.html, import it in app.component.ts
+    CategoryTopListComponent
   ],
   imports: [
     CommonModule, // every imported modules
