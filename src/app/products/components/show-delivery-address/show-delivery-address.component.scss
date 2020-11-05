@@ -33,10 +33,16 @@
   margin-bottom: 1rem;
 }
 .card-address{
-  padding : 1rem;
-  margin-top: 1rem;
-  line-height: .7rem;
-  font-size: 1.3rem;
-  min-width: 90vh;
+  padding: 16px;
+  width: 100%;
+  font-size: 14px;
+  overflow: hidden;
+  transition: box-shadow .1s linear;
+  background-color: #fff;
+  border: 1px solid #dbdbdb;
+  cursor: pointer;
+  box-shadow: 0 0 0 0 rgba(0,0,0,.15);
+  margin-bottom: 8px;
+  border-radius: 4px;
 }
 

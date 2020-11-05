@@ -17,7 +17,10 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <div class="section__left">
-        <span routerLink="products/list">	<mat-icon> local_dining</mat-icon>ShopCart</span>
+        <span routerLink="products/list">
+            <!-- <mat-icon> local_dining</mat-icon> -->
+            ShopCart
+        </span>
         <div class="search-sec">
           <input class="search-box" type="text" placeholder="search product" (keyup.enter)="onSearch(item.value)" #item>
           <mat-icon class="search-icon">search</mat-icon>

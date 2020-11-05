@@ -23,6 +23,9 @@
   font-size: 12px;
 }
 
+::ng-deep .mat-form-field-underline {
+  display: block;
+}
 // .button-effect
 // {
 //   background-color: $primary-color;

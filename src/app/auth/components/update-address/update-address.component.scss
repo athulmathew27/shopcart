@@ -33,3 +33,6 @@
   color : red;
   font-size: 12px;
 }
+::ng-deep .mat-form-field-underline {
+  display: block;
+}

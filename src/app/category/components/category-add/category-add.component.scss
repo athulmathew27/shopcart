@@ -17,3 +17,6 @@
   // font-size: 1rem;
   // font-weight: bold;
 }
+::ng-deep .mat-form-field-underline {
+  display: block;
+}
