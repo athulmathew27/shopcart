@@ -3,60 +3,61 @@
 .row{
   display: flex;
   justify-content: center;
-}
-
-.main-content{
-  margin: 1rem;
-
-  .heading{
-    font-size: 1.8rem;
-  }
-  .card-section{
-    display: flex;
-    justify-content: space-between;
-    margin: 2rem;
-    padding: 0%;
-    max-height: 15rem;
-    .left{
-        max-height: 10rem;
-      .image{
-        height: 75px;
-        width: 75px;
-        margin-left: 4rem;
-        margin-top: 1rem;
-      }
+  .main-content{
+    margin: 1rem;
+    .heading{
+      font-size: 1.8rem;
     }
-    .right{
-      background-color: white;
-      width: 100%;
-      padding-top: 1rem;
-      padding-left: 2rem;
-      line-height: 1.4;
-      margin-left: 1rem;
-
-      .head{
-        font-size: 1.4rem;
-        font-weight: 400;
-        &:hover{
-          color: blue;
+    .card-section{
+      display: flex;
+      justify-content: space-between;
+      margin: 2rem;
+      padding: 0%;
+      .inner-row{
+        width: 100%;
+        .LHS{
+          .sub-inner-row{
+            width: 100%;
+            .main-content{
+              display: flex;
+              margin-left: 2rem;
+              .image{
+                height: 75px;
+                width: 75px;
+                margin-top: 1rem;
+              }
+              .content{
+                margin-left: 1rem;
+                .head{
+                  font-size: 1.4rem;
+                  font-weight: 400;
+                  &:hover{
+                    color: blue;
+                  }
+                }
+                .text{
+                  font-size: 1.1rem;
+                  opacity: .8;
+                }
+              }
+            }
+            .payment-area{
+              margin-top: 1rem;
+            }
+          }
+        }
+        .RHS{
+          padding: 2rem;
         }
       }
-      .text{
-        font-size: 1.1rem;
-        opacity: .8;
-      }
-      .input{
-        width: 4rem;
-        height: 2rem;
-        margin-right: 1rem;
-      }
+
     }
   }
-  .close-icon{
-    font-size: 2.5rem;
-    border-radius: 50%;
-  }
 }
+
+
 .orderId{
   margin-right: 2rem;
 }
+
+
