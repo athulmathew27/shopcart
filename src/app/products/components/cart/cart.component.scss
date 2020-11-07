@@ -1,50 +1,116 @@
 @import '../../../../styles.scss';
 
+// .main-row{
+//   display: flex;
+//   justify-content: center;
+// }
+// .main-content{
+//   margin: 1rem;
+//   .heading{
+//     font-size: 1.6rem;
+//   }
+//   .card-section{
+//     display: flex;
+//     justify-content: space-between;
+//     margin: 1rem;
+//     padding: 0%;
+//     .left{
+//         max-height: 10rem;
+//         max-width: 15rem;
+//       .image{
+//         max-height: 10rem;
+//       }
+//     }
+//     .right{
+//       background-color: white;
+//       width: 100%;
+//       padding-top: 1rem;
+//       padding-left: 2rem;
+//       line-height: .8rem;
+//       margin-left: 1rem;
+
+//       .head{
+//         font-size: 1.5rem;
+//         font-weight: bold;
+//       }
+//       .text{
+//         font-size: 1.2rem;
+//       }
+//       .input{
+//         width: 4rem;
+//         height: 2rem;
+//         margin-right: 1rem;
+//       }
+//     }
+//   }
+//   .close-icon{
+//     font-size: 2.5rem;
+//     border-radius: 50%;
+//   }
+// }
 .main-row{
   display: flex;
   justify-content: center;
-}
-.main-content{
-  margin: 1rem;
-  .heading{
-    font-size: 1.6rem;
-  }
-  .card-section{
-    display: flex;
-    justify-content: space-between;
-    margin: 1rem;
-    padding: 0%;
-    .left{
-        max-height: 10rem;
-        max-width: 15rem;
-      .image{
-        max-height: 10rem;
-      }
+  align-items: center;
+  .card{
+    margin-top: 2rem;
+    .title-head{
+      font-size: 1.4rem;
+      font-weight: 500;
     }
-    .right{
-      background-color: white;
-      width: 100%;
-      padding-top: 1rem;
-      padding-left: 2rem;
-      line-height: .8rem;
-      margin-left: 1rem;
+    .block{
+      display: flex;
+      border: 1px solid #f0f0f0;
+      margin-bottom: 1rem;
+      position: relative;
+      .sub-row{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        .img-block{
+          padding: 1rem;
+          margin-left: 1rem;
+          width: 110px;
+          .image{
+            width: 90px;
+            height: 90px;
+          }
+        }
+        .text-block{
+          margin-top: 1rem;
+          .head{
+            font-size: 1.4rem;
+            font-size: 600;
+          }
+          .text{
+            font-size: 1.2rem;
+            font-weight: 500;
+          }
+          .amt{
+            font-size: 1.2rem;
+            font-weight: 600;
+          }
+          .input{
+            width: 4rem;
+            height: 2rem;
+            border: 1px solid rgb(219, 216, 216);
+          }
+        }
 
-      .head{
-        font-size: 1.5rem;
-        font-weight: bold;
       }
-      .text{
-        font-size: 1.2rem;
-      }
-      .input{
-        width: 4rem;
-        height: 2rem;
-        margin-right: 1rem;
+      .close-icon{
+        color: black;
+        font-size: 1.8rem;
+        position: absolute;
+        top: 8px;
+        right: 5px;
       }
     }
   }
-  .close-icon{
-    font-size: 2.5rem;
-    border-radius: 50%;
-  }
+}
+
+.header-row{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 }

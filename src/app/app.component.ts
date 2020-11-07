@@ -18,7 +18,6 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     if(localStorage.getItem('user')!== null){
       this.isLoggedIn = true;
-      console.log(this.isLoggedIn)
     }
     else{
       this.isLoggedIn = false;

@@ -1,4 +1,4 @@
-<div class="row">
+<!-- <div class="row">
   <div class="col">
     <mat-card class="main-container">
       <div class="heading">
@@ -21,6 +21,31 @@
       </div>
     </mat-card>
   </div>
-</div>
+</div> -->
 <!--xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx-->
 
+<div class="address-block">
+  <p class="title">ORDER SUMMERY</p>
+  <div class="content">
+    <p class="text"> {{totalitems}} Products</p>
+    <div *ngFor="let product of products; let i = index">
+      <div class="text-sec">
+        <p class="text" >{{product.name}} </p>
+        <span class="amt-text">{{product.price * quantity[i] |currency}}</span>
+      </div>
+    </div>
+    <div class="text-sec">
+      <p class="text" >Shipping</p>
+      <span class="amt-text ship">Free</span>
+    </div>
+    <hr>
+    <div class="text-sec">
+      <p class="text" >Total</p>
+      <span class="amt-text">{{toPay |currency}}</span>
+    </div>
+  </div>
+</div>
+<button mat-raised-button class="button" (click)="onCheckOut()">
+  <mat-icon class="cash-icon">payment</mat-icon>
+  PLACE ORDER
+</button>

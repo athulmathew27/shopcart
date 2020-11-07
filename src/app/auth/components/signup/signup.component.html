@@ -1,29 +1,30 @@
-
-<div class="card-container">
-  <mat-card class="card">
-    <mat-card-content>Sign Up</mat-card-content>
-  <form class="login-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>Email</mat-label>
-      <input #email matInput placeholder="Enter your email">
-    </mat-form-field>
-    <mat-form-field class="example-full-width" >
-      <mat-label>Enter your password</mat-label>
-      <input matInput #password [type]="hide ? 'password' : 'text'">
-      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-      </button>
-    </mat-form-field>
-    <div class="bottom">
-      <div class="left">
-        <button mat-raised-button class="primary-button" (click)="signup(email.value, password.value)">Signin</button>
+<div class="row main-row">
+  <div class="card-container">
+    <mat-card class="card">
+      <mat-card-content>Sign Up</mat-card-content>
+    <form class="login-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Email</mat-label>
+        <input #email matInput placeholder="Enter your email">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" >
+        <mat-label>Enter your password</mat-label>
+        <input matInput #password [type]="hide ? 'password' : 'text'">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+      </mat-form-field>
+      <div class="bottom">
+        <div class="left">
+          <button mat-raised-button class="primary-button" (click)="signup(email.value, password.value)">Signin</button>
+        </div>
+        <div class="right">
+          Already Registered ? <a routerLink="/auth/login"> Login</a>
+        </div>
       </div>
-      <div class="right">
-        Already Registered ? <a routerLink="/auth/login"> Login</a>
-      </div>
-    </div>
-  </form>
-</mat-card>
+    </form>
+  </mat-card>
+  </div>
 </div>
 
 

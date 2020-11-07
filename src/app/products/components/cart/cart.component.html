@@ -1,4 +1,4 @@
-<div class="row main-row">
+<!-- <div class="row main-row">
   <div class="col-11">
     <div class="row">
       <div class="col-lg-7 col-md-8  col-xs-12 main-content">
@@ -26,5 +26,42 @@
       </div>
     </div>
     <div>
+  </div>
+</div> -->
+
+<div class="row main-row">
+  <div class="col-lg-11 col-md-11 col-sm-12 col-xs-12">
+    <mat-card class="card">
+      <p class="title-head">CART</p>
+      <hr>
+      <div class="row">
+        <div class="col-lg-8 col-md-8 col-sm-12 col-xs-12">
+          <div class="block" *ngFor="let product of products; let i = index">
+            <div class="row sub-row">
+              <div class="col img-block">
+                <img class="image" src="https://source.unsplash.com/1600x900/?product" alt="image">
+              </div>
+              <div class="col text-block">
+                <p class="head">{{product.name | titlecase}}</p>
+                <p class="text">{{product.categoryName}}</p>
+              </div>
+              <div class="col text-block">
+                <p class="text">{{product.price |currency}}</p>
+              </div>
+              <div class="col text-block">
+                <p class="text">Quantity: <input type="number" (change)="updateCart(cartID[i], quantity.value, product.stock)" [(ngModel)]="cartQuantity[i]" class="input" #quantity required>
+              </div>
+              <div class="col text-block">
+                <p class="amt"> {{product.price * cartQuantity[i] |currency}}</p>
+              </div>
+            </div>
+            <mat-icon  class="close-icon" (click)="removeFromCart(cartID[i])">close</mat-icon>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
+          <app-billing [billingData]="billingdata"></app-billing>
+        </div>
+      </div>
+    </mat-card>
   </div>
 </div>

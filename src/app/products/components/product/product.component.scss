@@ -13,11 +13,7 @@
   align-items: center;
 }
 
-.top{
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+
 .content{
   // position: absolute;
   // top: 5rem;
@@ -61,15 +57,9 @@
   }
 }
 .secondary-button{
-
-  @extend .primary-button;
-  height: 2.5rem;
-  width: 10rem;
-  // color: black;
-  // background-color: palegoldenrod;
-   border-radius: .2rem;
-  // outline: none;
-   margin-top: 1rem;
+  background-color: black;
+  color: white;
+  margin-top: 2rem;
 }
 
 .stock{
@@ -86,6 +76,7 @@
   font-size: 1.3rem;
   font-weight: 900;
   margin: 1rem 0;
+
   &__input{
     width: 4rem;
     height: 2rem;

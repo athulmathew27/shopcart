@@ -10,7 +10,6 @@ export class CategoryBasedFilterPipe implements PipeTransform {
   transform(value: Product[], args: string): unknown {
     if(!args){
       this.filteredData = [];
-      console.log(value);
       return value
     }
     else{

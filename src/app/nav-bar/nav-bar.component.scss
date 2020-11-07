@@ -25,7 +25,8 @@
   top: 0;
   z-index: 1;
   background-color: white;
-  box-shadow: 1px 1px 5px 0px black;
+  border: 1px solid rgb(192, 191, 191);
+  // box-shadow: 1px 1px 5px 0px black;
   color: black;
   width: 100%;
 }
@@ -146,6 +147,7 @@
     font-size: 1.2rem;
     color: black;
     text-decoration: none;
+    padding-top: 1px;
   }
 }
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-myaccount',
@@ -8,12 +9,20 @@ import { Router } from '@angular/router';
   styleUrls: ['./myaccount.component.scss']
 })
 export class MyaccountComponent implements OnInit {
-
+  isLoggedIn :boolean = false;
   constructor(
     private fireAuth : AngularFireAuth,
     private router : Router) { }
 
   ngOnInit(): void {
+    firebase.auth().onAuthStateChanged((user)=> {
+      if(user){
+        this.isLoggedIn = true;
+      }
+      else{
+        this.isLoggedIn = false;
+      }
+    });
   }
 
   onLogout(){
@@ -23,5 +32,8 @@ export class MyaccountComponent implements OnInit {
         this.router.navigate(['/auth/login'])
       }
     );
-}
+  }
+  onSignin(){
+    this.router.navigate(['/auth/login'])
+  }
 }

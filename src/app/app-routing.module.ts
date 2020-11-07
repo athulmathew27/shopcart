@@ -9,14 +9,12 @@ const redirectUnauthorizedToLogin = ()=> redirectUnauthorizedTo(['/auth/login'])
 
 const routes: Routes = [
   {
-    path: '', redirectTo: '/auth/login',
+    path: '', redirectTo: '/products/list',
     pathMatch: 'full'
   },
   {
     path:'products',
     loadChildren:()=>import('./products/products.module').then(m=>m.ProductsModule),
-    canActivate : [AngularFireAuthGuard],
-    data : { authGuardPipe : redirectUnauthorizedToLogin}
   },
   {
     path:'category',

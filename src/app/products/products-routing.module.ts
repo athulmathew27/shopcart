@@ -6,7 +6,10 @@ import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { ProductComponent } from './components/product/product.component';
+import { AngularFireAuthGuard, AngularFireAuthGuardModule, redirectUnauthorizedTo } from '@angular/fire/auth-guard';
 
+
+const redirectUnauthorizedToLogin = ()=> redirectUnauthorizedTo(['/auth/login']);
 
 const routes: Routes = [
 {
@@ -19,14 +22,20 @@ const routes: Routes = [
 },
 {
   path: 'cart',
+  canActivate : [AngularFireAuthGuard],
+  data : { authGuardPipe : redirectUnauthorizedToLogin},
   component: CartComponent
 },
 {
   path: 'favourite',
+  canActivate : [AngularFireAuthGuard],
+  data : { authGuardPipe : redirectUnauthorizedToLogin},
   component : FavouriteComponent
 },
 {
   path: 'myorders',
+  canActivate : [AngularFireAuthGuard],
+  data : { authGuardPipe : redirectUnauthorizedToLogin},
   component : MyOrdersComponent
 }
 ];

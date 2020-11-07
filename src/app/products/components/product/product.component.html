@@ -17,14 +17,14 @@
               </carousel>
             </div>
             <div class="content__right">
-              <div class="top">
+              <!-- <div class="top"> -->
                 <div class="heading">
                   {{product}}
                 </div>
-                <div class="button">
+                <!-- <div class="button">
                   <button mat-button class="secondary-button" (click)="addToCart(productID, quantity.value)" >Add to cart</button>
-                </div>
-              </div>
+                </div> -->
+              <!-- </div> -->
 
               <div class="text">
                 {{price | currency}}
@@ -37,7 +37,7 @@
                 <form>
                   Quantity: <input type="number" #quantity  class="quantity__input">
                 </form>
-
+                <button mat-button class="secondary-button" (click)="addToCart(productID, quantity.value)" >Add to cart</button>
                 <!-- <rating class="rating" [(ngModel)]="rate" [max]="max" readonly=true></rating> -->
               </div>
           </div>

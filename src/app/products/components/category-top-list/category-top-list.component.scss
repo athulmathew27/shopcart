@@ -1,6 +1,7 @@
 .main-row{
   height: 3rem;
   border: 1px solid rgb(192, 191, 191);
+  box-shadow: 1px 1px 5px 0px black;
   .vertical{
   display: flex;
   align-items: center;
@@ -10,11 +11,11 @@
       font-size: 1.2rem;
       font-weight: 600;
       cursor: pointer;
-
       &:last-child{
         margin-right: 10rem;
       }
     }
+
     @media screen and (max-width: 750px) {
       .text:last-child{
         margin-right: 0;
