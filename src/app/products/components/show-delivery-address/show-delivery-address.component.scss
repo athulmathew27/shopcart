@@ -2,7 +2,6 @@
 
 .main-container{
   margin-top: 5rem;
-
   .heading{
     text-align: center;
     margin-top: 1rem;
@@ -34,7 +33,7 @@
 }
 .card-address{
   padding: 16px;
-  width: 100%;
+  width: 100vh;
   font-size: 14px;
   overflow: hidden;
   transition: box-shadow .1s linear;
@@ -42,7 +41,6 @@
   border: 1px solid #dbdbdb;
   cursor: pointer;
   box-shadow: 0 0 0 0 rgba(0,0,0,.15);
-  margin-bottom: 8px;
   border-radius: 4px;
 }
 

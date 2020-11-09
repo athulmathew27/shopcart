@@ -1,14 +1,4 @@
-.section{
-  margin: auto 1rem auto 2rem;
-  width: 8rem;
-  .title{
-    font-size: 1.2rem;
-  }
-  .box{
-    width: 8rem;
-  }
-}
-
+@import '../../../../styles.scss';
 
 .vertical{
   display: flex;
@@ -25,12 +15,11 @@
   }
 }
 
-::ng-deep .mat-select-panel{
-  max-height: none!important;
+.my-btn{
+  background: transparent;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  color: $nav-text-color;
 }
-::ng-deep .mat-option{
-  max-height: 4rem;
-}
-::ng-deep .mat-form-field-underline {
-  display: none;
-}
+

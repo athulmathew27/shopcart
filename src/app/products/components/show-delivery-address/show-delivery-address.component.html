@@ -7,10 +7,8 @@
       <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="addressSelected" (change)="selectDeliveryAddress(addressSelected)">
           <mat-radio-button class="example-radio-button" *ngFor="let address of address$ |async" [value]="address">
             <div class="card-address" >
-              <p>{{address.address}}</p>
-              <p>{{address.postoffice}},{{address.district}}</p>
-              <p>{{address.state}},{{address.country}}</p>
-              <p>Pincode: {{address.pincode}}</p>
+              <p>{{address.address}}, {{address.postoffice}},</p>
+              <p>{{address.district}}, {{address.state}},{{address.country}} Pincode: {{address.pincode}}</p>
             </div>
           </mat-radio-button>
       </mat-radio-group>

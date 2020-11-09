@@ -1,4 +1,4 @@
-<mat-form-field class="section" >
+<!-- <mat-form-field class="section" >
   <mat-label class="title">My Account</mat-label>
   <mat-select class="box">
 
@@ -54,4 +54,77 @@
   </mat-select>
 </mat-form-field>
 
+ -->
+ <div class="btn-group" dropdown>
+  <button id="button-basic" dropdownToggle type="button" class=" dropdown-toggle my-btn"
+          aria-controls="dropdown-basic">
+    My account<span class="caret"></span>
+  </button>
+  <ul id="dropdown-basic" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-basic">
 
+    <li role="menuitem">
+      <a class="dropdown-item">
+        <div class="vertical" routerLink="products/favourite">
+          <span class="material-icons">favorite_border</span>
+          <span class="text">Wishlist</span>
+        </div>
+      </a>
+    </li>
+
+    <li role="menuitem">
+      <a class="dropdown-item">
+        <div class="vertical" routerLink="products/cart">
+          <span class="material-icons">shopping_cart</span>
+          <span class="text" >My Cart</span>
+        </div>
+      </a>
+    </li>
+
+    <li role="menuitem">
+      <a class="dropdown-item">
+        <div class="vertical" routerLink="auth/profile">
+          <span class="material-icons">person</span>
+          <span class="text" >Profile info</span>
+        </div>
+      </a>
+    </li>
+
+    <li role="menuitem">
+      <a class="dropdown-item">
+        <div class="vertical" routerLink="products/myorders">
+          <span class="material-icons">assessment</span>
+          <span class="text">My orders</span>
+        </div>
+      </a>
+    </li>
+
+    <li role="menuitem">
+      <a class="dropdown-item">
+        <div class="vertical" routerLink="auth/manage_address">
+          <span class="material-icons">mail</span>
+          <span class="text">Manage Address</span>
+        </div>
+      </a>
+    </li>
+
+    <li role="menuitem" *ngIf="isLoggedIn">
+      <a class="dropdown-item">
+        <div class="vertical" routerLink="auth/manage_address">
+          <span class="material-icons">lock</span>
+          <span class="text"(click)="onLogout()">Sign Out</span>
+        </div>
+      </a>
+    </li>
+
+    <li role="menuitem" *ngIf="!isLoggedIn">
+      <a class="dropdown-item">
+        <div class="vertical" routerLink="auth/manage_address">
+          <span class="material-icons">lock</span>
+          <span class="text"(click)="onSignin()">Sign In</span>
+        </div>
+      </a>
+    </li>
+
+
+  </ul>
+</div>

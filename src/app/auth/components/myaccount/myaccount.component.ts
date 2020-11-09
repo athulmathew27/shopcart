@@ -3,6 +3,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 
+
 @Component({
   selector: 'app-myaccount',
   templateUrl: './myaccount.component.html',

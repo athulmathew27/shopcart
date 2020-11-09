@@ -14,6 +14,7 @@ import { MatCardModule} from '@angular/material/card';
 import { MatButtonModule} from '@angular/material/button';
 import { MatSelectModule} from '@angular/material/select';
 import { MatExpansionModule} from '@angular/material/expansion';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { ManageUserComponent } from './components/manage-user/manage-user.component';
 import { ProfileComponent } from './components/profile/profile.component';
@@ -37,7 +38,8 @@ import { MyaccountComponent } from './components/myaccount/myaccount.component';
     MatCardModule,
     MatButtonModule,
     MatSelectModule,
-    MatExpansionModule
+    MatExpansionModule,
+    BsDropdownModule.forRoot()
   ]
 })
 export class AuthModule { }
