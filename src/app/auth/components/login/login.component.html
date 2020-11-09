@@ -15,11 +15,11 @@
           <form class="login-form" #loginForm="ngForm" (submit)="signin(loginForm.value)">
             <mat-form-field class="example-full-width">
               <mat-label>Email</mat-label>
-              <input #email="ngModel" [(ngModel)]="email1" name="emailid" id="emailid" matInput placeholder="Enter your email" type="email" required>
+              <input #email="ngModel" [(ngModel)]="email1" name="emailid" id="emailid" matInput type="email" required>
               <span class="error" *ngIf="!email.valid && email.touched"> Enter a valid email id!</span>
             </mat-form-field>
             <mat-form-field class="example-full-width" >
-              <mat-label>Enter your password</mat-label>
+              <mat-label>Password</mat-label>
               <input matInput #password="ngModel" [(ngModel)]="password1" name="pass" id="pass" [type]="hide ? 'password' : 'text'" required>
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>

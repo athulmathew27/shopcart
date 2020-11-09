@@ -2,6 +2,15 @@
 $primary-color : black;
 $secondary-color : white;
 
+// $navbar-color :#2874f0;
+// $nav-text-color :white;
+// $nav-background-color: #f1f3f6;
+//#659dbd white
+$navbar-color :#659dbd;
+$nav-text-color :white;
+$nav-background-color: #f1f3f6;
+
+
 @mixin absCenter {
   position: absolute;
   top: 50%;

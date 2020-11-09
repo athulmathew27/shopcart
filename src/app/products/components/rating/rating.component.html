@@ -16,5 +16,5 @@
       <hr>
   </section>
   <p class="showmore-text" (click)="showMoreReview()" *ngIf="totalReview != showMore">show more(+3)</p>
-  <p class="showmore-text" (click)="showLessReview()" *ngIf="totalReview == showMore">show less</p>
+  <p class="showmore-text" (click)="showLessReview()" *ngIf="totalReview == showMore && totalReview > 0">show less</p>
 </div>
