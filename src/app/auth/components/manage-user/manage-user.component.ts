@@ -30,8 +30,6 @@ export class ManageUserComponent implements OnInit {
         this.user = user
         this.name = user.displayName;
         this.email = user.email;
-      } else {
-        alert("err")
       }
     });
   }

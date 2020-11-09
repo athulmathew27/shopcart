@@ -13,9 +13,11 @@ export class RatingComponent implements OnInit, OnChanges {
   maxTotal : number = 5;
   rateTotal : number = 1;
   ratingList : ReviewFull[] = [];
+  ratingListTemp : ReviewFull[] = [];
   totalReview : number;
   averageRating : number;
   sumRating : number = 0;
+  showMore :number = 3;
 
   @Input() productID : string;
 
@@ -29,17 +31,18 @@ export class RatingComponent implements OnInit, OnChanges {
         var ratingData :any = {
           description: ratingDoc.data().description,
           displayName: ratingDoc.data().displayName,
-          myproductId: ratingDoc.data().myproductId,
-          orderId: ratingDoc.data().orderId,
-          productId: ratingDoc.data().productId,
+          // myproductId: ratingDoc.data().myproductId,
+          // orderId: ratingDoc.data().orderId,
+          // productId: ratingDoc.data().productId,
           rating: ratingDoc.data().rating,
           title: ratingDoc.data().title,
-          userId: ratingDoc.data().userId,
+          // userId: ratingDoc.data().userId,
         }
         this.ratingList.push(ratingData)
       })
     }).then(()=>{
       this.totalReview = this.ratingList.length;
+      this.showLessReview();
       if(this.totalReview < 1){
         this.rateTotal = 0;
       }
@@ -52,10 +55,38 @@ export class RatingComponent implements OnInit, OnChanges {
         this.averageRating = this.sumRating / this.totalReview;
         this.rateTotal = parseFloat(this.averageRating.toFixed(1));
       }
-
+      this.showLessReview();
     })
+  }
 
-
-
+  showMoreReview(){
+    this.showMore = this.showMore + 3;
+    var len = 0;
+    this.ratingListTemp = [];
+    if(this.ratingList.length < this.showMore){
+      len = this.ratingList.length;
+      this.showMore = this.ratingList.length;
+    }
+    else{
+      len = this.showMore;
+    }
+    for (let i = 0; i < len; i++) {
+      this.ratingListTemp.push(this.ratingList[i])
+    }
+  }
+  showLessReview(){
+    var len = 0;
+    this.ratingListTemp = [];
+    this.showMore = 3
+    if(this.ratingList.length < 3){
+      len = this.ratingList.length;
+      this.showMore = this.ratingList.length;
+    }
+    else{
+      len = 3;
+    }
+    for (let i = 0; i < len; i++) {
+      this.ratingListTemp.push(this.ratingList[i])
+    }
   }
 }

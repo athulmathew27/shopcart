@@ -1,4 +1,4 @@
-<div class="row main-row">
+<!-- <div class="row main-row">
   <div class="card-container">
     <mat-card class="card">
       <mat-card-content>Sign Up</mat-card-content>
@@ -27,4 +27,42 @@
   </div>
 </div>
 
+ -->
+ <div class="row main-row">
+  <div class="col-lg-7 col-md-8 col-sm-11 col-xs-12">
+    <mat-card class="card-sec">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <figure class="image">
+            <img src="assets/images/signup-image.jpg" alt="sign in image">
+          </figure>
+          <div class="link-sec">
+            Already Registered ? <a routerLink="/auth/login"> Login</a>
+          </div>
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-sec">
+          <p class="header">Sign Up</p>
+          <form class="login-form" #signupForm="ngForm">
+            <mat-form-field class="example-full-width">
+              <mat-label>Name</mat-label>
+              <input #name matInput placeholder="Enter your name" required>
+            </mat-form-field>
 
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input #email matInput placeholder="Enter your email" type="email" required>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" >
+              <mat-label>Enter your password</mat-label>
+              <input matInput #password [type]="hide ? 'password' : 'text'" required>
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+             <button mat-raised-button class="login-btn" [disabled]="signupForm.invalid" (click)="signup(email.value, password.value, name.value)">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </mat-card>
+  </div>
+ </div>

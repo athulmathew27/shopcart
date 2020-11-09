@@ -4,8 +4,9 @@
     <p class="review">{{totalReview}} Reviews</p>
   </div>
 </div>
+
 <div class="col-12">
-  <section class="bottom-sec" *ngFor="let review of ratingList">
+  <section class="bottom-sec" *ngFor="let review of ratingListTemp">
     <div class="head-section">
       <h6 class="user-name">{{review.displayName}}</h6>
       <rating [(ngModel)]="review.rating" class="rating-section" readonly="true"></rating>
@@ -14,4 +15,6 @@
     <p class="user-review">{{review.description}}</p>
       <hr>
   </section>
+  <p class="showmore-text" (click)="showMoreReview()" *ngIf="totalReview != showMore">show more(+3)</p>
+  <p class="showmore-text" (click)="showLessReview()" *ngIf="totalReview == showMore">show less</p>
 </div>

@@ -119,3 +119,16 @@ margin-top: 3rem;
 .feedback{
 margin-top: 2rem;
 }
+.offer{
+  display: flex;
+  margin-top: 1rem;
+  &-text{
+    font-size: 1.2rem;
+  }
+  &-text-color{
+    margin-left: 1rem;
+    padding-bottom: 4px;
+    color: green;
+    font-size: 1.4rem;
+  }
+}

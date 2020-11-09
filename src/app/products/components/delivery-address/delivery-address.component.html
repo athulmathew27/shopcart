@@ -73,6 +73,86 @@
         </div>
       </mat-form-field>
 
+      <button class="primary-button" mat-raised-button [disabled]="addAddress.invalid" [mat-dialog-close]="true" type="submit">Add</button>
+    </form>
+  </div>
+</div>
+
+<!--<h6 class="dialog-header-font">Add a new Category for products here...</h6>
+<hr>
+<div class="row">
+  <div class="col">
+    <form class="form-style" #addAddress="ngForm" (ngSubmit)="onAddressSave(addAddress.value)">
+
+
+        <label for="house">House Name/Apartment </label>
+        <input type="text" id="house" name="address" ngModel #address="ngModel" required minlength="3">
+        <div *ngIf="address.invalid && (address.dirty || address.touched)"  class="errormessage">
+          <div *ngIf="address.errors.required">
+            Address is required.
+          </div>
+          <div *ngIf="address.errors.minlength">
+            Address must be at least 3 characters long.
+          </div>
+        </div>
+
+
+
+        <label for="zip">Zipcode </label>
+        <input type="text" id="zip"  name="pincode" (change)="fetchPostofficeDetails(pincode.value)" ngModel #pincode="ngModel" required minlength="6" type="number">
+        <div *ngIf="pincode.invalid && (pincode.dirty || pincode.touched)"  class="errormessage">
+          <div *ngIf="pincode.errors.required">
+            Zipcode is required.
+          </div>
+          <div *ngIf="pincode.errors.minlength">
+            Zipcode must be at least 6 characters long.
+          </div>
+        </div>
+
+
+
+        <label for="po">Postoffice </label>
+        <input type="text" id="po"  name="postoffice" [(ngModel)]="postofficeValue" #postoffice required >
+        <div *ngIf="postoffice.invalid && (postoffice.dirty || postoffice.touched)"  class="errormessage">
+          <div *ngIf="postoffice.errors.required">
+            Postoffice is required.
+          </div>
+          <div *ngIf="postoffice.errors.minlength">
+            Postoffice must be at least 6 characters long.
+          </div>
+        </div>
+
+
+
+        <label for="dist">District </label>
+        <input type="text" id="dist"  name="district" [(ngModel)]="distritValue" #district required >
+        <div *ngIf="district.invalid && (district.dirty || district.touched)"  class="errormessage">
+          <div *ngIf="district.errors.required">
+            District is required.
+          </div>
+        </div>
+
+
+
+        <label for="state">State </label>
+        <input type="text" id="state"  name="state"   [(ngModel)]="stateValue" #state required >
+        <div *ngIf="state.invalid && (state.dirty || state.touched)"  class="errormessage">
+          <div *ngIf="state.errors.required">
+            State is required.
+          </div>
+        </div>
+
+
+
+        <label for="count">Country </label>
+        <input type="text" id="count"  name="country"  [(ngModel)]="countryValue" #country required >
+        <div *ngIf="country.invalid && (country.dirty || country.touched)"  class="errormessage">
+          <div *ngIf="country.errors.required">
+            Country is required.
+          </div>
+        </div>
+
+
 
 
 
@@ -80,3 +160,4 @@
     </form>
   </div>
 </div>
+-->

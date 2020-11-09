@@ -5,6 +5,7 @@ import { AuthService } from 'src/app/auth.service';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import * as firebase from 'firebase';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -22,10 +23,10 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {  }
 
-  signup(email, password){
+  signup(email, password, name){
     this.fireAuth.createUserWithEmailAndPassword(email,password)
     .then(res =>{
-      this.firestore.collection('users').doc(res.user.uid).set({displayName : email, image : "null"}).then(function() {
+      this.firestore.collection('users').doc(res.user.uid).set({displayName : name, image : "null"}).then(function() {
         localStorage.setItem('user',JSON.stringify(res.user));
         window.location.reload();
     }).catch(err =>{

@@ -17,6 +17,6 @@
     <h6 *ngIf="product.stock < 1" class="out-of-stock grid-view__text">OUT OF STOCK</h6>
   </mat-card-content>
   <div class="add-button-bg" *ngIf="product.stock > 0">
-    <a  [routerLink]="['/products/list/']" > <ion-icon name="add-circle" class="add-button"></ion-icon> </a>
+    <a  [routerLink]="['/products/list/']" > <ion-icon name="add-circle" class="add-button" (click)="addToCart(product.productId, 0)"></ion-icon> </a>
   </div>
 </mat-card>

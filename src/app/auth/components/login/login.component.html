@@ -1,40 +1,40 @@
-<div class="card-container">
-  <div class="row">
-    <mat-card class="card">
-      <mat-card-content>Sign IN</mat-card-content>
-    <form class="login-form" #loginForm="ngForm" (submit)="signin(loginForm.value)">
-      <mat-form-field class="example-full-width">
-        <mat-label>Email</mat-label>
-        <input #email="ngModel" [(ngModel)]="email1" name="emailid" id="emailid" matInput placeholder="Enter your email" type="email" required>
-        <span class="error" *ngIf="!email.valid && email.touched"> Enter a valid email id!</span>
-      </mat-form-field>
-      <mat-form-field class="example-full-width" >
-        <mat-label>Enter your password</mat-label>
-        <input matInput #password="ngModel" [(ngModel)]="password1" name="pass" id="pass" [type]="hide ? 'password' : 'text'" required>
-        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-        </button>
-        <span class="error" *ngIf="!password.valid && password.touched"> Enter a valid password!</span>
-      </mat-form-field>
-      <div class="bottom">
-        <div class="left">
-          <button mat-raised-button class="primary-button" type="submit" *ngIf="loginForm.valid">Signin</button>
+ <div class="row main-row">
+  <div class="col-lg-7 col-md-8 col-sm-11 col-xs-12">
+    <mat-card class="card-sec">
+      <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+          <figure class="image">
+            <img src="assets/images/signin-image.jpg" alt="sign in image">
+          </figure>
+          <div class="link-sec">
+            Are you new? <a routerLink="/auth/signup"> Register Now </a>
+          </div>
         </div>
-        <div class="right">
-          Are you new? <a routerLink="/auth/signup"> Register Now </a>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-sec">
+          <p class="header">Sign In</p>
+          <form class="login-form" #loginForm="ngForm" (submit)="signin(loginForm.value)">
+            <mat-form-field class="example-full-width">
+              <mat-label>Email</mat-label>
+              <input #email="ngModel" [(ngModel)]="email1" name="emailid" id="emailid" matInput placeholder="Enter your email" type="email" required>
+              <span class="error" *ngIf="!email.valid && email.touched"> Enter a valid email id!</span>
+            </mat-form-field>
+            <mat-form-field class="example-full-width" >
+              <mat-label>Enter your password</mat-label>
+              <input matInput #password="ngModel" [(ngModel)]="password1" name="pass" id="pass" [type]="hide ? 'password' : 'text'" required>
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+              <span class="error" *ngIf="!password.valid && password.touched"> Enter a valid password!</span>
+            </mat-form-field>
+
+            <button mat-raised-button class="login-btn" type="submit" [disabled]="!loginForm.valid">Signin</button>
+            <div class="social-sec">
+              <p class="text">or login with </p>
+              <button type="button"  (click)="createUserViaGoogle()" class="google-btn">G</button>
+            </div>
+          </form>
         </div>
       </div>
-      <button type="button" mat-raised-button (click)="createUserViaGoogle()" class="google-button">Google +</button>
-      <!-- <button type="button" mat-raised-button (click)="createUserViaFacebook()" class="fb-button">Facebook</button> -->
-    </form>
-  </mat-card>
+    </mat-card>
   </div>
-</div>
-
-
-
-
-
-
-
-
+ </div>

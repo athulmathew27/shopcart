@@ -72,7 +72,7 @@ export class ProductCardComponent implements OnInit, OnChanges {
             .then(()=>{
               alert("Added to favourite");
             }).catch(err=>{
-              alert(err)
+              console.log(err)
             })
           }
         })
@@ -93,10 +93,33 @@ export class ProductCardComponent implements OnInit, OnChanges {
             window.location.reload()
           })
           .catch(err=>{
-            alert(err)
+            console.log(err)
           })
 
       })
+    }
+  }
+
+  addToCart(productID : string, quantity : number){
+    var user = firebase.auth().currentUser;
+    if (user) {
+      this.user = user;
+
+        this.firestore.collection('users').doc(this.user.uid).collection('cart', ref => ref.where('productID', '==', productID)).valueChanges()
+        .subscribe(val=>{
+          if(val.length > 0){
+            alert("already added")
+          }
+          else{
+            this.firestore.collection('users').doc(this.user.uid).collection('cart').add({productID : productID, quantity : quantity}).then(()=>{
+              alert("Added to cart");
+            })
+          }
+        })
+
+    }
+    else{
+      alert("Please Login ...")
     }
   }
 
