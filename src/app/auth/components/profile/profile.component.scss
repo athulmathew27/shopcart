@@ -1,3 +1,5 @@
+@import '../../../../styles.scss';
+
 .main-row{
   display: flex;
   justify-content: center;
@@ -46,7 +48,7 @@
       float: right;
       .button-save{
         color: white;
-        background-color: black;
+        background-color:  $btn-color-primary;
         margin-right: 1rem;
         width: 10rem;
         height: 4rem;

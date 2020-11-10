@@ -9,6 +9,7 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Product } from '../products/models/products.model';
+import { ProductSearchService } from '../products/services/product-search.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -23,7 +24,9 @@ export class NavBarComponent implements OnInit {
   filteredProductList :Product[] = [];
   constructor(private breakpointObserver: BreakpointObserver,
               private authService : AuthService,
-              private firestore : AngularFirestore) {}
+              private firestore : AngularFirestore,
+              private ProductSearchService :ProductSearchService,
+              private router :Router) {}
   ngOnInit() :void {
     this.firestore.collection<Product>('products').valueChanges({ idField: 'productId' }).subscribe(val =>{
       this.productList = val;
@@ -37,19 +40,18 @@ export class NavBarComponent implements OnInit {
   );
 
   onSearch(item){
+    this.router.navigate(['products/list'])
     if(item){
-      this.showProductListPage = true;
+      this.filteredProductList = [];
       for (let i = 0; i < this.productList.length; i++) {
         if(this.productList[i].name.startsWith(item)){
           this.filteredProductList.push(this.productList[i])
         }
       }
+      this.ProductSearchService.filterProduct(this.filteredProductList)
     }
     else{
-      this.showProductListPage = false;
+      this.ProductSearchService.filterProduct(this.productList)
     }
   }
-  // onManageUser(){
-  //   this.showManageUser = !this.showManageUser;
-  // }
 }

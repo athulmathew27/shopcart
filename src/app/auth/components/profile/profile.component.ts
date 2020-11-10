@@ -11,15 +11,20 @@ import { User } from '../../models/user.model'
 export class ProfileComponent implements OnInit {
 
   user :any;
-  displayName :string = "";
+  firstname :string = "";
   email :string = "";
-  phoneNumber :any;
+  phoneNumber :any = 8921733544;
+  lastname :string ="";
   constructor() { }
   ngOnInit(): void {
     firebase.auth().onAuthStateChanged((user)=> {
       if(user){
         this.user = user;
-        this.displayName = user.displayName;
+        var arr = user.displayName.split(" ");
+        this.firstname = arr[0];
+        if(arr.length > 1){
+          this.lastname = arr[1];
+        }
         this.email = user.email;
         if(user.phoneNumber != null){
           this.phoneNumber = user.phoneNumber;
@@ -28,12 +33,14 @@ export class ProfileComponent implements OnInit {
     })
   }
   onSubmit(formValue){
-    this.user.updateProfile({
-      displayName : formValue.fname,
-
-      email : formValue.emailid
-    })
-    this.user.updatePhoneNumberCredential({phoneNumber :formValue.number,})
+    var name = ""
+    if(formValue.lname && formValue.fname){
+      name = formValue.fname.trim() +" "+ formValue.lname.trim();
+    }
+    else{
+      name = formValue.fname;
+    }
+    this.user.updateProfile({displayName : name, email : formValue.emailid})
   }
 
 

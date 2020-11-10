@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
@@ -10,6 +10,7 @@ import { ProductsService } from '../../services/products.service';
 import * as fromProductAction from '../../store/actions/products.action';
 import * as fromApp from '../../../app.state';
 import { Category } from 'src/app/category/model/category.model';
+import { ProductSearchService } from '../../services/product-search.service';
 
 
 @Component({
@@ -17,25 +18,26 @@ import { Category } from 'src/app/category/model/category.model';
   templateUrl: './product-list.component.html',
   styleUrls: ['./product-list.component.scss']
 })
-export class ProductListComponent implements OnInit, OnChanges {
+export class ProductListComponent implements OnInit {
 
   productList:Product[];
+  filteredList :Product[] =[];
   categoryName :string;
-  @Input() filteredProductList :Product[]
   constructor(private dialog: MatDialog,
               private productService : ProductsService,
               private store : Store<fromApp.AppState>,
+              private productSearchService :ProductSearchService
               )  {  }
 
   ngOnInit(): void {
       this.listProducts();
+      this.productSearchService.share.subscribe(data =>{
+        this.productList = [];
+        this.productList = data;
+      })
    }
 
-  ngOnChanges(changes :SimpleChanges){
-    if(changes.filteredProductList.currentValue){
-      this.productList = this.filteredProductList;
-    }
-  }
+
   parentFunction(data){
     this.categoryName = data;
   }

@@ -5,26 +5,26 @@
       <div class="title-sec">
         <p class="title">Personal Information</p>
         <div class="input-sec">
-          <input class="input-box" name="fname" type="text" [(ngModel)]="displayName" placeholder="FirstName">
-          <input class="input-box" name="lname" type="text" placeholder="LastName">
+          <input class="input-box" name="fname" type="text" [(ngModel)]="firstname" placeholder="FirstName">
+          <input class="input-box" name="lname" type="text" [(ngModel)]="lastname"  placeholder="LastName">
         </div>
       </div>
       <div class="title-sec">
         <p class="title">Email Address</p>
         <div class="input-sec">
-          <input class="input-box" name="emailid" [(ngModel)]="email" type="email" placeholder="Email">
+          <input class="input-box" name="emailid" [(ngModel)]="email" type="email" placeholder="Email" readonly>
         </div>
       </div>
       <div class="title-sec">
         <p class="title">Mobile Number</p>
         <div class="input-sec">
-          <input class="input-box" name="number" [(ngModel)]="phoneNumber" type="text" placeholder="Mobile Number">
+          <input class="input-box" name="number" [(ngModel)]="phoneNumber" type="text" placeholder="Mobile Number" readonly>
         </div>
       </div>
 
       <div class="button-sec">
-        <button class="button-save" type="submit">SAVE</button>
-        <button class="button-cancel" type="button">CANCEL</button>
+        <button mat-raised-button class="button-save" type="submit">SAVE</button>
+        <button mat-raised-button class="button-cancel" type="button">CANCEL</button>
       </div>
 
       <div class="title-sec">
@@ -32,10 +32,10 @@
         <div class="title-sub">What happens when I update my email address (or mobile number)?</div>
         <div class="title-mini">Your login email id (or mobile number) changes, likewise. You'll receive all your account related communication on your updated email address (or mobile number).</div>
 
-        <div class="title-sub">When will my Flipkart account be updated with the new email address (or mobile number)?</div>
+        <div class="title-sub">When will my shopCart account be updated with the new email address (or mobile number)?</div>
         <div class="title-mini">It happens as soon as you confirm the verification code sent to your email (or mobile) and save the changes.</div>
 
-        <div class="title-sub">What happens to my existing Flipkart account when I update my email address (or mobile number)?</div>
+        <div class="title-sub">What happens to my existing shopCart account when I update my email address (or mobile number)?</div>
         <div class="title-mini">Updating your email address (or mobile number) doesn't invalidate your account. Your account remains fully functional. You'll continue seeing your Order history, saved information and personal details.</div>
       </div>
     </form>
