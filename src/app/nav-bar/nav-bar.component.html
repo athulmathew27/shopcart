@@ -17,7 +17,7 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <div class="section__left">
-        <span routerLink="products/list">
+        <span routerLink="products/list" class="title">
             <!-- <mat-icon> local_dining</mat-icon> -->
             ShopCart
         </span>
@@ -45,8 +45,8 @@
       </div>
     </mat-toolbar>
     <!-- Add Content Here -->
-    <ng-content *ngIf="!isProductList"></ng-content>
-    <app-product-list *ngIf="isProductList" [filteredProductList]="filteredProductList"></app-product-list>
+    <ng-content *ngIf="!showProductListPage"></ng-content>
+    <app-product-list *ngIf="showProductListPage" [filteredProductList]="filteredProductList"></app-product-list>
     <!-- <app-manage-user [ngClass]="{ 'show-manage-user': showManageUser, 'hide-manage-user' : !showManageUser}"></app-manage-user> -->
   </mat-sidenav-content>
 </mat-sidenav-container>

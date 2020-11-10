@@ -1,15 +1,17 @@
 .main-row{
   height: 3rem;
+  background-color: white;
   border: 1px solid rgb(192, 191, 191);
   box-shadow: 1px 1px 5px 0px black;
   .vertical{
   display: flex;
   align-items: center;
   justify-content: space-between;
-    .text{
-      margin: auto 0 auto 0;
-      font-size: 1.2rem;
-      font-weight: 600;
+    .btn{
+      background-color: transparent;
+      outline: none;
+      border: none;
+      font-size: 1.1rem;
       cursor: pointer;
       &:last-child{
         margin-right: 10rem;
@@ -17,7 +19,7 @@
     }
 
     @media screen and (max-width: 750px) {
-      .text:last-child{
+      .btn:last-child{
         margin-right: 0;
       }
     }

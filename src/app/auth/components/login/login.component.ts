@@ -43,6 +43,8 @@ export class LoginComponent implements OnInit {
       localStorage.setItem('user',JSON.stringify(res.user));
       window.location.reload();
       this.router.navigate(['/products/list'])
+    }).catch(err=>{
+      alert(err)
     })
  }
 

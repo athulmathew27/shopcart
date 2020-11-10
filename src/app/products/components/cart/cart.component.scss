@@ -1,53 +1,5 @@
 @import '../../../../styles.scss';
 
-// .main-row{
-//   display: flex;
-//   justify-content: center;
-// }
-// .main-content{
-//   margin: 1rem;
-//   .heading{
-//     font-size: 1.6rem;
-//   }
-//   .card-section{
-//     display: flex;
-//     justify-content: space-between;
-//     margin: 1rem;
-//     padding: 0%;
-//     .left{
-//         max-height: 10rem;
-//         max-width: 15rem;
-//       .image{
-//         max-height: 10rem;
-//       }
-//     }
-//     .right{
-//       background-color: white;
-//       width: 100%;
-//       padding-top: 1rem;
-//       padding-left: 2rem;
-//       line-height: .8rem;
-//       margin-left: 1rem;
-
-//       .head{
-//         font-size: 1.5rem;
-//         font-weight: bold;
-//       }
-//       .text{
-//         font-size: 1.2rem;
-//       }
-//       .input{
-//         width: 4rem;
-//         height: 2rem;
-//         margin-right: 1rem;
-//       }
-//     }
-//   }
-//   .close-icon{
-//     font-size: 2.5rem;
-//     border-radius: 50%;
-//   }
-// }
 .main-row{
   display: flex;
   justify-content: center;
@@ -104,6 +56,7 @@
         position: absolute;
         top: 8px;
         right: 5px;
+        cursor: pointer;
       }
     }
   }

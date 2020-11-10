@@ -18,7 +18,7 @@ import { Product } from '../products/models/products.model';
 
 export class NavBarComponent implements OnInit {
   showManageUser : boolean = false;
-  isProductList : boolean = false;
+  showProductListPage : boolean = false;
   productList :Product[] = [];
   filteredProductList :Product[] = [];
   constructor(private breakpointObserver: BreakpointObserver,
@@ -38,7 +38,7 @@ export class NavBarComponent implements OnInit {
 
   onSearch(item){
     if(item){
-      this.isProductList = true;
+      this.showProductListPage = true;
       for (let i = 0; i < this.productList.length; i++) {
         if(this.productList[i].name.startsWith(item)){
           this.filteredProductList.push(this.productList[i])
@@ -46,7 +46,7 @@ export class NavBarComponent implements OnInit {
       }
     }
     else{
-      this.isProductList = false;
+      this.showProductListPage = false;
     }
   }
   // onManageUser(){

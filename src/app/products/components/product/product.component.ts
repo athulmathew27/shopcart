@@ -7,7 +7,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Product } from '../../models/products.model';
 import { FeedbackFormComponent } from '../feedback-form/feedback-form.component';
 import { AngularFirestore } from '@angular/fire/firestore';
-
+import { MatSnackBar } from '@angular/material/snack-bar';
 import * as firebase from 'firebase';
 
 @Component({
@@ -32,7 +32,8 @@ export class ProductComponent implements OnInit, OnDestroy {
   constructor(private ActivatedRoute : ActivatedRoute,
               private dialog : MatDialog,
               private firestore : AngularFirestore,
-              private router : Router) { }
+              private router : Router,
+              private snack : MatSnackBar) { }
 
   ngOnInit(): void {
 
@@ -46,23 +47,9 @@ export class ProductComponent implements OnInit, OnDestroy {
       this.price = parseInt(params.get('price'),10);
     })
 
-
     this.similerProducts = this.firestore.collection<Product>('products',
         ref => ref.where('categoryName', '==', this.category))
               .valueChanges({idField: 'productId'});
-
-    // this.firestore.collection<Product>('products').doc(this.productId).ref.get().then(function(doc) {
-    //   if (doc.exists) {
-    //     console.log("Document data:", doc.data());
-    //     console.log(this.productDetail);
-    //   } else {
-    //     console.log("No such document!");
-    //   }
-    // }).catch(function(error) {
-    //   console.log("Error getting document:", error);
-    // });
-
-
   }
 
 
@@ -77,22 +64,24 @@ export class ProductComponent implements OnInit, OnDestroy {
       if(this.stock > quantity){
         this.firestore.collection('users').doc(this.userData.uid).collection('cart', ref => ref.where('productID', '==', productID)).valueChanges()
         .subscribe(val=>{
-          if(val.length > 0){
-            alert("already added")
+          if(val.length == 0){
+             this.firestore.collection('users').doc(this.userData.uid).collection('cart').add({productID : productID, quantity : quantity})
           }
           else{
-            this.firestore.collection('users').doc(this.userData.uid).collection('cart').add({productID : productID, quantity : quantity}).then(()=>{
-              alert("Added to cart");
-            })
+            this.snack.open('Already added to cart', 'close',{
+              duration: 3000
+            });
           }
         })
        }
        else{
-         alert("Sorry we don't have required stock. Please choose a lesser quantity")
+        this.snack.open("Sorry we don't have required stock. Please choose a lesser quantity", 'close',{
+          duration: 3000
+        });
        }
     }
     else{
-      alert("Please Login ...")
+       alert("Please Login ...");
     }
   }
 

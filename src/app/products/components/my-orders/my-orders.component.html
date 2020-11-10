@@ -2,7 +2,7 @@
   <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12 main-content">
     <p class="heading">My-orders</p>
     <hr>
-    <mat-card class="card-section" *ngFor="let product of products; let i = index">
+    <mat-card class="card-section" *ngFor="let product of products; let i = index" (click)="trackOrderDetail(product)">
       <div class="row inner-row">
         <div class="col-lg-7 col-md-8 col-sm-8 col-xs-12 LHS">
           <div class="row sub-inner-row">
@@ -10,7 +10,7 @@
               <div class="main-content">
                 <img class="image" src="https://source.unsplash.com/1600x900/?product" alt="image">
                 <div class="content">
-                  <p class="head" (click)="trackOrderDetail(product)">{{product.product |titlecase }}</p>
+                  <p class="head" >{{product.product |titlecase }}</p>
                   <p class="text">Category: {{product.category}} </p>
                   <p class="text">Quantity: {{product.quantity}}</p>
                 </div>

@@ -1,7 +1,7 @@
-<mat-card class="card" >
-  <img mat-card-image src="https://source.unsplash.com/1600x900/?product" alt="Photo" (click)=" showProduct(product, product.productId)">
-  <ion-icon name="heart" class="heart-icon fav-color-active" *ngIf="favProductsID.includes(product.productId)"  (click)=" removeFromFavourite( product)" ></ion-icon>
-  <ion-icon name="heart" class="heart-icon fav-color-inactive" *ngIf="!favProductsID.includes(product.productId)"  (click)=" addToFavourite( product)" ></ion-icon>
+<mat-card class="card" (click)=" showProduct(product, product.productId)">
+  <img mat-card-image src="https://source.unsplash.com/1600x900/?product" alt="Photo">
+  <ion-icon name="heart" class="heart-icon fav-color-active" *ngIf="favProductsID.includes(product.productId)"  (click)=" removeFromFavourite($event, product)" ></ion-icon>
+  <ion-icon name="heart" class="heart-icon fav-color-inactive" *ngIf="!favProductsID.includes(product.productId)"  (click)=" addToFavourite($event, product)" ></ion-icon>
 
  <mat-card-content>
       <p class="card__title">{{ product.name | titlecase }}</p>
@@ -17,6 +17,6 @@
     <h6 *ngIf="product.stock < 1" class="out-of-stock grid-view__text">OUT OF STOCK</h6>
   </mat-card-content>
   <div class="add-button-bg" *ngIf="product.stock > 0">
-    <a  [routerLink]="['/products/list/']" > <ion-icon name="add-circle" class="add-button" (click)="addToCart(product.productId, 0)"></ion-icon> </a>
+    <a> <ion-icon name="add-circle" class="add-button" (click)="addToCart(product.productId, 0)"></ion-icon> </a>
   </div>
 </mat-card>

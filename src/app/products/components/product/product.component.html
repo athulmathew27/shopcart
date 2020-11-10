@@ -1,77 +1,79 @@
 <div class="container main-content">
+  <mat-card>
     <div class="row product-detail">
-        <div class="col-md-12">
-          <div class="content">
-            <div class="content__left">
-              <!-- <img src="https://source.unsplash.com/1600x900/?product" alt="" class="img"> -->
-              <carousel>
-                <slide>
-                  <img src="https://source.unsplash.com/1600x900/?product" alt="first slide" style="display: block; width: 100%;">
-                </slide>
-                <slide>
-                  <img src="https://source.unsplash.com/1610x910/?product" alt="second slide" style="display: block; width: 100%;">
-                </slide>
-                <slide>
-                  <img src="https://source.unsplash.com/1620x910/?product" alt="third slide" style="display: block; width: 100%;">
-                </slide>
-              </carousel>
-            </div>
-            <div class="content__right">
-              <!-- <div class="top"> -->
-                <div class="heading">
-                  {{product}}
-                </div>
-                <!-- <div class="button">
-                  <button mat-button class="secondary-button" (click)="addToCart(productID, quantity.value)" >Add to cart</button>
-                </div> -->
-              <!-- </div> -->
-
-              <div class="text">
-                {{price | currency}}
-              </div>
-              <div class="stock">
-                <p class="stock__main">stock left: {{ stock }}</p>
-                <span class="stock__sub">Hurry !</span>
-              </div>
-              <div class="offer">
-                <p class="offer-text">Inagural offer: </p>
-                <span class="offer-text-color">Free shipping</span>
-              </div>
-              <div class="quantity">
-                <form>
-                  Quantity: <input type="number" #quantity  class="quantity__input">
-                </form>
-                <button mat-button class="secondary-button" (click)="addToCart(productID, quantity.value)" >Add to cart</button>
-                <!-- <rating class="rating" [(ngModel)]="rate" [max]="max" readonly=true></rating> -->
-              </div>
+      <div class="col-12">
+        <div class="content">
+          <div class="content__left">
+            <!-- <img src="https://source.unsplash.com/1600x900/?product" alt="" class="img"> -->
+            <carousel>
+              <slide>
+                <img src="https://source.unsplash.com/1600x900/?product" alt="first slide" style="display: block; width: 100%;">
+              </slide>
+              <slide>
+                <img src="https://source.unsplash.com/1610x910/?product" alt="second slide" style="display: block; width: 100%;">
+              </slide>
+              <slide>
+                <img src="https://source.unsplash.com/1620x910/?product" alt="third slide" style="display: block; width: 100%;">
+              </slide>
+            </carousel>
           </div>
+          <div class="content__right">
+            <!-- <div class="top"> -->
+              <div class="heading">
+                {{product}}
+              </div>
+              <!-- <div class="button">
+                <button mat-button class="secondary-button" (click)="addToCart(productID, quantity.value)" >Add to cart</button>
+              </div> -->
+            <!-- </div> -->
+
+            <div class="text">
+              {{price | currency}}
+            </div>
+            <div class="stock">
+              <p class="stock__main">stock left: {{ stock }}</p>
+              <span class="stock__sub">Hurry !</span>
+            </div>
+            <div class="offer">
+              <p class="offer-text">Inagural offer: </p>
+              <span class="offer-text-color">Free shipping</span>
+            </div>
+            <div class="quantity">
+              <form>
+                Quantity: <input type="number" #quantity  class="quantity__input">
+              </form>
+              <button mat-button class="secondary-button" (click)="addToCart(productID, quantity.value)" *ngIf="stock > 0 && stock >= quantity.value">Add to cart</button>
+              <!-- <rating class="rating" [(ngModel)]="rate" [max]="max" readonly=true></rating> -->
+            </div>
         </div>
       </div>
-      <div class="col-md-10">
-        <div class="text-detail">
-            <h1 class="text-detail__heading"> Product Details </h1>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!
-        </div>
     </div>
-      <div class="row rating-section">
-        <div class="col-md-7">
-          <app-rating [productID]="productID"></app-rating>
-        </div>
-        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-          <mat-card class="similer" *ngFor="let similer of similerProducts | async" (click)=" showProduct(similer, similer.productId)">
-            <div class="left">
-                <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fsproutsocial.com%2Finsights%2Fsocial-media-image-sizes-guide%2F&psig=AOvVaw0jDfiCJZVm2cPckyu9H4DN&ust=1601370899052000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPC56pbBi-wCFQAAAAAdAAAAABAD" alt="similer products">
-            </div>
-            <div class="right">
-              <p class="right__heading">{{similer.name | titlecase}}</p>
-            </div>
-          </mat-card>
-        </div>
+    <div class="col-10">
+      <div class="text-detail">
+          <h1 class="text-detail__heading"> Product Details </h1>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!
+      </div>
+  </div>
+    <div class="row rating-section">
+      <div class="col-7">
+        <app-rating [productID]="productID"></app-rating>
+      </div>
+      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+        <mat-card class="similer" *ngFor="let similer of similerProducts | async" (click)=" showProduct(similer, similer.productId)">
+          <div class="left">
+              <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fsproutsocial.com%2Finsights%2Fsocial-media-image-sizes-guide%2F&psig=AOvVaw0jDfiCJZVm2cPckyu9H4DN&ust=1601370899052000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPC56pbBi-wCFQAAAAAdAAAAABAD" alt="similer products">
+          </div>
+          <div class="right">
+            <p class="right__heading">{{similer.name | titlecase}}</p>
+          </div>
+        </mat-card>
       </div>
     </div>
-    </div>
+  </div>
+  </mat-card>
+</div>
 
 
 

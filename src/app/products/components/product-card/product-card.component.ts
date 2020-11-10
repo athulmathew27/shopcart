@@ -53,8 +53,9 @@ export class ProductCardComponent implements OnInit, OnChanges {
     }
   }
 
-  addToFavourite(product)
+  addToFavourite(e, product)
   {
+    e.stopPropagation();
     var user = firebase.auth().currentUser;
     if(user)
     {
@@ -63,14 +64,16 @@ export class ProductCardComponent implements OnInit, OnChanges {
       .subscribe(val=>{
           if(val.length > 0){
             //alert('already added to favourie')
-            this.snack.open('Message archived', 'close',{
+            this.snack.open('Added To Wishlist', 'close',{
               duration: 3000
             });
           }
           else{
             this.firestore.collection('users').doc(this.user.uid).collection('favourite').add({productID : product.productId})
             .then(()=>{
-              alert("Added to favourite");
+              this.snack.open('Added To Wishlist', 'close',{
+                duration: 3000
+              });
             }).catch(err=>{
               console.log(err)
             })
@@ -79,8 +82,9 @@ export class ProductCardComponent implements OnInit, OnChanges {
     }
   }
 
-  removeFromFavourite(product)
+  removeFromFavourite(e, product)
   {
+    e.stopPropagation();
     var user = firebase.auth().currentUser;
     if(user)
     {
@@ -89,7 +93,9 @@ export class ProductCardComponent implements OnInit, OnChanges {
       .subscribe(val=>{
           let docId = val[0]["fav-doc-id"]
           this.firestore.collection('users').doc(this.user.uid).collection('favourite').doc(docId).delete().then(()=>{
-            alert("removed")
+            this.snack.open('Removed', 'close',{
+              duration: 3000
+            });
             window.location.reload()
           })
           .catch(err=>{
@@ -107,14 +113,9 @@ export class ProductCardComponent implements OnInit, OnChanges {
 
         this.firestore.collection('users').doc(this.user.uid).collection('cart', ref => ref.where('productID', '==', productID)).valueChanges()
         .subscribe(val=>{
-          if(val.length > 0){
-            alert("already added")
-          }
-          else{
             this.firestore.collection('users').doc(this.user.uid).collection('cart').add({productID : productID, quantity : quantity}).then(()=>{
               alert("Added to cart");
             })
-          }
         })
 
     }
