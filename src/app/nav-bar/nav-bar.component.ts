@@ -44,7 +44,7 @@ export class NavBarComponent implements OnInit {
     if(item){
       this.filteredProductList = [];
       for (let i = 0; i < this.productList.length; i++) {
-        if(this.productList[i].name.startsWith(item)){
+        if(this.productList[i].name.toLowerCase().startsWith(item.toLowerCase())){
           this.filteredProductList.push(this.productList[i])
         }
       }

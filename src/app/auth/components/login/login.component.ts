@@ -56,9 +56,6 @@ export class LoginComponent implements OnInit {
       window.location.reload();
     }
   })
-  // .catch(function(error) {
-  //   console.log(error.message);
-  // });
  }
 
 
