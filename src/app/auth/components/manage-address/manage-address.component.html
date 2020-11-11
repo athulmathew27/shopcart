@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-11">
-    <mat-card>
+    <mat-card *ngIf="!showAddAddressPage">
       <h3>Manage Addresses</h3>
       <div class="top-box">
         <li class="link" (click)="addNewAddress()">
@@ -15,7 +15,6 @@
             <p class="text-head">{{displayName}}</p>
 
             <mat-select class="select-box">
-              <mat-label><mat-icon>more_vert</mat-icon></mat-label>
               <mat-option (click)="onEdit(addressData)">Edit</mat-option>
               <mat-option (click)="onDelete(addressData.addressId)">Delete</mat-option>
             </mat-select>
@@ -26,5 +25,8 @@
 
       <app-update-address [currentAddress]="selectedAddress" (parentFunction)="isEditToggler($event)" [user]="user" *ngIf="isEdit == true"></app-update-address>
     </mat-card>
+
+      <app-add-address (parentFunction)="isAddAddressToggler($event)" *ngIf="showAddAddressPage"></app-add-address>
+
   </div>
 </div>

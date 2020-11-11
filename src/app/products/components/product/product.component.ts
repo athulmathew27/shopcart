@@ -17,14 +17,15 @@ import * as firebase from 'firebase';
 })
 export class ProductComponent implements OnInit, OnDestroy {
 
- productID : string;
- product : string;
- category : string;
- image : string;
- price : number;
- stock : number;
- max :number = 5;
- rate :number = 1;
+  productID : string;
+  product : string;
+  category : string;
+  image : string;
+  price : number;
+  stock : number;
+  max :number = 5;
+  rate :number = 1;
+  uncheckableRadioModel = 1;
   //productId : string;
   similerProducts : Observable<Product[]>;
   subscription : Subscription;
@@ -85,6 +86,10 @@ export class ProductComponent implements OnInit, OnDestroy {
     }
   }
 
+  show(s){
+    console.log(s);
+
+  }
   ngOnDestroy():void{
     this.subscription.unsubscribe();
   }

@@ -35,20 +35,14 @@ export class TrackMyordersStepperComponent implements OnInit, AfterViewInit,OnCh
       this.process = false;
     }, 1500);
   }
+
   ngOnChanges(changes : SimpleChanges){
     if(changes.statusData.currentValue && changes.currentProcess.currentValue){
-    //   if(this.currentProcess ==3){
-    //     this.orderStatus = "Order Placed";
-    //   }
-    //   if(this.currentProcess ==2){
-    //     this.orderStatus = "Shipped";
-    //   }
-    //   if(this.currentProcess ==1){
-    //     this.orderStatus = "Near By";
-    //   }
-    //   if(this.currentProcess ==4){
-    //     this.orderStatus = "Delivered";
-    //   }
+    this.process = true;
+    setTimeout(() => {
+      this.currentStep = this.currentProcess;
+      this.process = false;
+    }, 1500);
      }
   }
 

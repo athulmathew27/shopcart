@@ -1,16 +1,16 @@
 
 @import '../../../../styles.scss';
 
+
+
 .content{
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 
 .card-block{
-  margin: 1.15rem 3rem;
-
+  margin: 1.15rem 1rem;
   line-height: .6rem;
 
 
@@ -33,56 +33,3 @@
 
 
 
-
-.popup{
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0%;
-  left: 0;
-  background-color:rgba( #000000, .8);
-  z-index: 9999;
-  transition: all .5;
-  //to hide during start
-  opacity: 0;
-  visibility: hidden;
-
-  &:target{
-    opacity: 1;
-    visibility: visible;
-  }
-
-  &__close{
-    opacity: 0;
-    visibility: hidden;
-  }
-  &__content{
-    width: 75%;
-    background-color: white;
-    box-shadow: 0 1.5rem 3rem rgba($color: #000000, $alpha: .2);
-    border-radius: .2rem;
-    padding: .1rem;
-    @include absCenter;
-  }
-  &__left{
-    width: 45%;
-    float: left;
-  }
-  &__right{
-    width: 55%;
-    float: right;
-  }
-  &__img{
-    display: block;
-    width: 100%;
-    overflow: hidden;
-  }
-  &__text{
-    font-size: 1.2rem;
-    font-weight: 300;
-    // column-count: 2;
-    // column-gap: 4rem;
-    // column-rule: salmon;
-    // column-width: 5rem;
-  }
-}

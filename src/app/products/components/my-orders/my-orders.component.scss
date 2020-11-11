@@ -20,16 +20,18 @@
             width: 100%;
             .main-content{
               display: flex;
+              align-items: center;
               margin-left: 2rem;
               .image{
                 height: 75px;
                 width: 75px;
                 margin-top: 1rem;
+                margin-right: 2rem;
               }
               .content{
                 margin-left: 1rem;
                 .head{
-                  font-size: 1.4rem;
+                  font-size: 1.3rem;
                   font-weight: 400;
                   &:hover{
                     color: blue;
@@ -43,6 +45,8 @@
             }
             .payment-area{
               margin-top: 1rem;
+              display: flex;
+              align-items: center;
             }
           }
         }

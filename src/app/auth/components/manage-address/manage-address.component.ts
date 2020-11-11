@@ -18,6 +18,7 @@ export class ManageAddressComponent implements OnInit {
   addresses :Observable<any[]>;
   selectedAddress :Address;
   isEdit : boolean = false;
+  showAddAddressPage :boolean = false;
   constructor(private firestore : AngularFirestore,
               private dialog : MatDialog) { }
 
@@ -37,8 +38,12 @@ export class ManageAddressComponent implements OnInit {
 isEditToggler(data){
   this.isEdit = data;//to false form child => parent (from update address)
 }
+isAddAddressToggler(data){
+  this.showAddAddressPage = false;
+}
 addNewAddress(){
-  this.dialog.open(DeliveryAddressComponent)
+  // this.dialog.open(DeliveryAddressComponent)
+  this.showAddAddressPage = true;
 }
 onEdit(address){
   this.isEdit = !this.isEdit

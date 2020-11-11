@@ -32,10 +32,11 @@
   .image{
     width: 82px;
     min-height: 72px;
-    margin-top: .1rem;
-    margin-left: .5rem;
+    // margin-top: .1rem;
+    // margin-left: .5rem;
+    margin: auto 0 auto .5rem;
     .image-size{
-      height: 70%;
+      height: 70px;
     }
   }
   .product-sec{

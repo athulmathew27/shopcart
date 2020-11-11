@@ -1,0 +1,118 @@
+<mat-card class="card">
+  <h3>ADD ADDRESS</h3>
+  <hr>
+  <div class="row">
+    <div class="col-12">
+      <form class="form-style" #addAddress="ngForm" (ngSubmit)="onAddressSave(addAddress.value)">
+
+        <div class="form-group">
+          <label for="address">House Name/Apartment</label>
+          <input type="text" class="form-control" name="address" ngModel #address="ngModel" placeholder="Enter House/Apartment name or no" required minlength="3">
+          <div *ngIf="address.invalid && (address.dirty || address.touched)"  class="errormessage">
+            <div *ngIf="address.errors.required">
+              Address is required.
+            </div>
+            <div *ngIf="address.errors.minlength">
+              Address must be at least 3 characters long.
+            </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+            <label for="pincode">Zipcode </label>
+            <input type="number" name="pincode" placeholder="Zipcode" class="form-control" (change)="fetchPostofficeDetails(pincode.value)" ngModel #pincode="ngModel" required  minlength="6" type="number">
+            <div *ngIf="pincode.invalid && (pincode.dirty || pincode.touched)"  class="errormessage">
+              <div *ngIf="pincode.errors.required">
+                Zipcode is required.
+              </div>
+              <div *ngIf="pincode.errors.minlength">
+                Zipcode must be at least 6 characters long.
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+            <label>Postoffice </label>
+            <input type="text" class="form-control" placeholder="Postoffice"  name="postoffice" [(ngModel)]="postofficeValue" #postoffice required >
+            <div *ngIf="postoffice.invalid && (postoffice.dirty || postoffice.touched)"  class="errormessage">
+              <div *ngIf="postoffice.errors.required">
+                Postoffice is required.
+              </div>
+              <div *ngIf="postoffice.errors.minlength">
+                Postoffice must be at least 6 characters long.
+              </div>
+            </div>
+          </div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <div class="form-group">
+            <label>District </label>
+            <input type="text" class="form-control" placeholder="District" name="district" [(ngModel)]="distritValue" #district required >
+            <div *ngIf="district.invalid && (district.dirty || district.touched)"  class="errormessage">
+              <div *ngIf="district.errors.required">
+                District is required.
+              </div>
+            </div>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+            <label>State </label>
+            <input type="text"  name="state" placeholder="State" class="form-control"  [(ngModel)]="stateValue" #state required >
+            <div *ngIf="state.invalid && (state.dirty || state.touched)"  class="errormessage">
+              <div *ngIf="state.errors.required">
+                State is required.
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- <mat-form-field class="half-width">
+          <mat-label>District </mat-label>
+          <input matInput  name="district" [(ngModel)]="distritValue" #district required >
+          <div *ngIf="district.invalid && (district.dirty || district.touched)"  class="errormessage">
+            <div *ngIf="district.errors.required">
+              District is required.
+            </div>
+          </div>
+        </mat-form-field> -->
+
+        <!-- <mat-form-field class="half-width">
+          <mat-label>State </mat-label>
+          <input matInput  name="state"   [(ngModel)]="stateValue" #state required >
+          <div *ngIf="state.invalid && (state.dirty || state.touched)"  class="errormessage">
+            <div *ngIf="state.errors.required">
+              State is required.
+            </div>
+          </div>
+        </mat-form-field> -->
+
+        <div class="form-group">
+          <label for="address">Country</label>
+          <input type="text" class="form-control" placeholder="Country" name="country"  [(ngModel)]="countryValue" #country required >
+          <div *ngIf="country.invalid && (country.dirty || country.touched)"  class="errormessage">
+            <div *ngIf="country.errors.required">
+              Country is required.
+            </div>
+          </div>
+        </div>
+
+        <!-- <mat-form-field class="half-width">
+          <mat-label>Country </mat-label>
+
+        </mat-form-field> -->
+
+        <button class="primary-button" mat-raised-button [disabled]="addAddress.invalid" type="submit">Add</button>
+        <button class="cancel-button" mat-raised-button  type="button" (click)="onCancel()">cancel</button>
+      </form>
+    </div>
+  </div>
+</mat-card>

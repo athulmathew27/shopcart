@@ -1,9 +1,9 @@
-<div class="container main-content">
-  <mat-card>
-    <div class="row product-detail">
-      <div class="col-12">
-        <div class="content">
-          <div class="content__left">
+<div class="row main-row">
+  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+    <mat-card class="card">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+          <div class="image-sec">
             <!-- <img src="https://source.unsplash.com/1600x900/?product" alt="" class="img"> -->
             <carousel>
               <slide>
@@ -17,63 +17,61 @@
               </slide>
             </carousel>
           </div>
-          <div class="content__right">
-            <!-- <div class="top"> -->
-              <div class="heading">
-                {{product}}
+        </div>
+        <div class="col-lg-8 col-md-6 col-sm-6 col-xs-12">
+          <div class="row">
+            <div class="col-lg-6 col-lg-6 col-lg-6 col-xs-12">
+              <p class="title">{{product |titlecase}}</p>
+              <span class="text">{{price |currency}}</span>
+              <p class="text">Stock left: {{stock}}</p>
+              <span class="green">Hurry!</span>
+              <p class="green"> Free Shipping</p>
+              <div class="vertical">
+                <p class="text">Quantity</p>
+                <div class="btn-group" btnRadioGroup name="quantity" [(ngModel)]="uncheckableRadioModel">
+                  <label class="btn btn-info toggle-btn" btnRadio="1" uncheckable tabindex="0" role="button">1kg</label>
+                  <label class="btn btn-info toggle-btn" btnRadio="2" uncheckable tabindex="0" role="button">2kg</label>
+                  <label class="btn btn-info toggle-btn" btnRadio="3" uncheckable tabindex="0" role="button">3kg</label>
+                  <label class="btn btn-info toggle-btn" btnRadio="4" uncheckable tabindex="0" role="button">4kg</label>
+                  <label class="btn btn-info toggle-btn" btnRadio="5" uncheckable tabindex="0" role="button">5kg</label>
+                </div>
               </div>
-              <!-- <div class="button">
-                <button mat-button class="secondary-button" (click)="addToCart(productID, quantity.value)" >Add to cart</button>
-              </div> -->
-            <!-- </div> -->
-
-            <div class="text">
-              {{price | currency}}
+              <button class="primary-button" mat-raised-button (click)="addToCart(productID, uncheckableRadioModel)">Add to Cart</button>
             </div>
-            <div class="stock">
-              <p class="stock__main">stock left: {{ stock }}</p>
-              <span class="stock__sub">Hurry !</span>
+            <div class="col-lg-6 col-lg-6 col-lg-6 col-xs-12">
+              <div class="similer" *ngFor="let similer of similerProducts | async" (click)=" showProduct(similer, similer.productId)">
+                <div class="left">
+                    <img class="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQibg5f0fBrTxJSacQUfseRAN27xwQD9tId5Q&usqp=CAU" alt="similer products">
+                </div>
+                <div class="right">
+                  <p>{{similer.name | titlecase}}</p>
+                </div>
+              </div>
             </div>
-            <div class="offer">
-              <p class="offer-text">Inagural offer: </p>
-              <span class="offer-text-color">Free shipping</span>
-            </div>
-            <div class="quantity">
-              <form>
-                Quantity: <input type="number" #quantity  class="quantity__input">
-              </form>
-              <button mat-button class="secondary-button" (click)="addToCart(productID, quantity.value)" *ngIf="stock > 0 && stock >= quantity.value">Add to cart</button>
-              <!-- <rating class="rating" [(ngModel)]="rate" [max]="max" readonly=true></rating> -->
-            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="col-10">
-      <div class="text-detail">
-          <h1 class="text-detail__heading"> Product Details </h1>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!
-      </div>
-  </div>
-    <div class="row rating-section">
-      <div class="col-7">
-        <app-rating [productID]="productID"></app-rating>
-      </div>
-      <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-        <mat-card class="similer" *ngFor="let similer of similerProducts | async" (click)=" showProduct(similer, similer.productId)">
-          <div class="left">
-              <img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fsproutsocial.com%2Finsights%2Fsocial-media-image-sizes-guide%2F&psig=AOvVaw0jDfiCJZVm2cPckyu9H4DN&ust=1601370899052000&source=images&cd=vfe&ved=0CAIQjRxqFwoTCPC56pbBi-wCFQAAAAAdAAAAABAD" alt="similer products">
+      <div class="row product-detail">
+        <div class="col-lg-10 col-md-10 col-sm-11 col-xs-12">
+          <div class="text-detail">
+              <h1 class="text-detail_heading"> Product Details </h1>
+              <p class="text">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!Quo placeat sed totam ad porro dolorem soluta quibusdam! Quibusdam alias optio!
+              </p>
           </div>
-          <div class="right">
-            <p class="right__heading">{{similer.name | titlecase}}</p>
+        </div>
+        <div class="row rating-sec">
+          <div class="col-lg-10 col-md-10 col-sm-11 col-xs-12">
+            <app-rating [productID]="productID"></app-rating>
           </div>
-        </mat-card>
-      </div>
+        </div>
     </div>
+    </mat-card>
   </div>
-  </mat-card>
 </div>
+
 
 
 

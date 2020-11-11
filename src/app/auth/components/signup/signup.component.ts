@@ -23,16 +23,21 @@ export class SignupComponent implements OnInit {
 
   ngOnInit(): void {  }
 
-  signup(email, password, name){
-    this.fireAuth.createUserWithEmailAndPassword(email,password)
-    .then(res =>{
-      this.firestore.collection('users').doc(res.user.uid).set({displayName : name, image : "null"}).then(function() {
-        localStorage.setItem('user',JSON.stringify(res.user));
-        window.location.reload();
-    }).catch(err =>{
-      alert(err)
-    });
-    })
+  signup(email, password, name, cpass){
+    if(cpass == password){
+      this.fireAuth.createUserWithEmailAndPassword(email,password)
+      .then(res =>{
+        this.firestore.collection('users').doc(res.user.uid).set({displayName : name, image : "null"}).then(function() {
+          localStorage.setItem('user',JSON.stringify(res.user));
+          window.location.reload();
+      }).catch(err =>{
+        alert(err)
+      });
+      })
+    }
+    else{
+      this.router.navigate(['auth/login'])
+    }
  }
 
 

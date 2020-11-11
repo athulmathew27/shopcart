@@ -27,11 +27,11 @@
               <span class="error" *ngIf="!password.valid && password.touched"> Enter a valid password!</span>
             </mat-form-field>
 
-            <button mat-raised-button class="login-btn" type="submit" [disabled]="!loginForm.valid">Signin</button>
-            <div class="social-sec">
+            <button mat-raised-button class="primary-button" type="submit" [disabled]="!loginForm.valid">Signin</button>
+            <!-- <div class="social-sec">
               <p class="text">or login with </p>
               <button type="button"  (click)="createUserViaGoogle()" class="google-btn">G</button>
-            </div>
+            </div> -->
           </form>
         </div>
       </div>

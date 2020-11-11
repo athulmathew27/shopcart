@@ -1,0 +1,56 @@
+@import '../../../../styles.scss';
+
+
+
+.errormessage
+{
+  color : red;
+  font-size: 12px;
+}
+
+text:hover,
+input:hover,
+text:active,
+input:active,
+text:focus,
+input:focus,
+button:focus,
+button:active,
+button:hover,
+label:focus,
+.btn:active,
+.btn.active
+{
+    outline:0px !important;
+    -webkit-appearance:none;
+    box-shadow: none !important;
+}
+
+.card{
+  padding: 2rem;
+}
+.form-control{
+  height: 4rem;
+}
+.primary-button{
+  // color: white;
+  // background-color: #2874f0;
+  margin-right: 1rem;
+  width: 9rem;
+  height: 4rem;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  text-transform: uppercase;
+}
+.cancel-button{
+  color: black;
+  background-color: white;
+  margin-right: 1rem;
+  width: 9rem;
+  height: 4rem;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  text-transform: uppercase;
+}

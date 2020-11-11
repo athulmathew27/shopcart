@@ -27,7 +27,7 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
-
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { RatingModule } from 'ngx-bootstrap/rating';
@@ -112,6 +112,7 @@ import { CategoryBasedFilterPipe } from './pipes/category-based-filter.pipe';
     MatProgressBarModule,
     MatIconModule,
     CarouselModule,
+    ButtonsModule,
     RatingModule,
     ProductsRoutingModule,
     // StoreModule.forFeature({ products : fromProduct.productsReducer} ),

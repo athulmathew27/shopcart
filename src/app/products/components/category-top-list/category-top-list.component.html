@@ -1,5 +1,5 @@
-<div class="row main-row">
-  <div class="col-12 vertical">
+<div class="row main-row mat-elevation-z2">
+  <div class="col-12 vertical mat-elivation">
     <button class="btn text-all" (click)="selectItem('all')">All</button>
     <button class="btn" (click)="selectItem(cat.name)" *ngFor="let cat of category$ |async">{{cat.name}}</button>
   </div>

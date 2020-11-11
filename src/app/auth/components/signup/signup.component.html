@@ -59,7 +59,16 @@
               <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
               </button>
             </mat-form-field>
-             <button mat-raised-button class="login-btn" [disabled]="signupForm.invalid" (click)="signup(email.value, password.value, name.value)">Sign Up</button>
+
+            <mat-form-field class="example-full-width" >
+              <mat-label>Confirm password</mat-label>
+              <input matInput #cpassword [type]="hide ? 'password' : 'text'" required>
+              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+            </mat-form-field>
+
+             <button mat-raised-button class="primary-button" [disabled]="signupForm.invalid" (click)="signup(email.value, password.value, name.value, cpassword.value)">Sign Up</button>
           </form>
         </div>
       </div>

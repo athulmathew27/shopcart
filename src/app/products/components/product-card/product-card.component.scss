@@ -17,6 +17,7 @@
   justify-content: center;
 
   &__content{
+    font-size: 1rem;
   }
 }
 
@@ -41,10 +42,18 @@
   transition: transform all .8s;
   line-height: .2rem;
   cursor: pointer;
+  padding-top: 3rem;
+  position: relative;
+  .image{
+    width: 100%;
+    height: 8rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+  }
 
   &__title{
     text-align: center;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 500;
     font-family: 'Lato', sans-serif !important;
     &__sub{
@@ -64,6 +73,9 @@
 
    .heart-icon{
      font-size: 1.7rem;
+     position: absolute;
+     top:9px;
+     right: 10px;
    }
    .fav-color-active{
      color: red;
