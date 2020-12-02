@@ -26,7 +26,8 @@ export class ViewOrdersComponent implements  OnInit {
   filterArg : string ="";
   searchBy : string = "";
   date : number[] = [];
-
+  startDate :string;
+  endDate :string;
 
   constructor(private firestore : AngularFirestore) { }
 
@@ -91,10 +92,16 @@ export class ViewOrdersComponent implements  OnInit {
   filterByPreference(filterOn){
     this.filterArg = filterOn;
   }
+  filterByDate(date){
+    this.startDate = date.startDate;
+    this.endDate = date.endDate;
+  }
 
   resetTable(){
     this.filterArg = "";
     this.searchBy = "";
+    this.startDate = null;
+    this.endDate = null;
   }
   searchInTable(searchBy){
     this.searchBy = searchBy;

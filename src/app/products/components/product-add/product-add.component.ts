@@ -18,9 +18,11 @@ export class ProductAddComponent implements OnInit {
 
   category : Observable<any[]>;
   product : Product;
+  imgSrc :string;
+  selectedImage :string="";
   constructor( private firestore: AngularFirestore,
                private productService : ProductsService,
-               private store : Store<fromApp.AppState>
+               private store : Store<fromApp.AppState>,
                )
   {
     this.category = firestore.collection('category').valueChanges();
@@ -52,8 +54,13 @@ export class ProductAddComponent implements OnInit {
       price : productData.price,
       image : productData.image
     }
-       this.productService.addNewProduct(this.product);
+       this.productService.addNewProduct(this.product, this.selectedImage)
      // this.store.dispatch(new fromProductAction.AddProducts(productData))
   }
 
+  imageFetcher(imgEvt :any){
+    if(imgEvt.target.files && imgEvt.target){
+      this.selectedImage = imgEvt.target.files[0];
+    }
+  }
 }

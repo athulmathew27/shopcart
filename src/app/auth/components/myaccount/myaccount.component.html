@@ -64,18 +64,24 @@
 
     <li role="menuitem">
       <a class="dropdown-item">
-        <div class="vertical" routerLink="products/favourite">
-          <span class="material-icons">favorite_border</span>
-          <span class="text">Wishlist</span>
+        <div class="vert-main">
+          <div class="vertical" routerLink="products/favourite">
+            <span class="material-icons">favorite_border</span>
+            <span class="text">Wishlist</span>
+          </div>
+          <span class="text" *ngIf="favCount > 0">{{favCount}}</span>
         </div>
       </a>
     </li>
 
     <li role="menuitem">
       <a class="dropdown-item">
-        <div class="vertical" routerLink="products/cart">
-          <span class="material-icons">shopping_cart</span>
-          <span class="text" >My Cart</span>
+        <div class="vert-main">
+          <div class="vertical" routerLink="products/cart">
+            <span class="material-icons">shopping_cart</span>
+            <span class="text" >My Cart</span>
+          </div>
+          <span class="text" *ngIf="cartCount > 0">{{cartCount}}</span>
         </div>
       </a>
     </li>

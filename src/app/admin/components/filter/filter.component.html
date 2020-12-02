@@ -1,30 +1,43 @@
-<mat-form-field>
-  <mat-label>Filter</mat-label>
-  <mat-select>
-      <mat-option><mat-label>Payment Type</mat-label>
-        <mat-select>
-          <mat-option (click)="filterByPreference('paymentTypeCOD')">COD</mat-option>
-          <mat-option (click)="filterByPreference('paymentTypeNetBank')">Net Banking</mat-option>
-        </mat-select>
-      </mat-option>
+<div class="vertically">
+  <mat-form-field>
+    <mat-label>Filter By Delivary Options</mat-label>
+    <mat-select>
+        <!-- <mat-option><mat-label>Payment Type</mat-label>
+          <mat-select> -->
+            <mat-option (click)="filterByPreference('paymentTypeCOD')">COD</mat-option>
+            <mat-option (click)="filterByPreference('paymentTypeNetBank')">Net Banking</mat-option>
+          <!-- </mat-select>
+        </mat-option> -->
+    </mat-select>
+  </mat-form-field>
 
-      <mat-option><mat-label>Order Status</mat-label>
-        <mat-select>
-          <mat-option (click)="filterByPreference('OrderPlaced')">Order Placed</mat-option>
-          <mat-option (click)="filterByPreference('OrderDelivered')">Delivered</mat-option>
-          <mat-option (click)="filterByPreference('OrderNearBy')">Near By</mat-option>
-          <mat-option (click)="filterByPreference('OrderShipped')">Shipped</mat-option>
-        </mat-select>
-      </mat-option>
+  <mat-form-field>
+    <mat-label>Filter By Status</mat-label>
+    <mat-select>
+          <!-- <mat-option><mat-label>Order Status</mat-label>
+          <mat-select> -->
+            <mat-option (click)="filterByPreference('OrderPlaced')">Order Placed</mat-option>
+            <mat-option (click)="filterByPreference('OrderDelivered')">Delivered</mat-option>
+            <mat-option (click)="filterByPreference('OrderNearBy')">Near By</mat-option>
+            <mat-option (click)="filterByPreference('OrderShipped')">Shipped</mat-option>
+          <!-- </mat-select>
+        </mat-option> -->
+    </mat-select>
+  </mat-form-field>
 
-      <mat-option><mat-label>Date</mat-label>
-        <mat-select>
-          <mat-option (click)="filterByPreference('dateToday')">Today</mat-option>
-          <mat-option (click)="filterByPreference('dateYesterday')">Yesterday</mat-option>
-          <mat-option (click)="filterByPreference('date3days')">Last 3 days</mat-option>
-          <mat-option (click)="filterByPreference('dateBefore3days')">Before 3 days</mat-option>
-        </mat-select>
-      </mat-option>
-
-  </mat-select>
-</mat-form-field>
+  <mat-form-field>
+    <mat-label>Filter By Date</mat-label>
+    <mat-select>
+        <!-- <mat-option><mat-label>Date</mat-label>
+          <mat-select> -->
+            <mat-option (click)="filterByPreference('dateToday')">Today</mat-option>
+            <mat-option (click)="filterByPreference('dateYesterday')">Yesterday</mat-option>
+            <mat-option (click)="filterByPreference('date3days')">Last 3 days</mat-option>
+            <mat-option (click)="filterByPreference('dateBefore3days')">Before 3 days</mat-option>
+          <!-- </mat-select>
+        </mat-option> -->
+    </mat-select>
+  </mat-form-field>
+  <input type="text" (bsValueChange)="datePicker($event)" placeholder="Date Range" #date class="form-control date-picker" bsDaterangepicker
+  [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY', showWeekNumbers: false , isAnimated: true, containerClass : 'theme-dark-blue' }">
+</div>

@@ -13,17 +13,18 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
-
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { FormsModule } from '@angular/forms';
 import { FilterPipe } from './pipes/filter.pipe';
 import { SearchPipe } from './pipes/search.pipe';
 import { FilterComponent } from './components/filter/filter.component';
+import { DateFilterPipe } from './pipes/date-filter.pipe';
 
 
 
 
 @NgModule({
-  declarations: [AdminHomeComponent, ViewOrdersComponent, FilterPipe, SearchPipe, FilterComponent],
+  declarations: [AdminHomeComponent, ViewOrdersComponent, FilterPipe, SearchPipe, FilterComponent, DateFilterPipe],
   imports: [
     CommonModule,
     FormsModule,
@@ -36,7 +37,8 @@ import { FilterComponent } from './components/filter/filter.component';
     MatSortModule,
     MatSelectModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    BsDatepickerModule.forRoot(),
   ]
 })
 export class AdminModule { }

@@ -17,14 +17,14 @@ PLEASE WAIT ....
         <mat-icon class="search-icon">search</mat-icon>
       </div>
       <div class="right">
-        <app-filter (callParentFunction)="filterByPreference($event)"></app-filter>
+        <app-filter (callParentFunction)="filterByPreference($event)" (callParentFunction2)="filterByDate($event)"></app-filter>
         <button class="primary-button" mat-raised-button (click)="resetTable()">Reset</button>
       </div>
     </div>
 
 
 
-    <mat-table  [dataSource]="orderData |filter:filterArg |search:searchBy"  *ngIf="orderData && orderData.length >= 3">
+    <mat-table  [dataSource]="orderData |filter:filterArg |dateFilter:startDate:endDate |search:searchBy"  *ngIf="orderData && orderData.length >= 9">
 
       <ng-container matColumnDef="index" >
         <mat-header-cell  *matHeaderCellDef class="index"> No. </mat-header-cell>

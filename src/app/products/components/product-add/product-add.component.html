@@ -28,7 +28,7 @@
         <span class="errormessage" *ngIf="stock.invalid && stock.touched  ">stock is required</span>
       </mat-form-field>
 
-      <input type="file" formControlName="image">
+      <input type="file" accept="image/*" #image formControlName="image" (change)="imageFetcher($event)">
       <span class="errormessage" *ngIf="image.invalid && image.touched  ">Image is required</span>
 
       <button mat-raised-button [disabled]="!addProductForm.valid" mat-dialog-close type="submit" class="primary-button">Add</button>

@@ -9,7 +9,7 @@
           <div class="block" *ngFor="let product of products; let i = index">
             <div class="row sub-row">
               <div class="col img-block">
-                <img class="image" src="https://source.unsplash.com/1600x900/?product" alt="image">
+                <img class="image" [src]="product.image" alt="image">
               </div>
               <div class="col text-block">
                 <p class="head">{{product.name | titlecase}}</p>

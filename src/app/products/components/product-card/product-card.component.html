@@ -1,5 +1,5 @@
 <mat-card class="card" (click)=" showProduct(product, product.productId)">
-  <img class="image" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTu9CS2l8gu4UsyoghST14bOIfhGBL2ItyIIQ&usqp=CAU" alt="Photo">
+  <img class="image" [src]="product.image" alt="Photo">
   <ion-icon name="heart" class="heart-icon fav-color-active" *ngIf="favProductsID.includes(product.productId)"  (click)=" removeFromFavourite($event, product)" ></ion-icon>
   <ion-icon name="heart" class="heart-icon fav-color-inactive" *ngIf="!favProductsID.includes(product.productId)"  (click)=" addToFavourite($event, product)" ></ion-icon>
 

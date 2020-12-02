@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Product } from '../products/models/products.model';
 import { ProductSearchService } from '../products/services/product-search.service';
-
+import * as firebase from 'firebase';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -22,15 +22,29 @@ export class NavBarComponent implements OnInit {
   showProductListPage : boolean = false;
   productList :Product[] = [];
   filteredProductList :Product[] = [];
+  cartItemCount :number = 0;
+  userId :string;
   constructor(private breakpointObserver: BreakpointObserver,
               private authService : AuthService,
               private firestore : AngularFirestore,
               private ProductSearchService :ProductSearchService,
               private router :Router) {}
   ngOnInit() :void {
+
     this.firestore.collection<Product>('products').valueChanges({ idField: 'productId' }).subscribe(val =>{
       this.productList = val;
     })
+    firebase.auth().onAuthStateChanged((user)=>{
+      if (user) {
+        // User is signed in.
+        this.userId =user.uid;
+        this.firestore.collection("users").doc(user.uid).collection("cart").valueChanges().subscribe(val=>{
+            this.cartItemCount = val.length;
+          })
+      } else {
+        console.log("No user logined");
+      }
+    });
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)

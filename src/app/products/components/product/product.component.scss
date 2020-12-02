@@ -8,9 +8,11 @@
 .card{
   margin-top: 2rem;
   .image-sec{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     // max-width: 45%;
     // min-width: 28rem;
-    float: left;
   }
   .title{
     font-size: 1.6rem;

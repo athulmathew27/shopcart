@@ -33,11 +33,11 @@
         </form> -->
 
 
-        <app-myaccount></app-myaccount>
+        <app-myaccount [cartItemCount]="cartItemCount" [userId]="userId"></app-myaccount>
 
         <div class="vertical" routerLink="products/cart">
-          <span class="material-icons">shopping_cart</span>
-          <a class="text" >My Cart</a>
+          <span class="material-icons" >shopping_cart</span>
+          <a class="text" [matBadge]="cartItemCount" matBadgeColor="accent" matBadgeOverlap="false">My Cart</a>
         </div>
 
         <!-- <ion-icon (click)="onManageUser()" name="person-circle" class="nav__user-icon" ></ion-icon> -->
