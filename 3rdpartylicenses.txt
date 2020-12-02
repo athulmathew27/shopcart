@@ -413,6 +413,8 @@ firebase/auth
 
 firebase/firestore
 
+firebase/storage
+
 idb
 ISC
 ISC License (ISC)
