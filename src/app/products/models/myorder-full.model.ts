@@ -12,5 +12,6 @@ export interface MyorderFull {
   status? :string,
   date? : any,
   price : number,
-  myproductId : string
+  myproductId : string,
+  image : string
 }

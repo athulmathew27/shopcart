@@ -1,7 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
-import { Category } from 'src/app/category/model/category.model';
 
 @Component({
   selector: 'app-category-top-list',

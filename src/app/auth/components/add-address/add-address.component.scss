@@ -33,25 +33,29 @@ label:focus,
   height: 4rem;
   font-size: 1.1rem;
 }
-.primary-button{
-  // color: white;
-  // background-color: #2874f0;
-  margin-right: 1rem;
-  width: 9rem;
-  height: 4rem;
-  border: none;
-  outline: none;
-  border-radius: 2px;
-  text-transform: uppercase;
+.button-sec{
+  display: flex;
+  justify-content: flex-end;
 }
-.cancel-button{
-  color: black;
-  background-color: white;
-  margin-right: 1rem;
-  width: 9rem;
-  height: 4rem;
-  border: none;
-  outline: none;
-  border-radius: 2px;
-  text-transform: uppercase;
-}
+// .primary-button{
+//   // color: white;
+//   // background-color: #2874f0;
+//   margin-right: 1rem;
+//   width: 9rem;
+//   height: 4rem;
+//   border: none;
+//   outline: none;
+//   border-radius: 2px;
+//   text-transform: uppercase;
+// }
+// .cancel-button{
+//   color: black;
+//   background-color: white;
+//   margin-right: 1rem;
+//   width: 9rem;
+//   height: 4rem;
+//   border: none;
+//   outline: none;
+//   border-radius: 2px;
+//   text-transform: uppercase;
+// }

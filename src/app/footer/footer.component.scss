@@ -1,24 +1,20 @@
-@import '../../styles.scss';
 
-
-.footer{
-  color: $secondary-color;
-  background-color: $primary-color;
-  font-size: 1rem;
-  opacity: .7;
-
-  .logo{
-    color: white;
-    text-align: center;
-
-    &__design{
-      font-size: 2rem;
+.main-row{
+  color: white;
+  background-color: #212121;
+  line-height: 1.4;
+  margin-bottom: -20rem;
+  margin-top: 2rem;
+  padding-top: 4rem;
+    .title{
+      font-size: 14px;
+      text-transform: uppercase;
+      opacity: .8;
     }
-    &__content{
-      font-size: 2rem;
+    .text{
+      text-transform: capitalize;
+      line-height: 1.4;
     }
   }
-  &__content{
-    bottom: 0%;
-  }
-}
+
+

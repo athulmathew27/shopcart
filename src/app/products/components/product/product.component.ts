@@ -25,7 +25,7 @@ export class ProductComponent implements OnInit, OnDestroy {
   stock : number;
   max :number = 5;
   rate :number = 1;
-  uncheckableRadioModel = 1;
+  quantity = 1;
   //productId : string;
   similerProducts : Observable<Product[]>;
   subscription : Subscription;
@@ -58,15 +58,15 @@ export class ProductComponent implements OnInit, OnDestroy {
       this.router.navigate(['products/product',productID,  product.name,  product.categoryName, product.image, product.price, product.stock]);
   }
 
-  addToCart(productID : string, quantity : number){
+  addToCart(productID : string){
     var user = firebase.auth().currentUser;
     if (user) {
       this.userData = user;
-      if(this.stock > quantity){
+      if(this.stock > this.quantity){
         this.firestore.collection('users').doc(this.userData.uid).collection('cart', ref => ref.where('productID', '==', productID)).valueChanges()
         .subscribe(val=>{
           if(val.length == 0){
-             this.firestore.collection('users').doc(this.userData.uid).collection('cart').add({productID : productID, quantity : quantity})
+             this.firestore.collection('users').doc(this.userData.uid).collection('cart').add({productID : productID, quantity : this.quantity})
           }
           else{
             this.snack.open('Already added to cart', 'close',{
@@ -86,9 +86,12 @@ export class ProductComponent implements OnInit, OnDestroy {
     }
   }
 
-  show(s){
-    console.log(s);
-
+  plus(){
+    this.quantity += 1;
+  }
+  minus(){
+    if(this.quantity > 1)
+      this.quantity -= 1;
   }
   ngOnDestroy():void{
     this.subscription.unsubscribe();

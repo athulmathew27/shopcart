@@ -12,7 +12,7 @@ export class OtherItemsInOrderComponent implements OnInit,OnChanges {
 
   @Input() productDetails : MyorderFull
   @Output() parentFunction : EventEmitter<any> = new EventEmitter()
-  otherProducts : MyorderFull[] = [];
+  otherProducts : any[] = [];
   user : any;
   constructor(private firestore : AngularFirestore) { }
 
@@ -24,21 +24,19 @@ export class OtherItemsInOrderComponent implements OnInit,OnChanges {
       this.user = user;
     }
     if(changes.productDetails.currentValue){
-      this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.productDetails.orderId).ref.get().then(myorderDoc=>{
-        this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.productDetails.orderId).collection('myproducts').ref.get().then(myproductsSnap=>{
-          myproductsSnap.forEach(myproductDoc=>{
-            this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.productDetails.orderId).collection('myproducts').doc(this.productDetails.myproductId).collection('status').ref.get().then(statusSnap=>{
-              statusSnap.forEach(statusDoc=>{
-                var orderId = {orderId : this.productDetails.orderId};
-                var newObj = Object.assign({},myproductDoc.data(), statusDoc.data(), orderId, myorderDoc.data());
-                this.otherProducts.push(newObj)
-              })
-            })
-          });
+      this.firestore.collection('orders').doc(this.productDetails.orderId).ref.get().then((orderDoc)=>{
+        var orderData = orderDoc.data()
+        var orderId = {orderId :orderDoc.id}
+        this.firestore.collection('orders').doc(this.productDetails.orderId).collection('products').ref.get().then((productsSnap)=>{
+          productsSnap.forEach(productsDoc=>{
+            console.log(productsDoc.data())
+            if(productsDoc.data().productID != this.productDetails.myproductId){
+              var newObj = Object.assign({},productsDoc.data(), orderId, orderData);
+              this.otherProducts.push(newObj)
+            }
+          })
         })
       })
-
-
     }
   }
 

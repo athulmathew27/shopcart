@@ -4,7 +4,7 @@
       <ng-template matStepLabel>Fill out your address</ng-template>
       <app-show-delivery-address (callParent)="isAddressSelected($event)" ></app-show-delivery-address>
       <div>
-        <button mat-button matStepperNext>Next</button>
+        <button mat-raised-button class="primary-button next-btn" matStepperNext>Next</button>
       </div>
     </form>
   </mat-step>
@@ -16,10 +16,9 @@
         <app-payment [paymentDetails]="data" [selectedAddress]="selectedAddress"></app-payment>
       </div>
 
-      <!--  -->
       <div>
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button matStepperNext>Next</button>
+        <button class="primary-button next-btn" mat-raised-button matStepperNext>Next</button>
+        <button class=" next-btn" mat-raised-button matStepperPrevious>Back</button>
       </div>
     </form>
   </mat-step>

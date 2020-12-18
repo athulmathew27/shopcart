@@ -8,11 +8,11 @@
           <div class="row sub-inner-row">
             <div class="col-10">
               <div class="main-content">
-                <img class="image" src="https://source.unsplash.com/1600x900/?product" alt="image">
+                <img class="image" [src]="product.image" alt="image">
                 <div class="content">
-                  <p class="head" >{{product.product |titlecase }}</p>
-                  <p class="text">Category: {{product.category}} </p>
-                  <p class="text">Quantity: {{product.quantity}}</p>
+                  <p class="head" >{{ product.product |titlecase }}</p>
+                  <p class="text">Category: {{ product.category }} </p>
+                  <p class="text">Quantity: {{ product.quantity }}</p>
                 </div>
               </div>
             </div>

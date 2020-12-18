@@ -6,7 +6,6 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { environment } from '../../environments/environment';
 
 import { ProductListComponent } from './components/product-list/product-list.component';
-import { ProductAddComponent } from './components/product-add/product-add.component';
 import { ProductComponent } from './components/product/product.component';
 import { RatingComponent } from './components/rating/rating.component';
 import { FeedbackFormComponent } from './components/feedback-form/feedback-form.component';
@@ -61,7 +60,6 @@ import { CategoryBasedFilterPipe } from './pipes/category-based-filter.pipe';
 @NgModule({
   declarations: [
     ProductListComponent, // every imported components
-    ProductAddComponent,
     ProductComponent,
     RatingComponent,
     FeedbackFormComponent,

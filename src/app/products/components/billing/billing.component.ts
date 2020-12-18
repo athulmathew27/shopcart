@@ -46,7 +46,7 @@ export class BillingComponent implements OnInit, OnChanges {
           total = total + (this.billingData.product[i].price * this.billingData.quantity[i])
         }
         this.toPay = total
-      },3000)
+      },2000)
   }
 
   onCheckOut(){

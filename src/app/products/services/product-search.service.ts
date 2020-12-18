@@ -7,10 +7,8 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class ProductSearchService {
 
-
   private content = new BehaviorSubject<Product[]>(null);
   public share = this.content.asObservable();
-
   constructor() { }
 
   filterProduct(filteredList){

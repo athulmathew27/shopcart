@@ -4,7 +4,7 @@
     <div class="row" *ngIf="otherProducts.length >1 && product.productID != productDetails.productID" (click)="showOrderStatusDetail(product)">
       <div class="col-4 left-sec">
         <div class="image">
-          <img class="image-size" src="https://source.unsplash.com/1600x900/?product" alt="first slide" style="display: block; width: 100%;">
+          <img class="image-size" [src]="product.image" alt="first slide" style="display: block; width: 100%;">
         </div>
         <div class="product-sec">
           <p class="head-text">{{product.product |titlecase}}</p>

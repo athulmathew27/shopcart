@@ -17,10 +17,8 @@ export class MyOrdersComponent implements OnInit {
 
   products :MyorderFull[] = [];
   productDetails :any = [];
-  //productDetails :MyorderFull = [];
   user : any;
   showOrderDetailPage : boolean = false;
-
   isRatingPage :boolean = false;
   productIdForRating :string;
   orderIdForRating :string;
@@ -36,12 +34,15 @@ export class MyOrdersComponent implements OnInit {
       this.firestore.collection('users').doc(user.uid).collection('myorders')
       .ref.get().then((querySnapshot)=> {
         querySnapshot.forEach((myorderDoc)=> {
-          this.firestore.collection('users').doc(user.uid).collection('myorders').doc(myorderDoc.id).collection('myproducts').ref.get().then(myproductsQuerySnap=>{
-            myproductsQuerySnap.forEach((myproductsDoc)=>{
-              let orderID = { orderId : myorderDoc.id}
-              let myproductId = { myproductId :myproductsDoc.id }
-              var newObj = Object.assign({}, myproductsDoc.data(), myorderDoc.data(), orderID, myproductId)
-              this.products.push(newObj)
+          this.firestore.collection('orders').doc(myorderDoc.data().orderId).get().subscribe(orderData=>{
+            var myOrderData = orderData.data();
+            var orderId = {orderId : orderData.id}
+            orderData.ref.collection('products').get().then((myproductsQuerySnap)=>{
+              myproductsQuerySnap.forEach((myProducts)=>{
+                let myproductId = { myproductId :myProducts.id }
+                var newObj = Object.assign({}, myProducts.data(), myOrderData, myproductId, orderId )
+                this.products.push(newObj)
+              })
             })
           })
       });

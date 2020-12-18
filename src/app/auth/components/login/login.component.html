@@ -13,19 +13,21 @@
         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 form-sec">
           <p class="header">Sign In</p>
           <form class="login-form" #loginForm="ngForm" (submit)="signin(loginForm.value)">
-            <mat-form-field class="example-full-width">
+            <div class="form-group">
               <mat-label>Email</mat-label>
-              <input #email="ngModel" [(ngModel)]="email1" name="emailid" id="emailid" matInput type="email" required>
+              <input #email="ngModel" class="form-control" [(ngModel)]="email1" name="emailid" id="emailid" matInput type="email" required>
               <span class="error" *ngIf="!email.valid && email.touched"> Enter a valid email id!</span>
-            </mat-form-field>
-            <mat-form-field class="example-full-width" >
+            </div>
+            <div class="form-group" >
               <mat-label>Password</mat-label>
-              <input matInput #password="ngModel" [(ngModel)]="password1" name="pass" id="pass" [type]="hide ? 'password' : 'text'" required>
-              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </button>
+              <div class="vertical">
+                <input matInput #password="ngModel" class="form-control" [(ngModel)]="password1" name="pass" id="pass" [type]="hide ? 'password' : 'text'" required>
+                <button class="eye-button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                <mat-icon class="eye-icon">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </div>
               <span class="error" *ngIf="!password.valid && password.touched"> Enter a valid password!</span>
-            </mat-form-field>
+            </div>
 
             <button mat-raised-button class="primary-button" type="submit" [disabled]="!loginForm.valid">Signin</button>
             <!-- <div class="social-sec">

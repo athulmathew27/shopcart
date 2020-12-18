@@ -14,40 +14,36 @@ export class TrackOrderComponent implements OnInit, OnChanges {
   @Input() user  :any;
   @Input() myproductId : string;
   @Input() productId :string;
-
   @Output() callParentFunction :EventEmitter<any> = new EventEmitter();
-
-  status : string = null;
-  statusData : OrderStatus;
+  ordered :number = 0
+  shipped :number = 0;
+  nearby :number = 0;
+  delivered :number = 0;
+  cancelled :number = 0;
   constructor(private firestore : AngularFirestore) { }
 
   ngOnInit(): void {  }
 
   ngOnChanges(changes : SimpleChanges){
     if(changes.orderId.currentValue && changes.user.currentValue && changes.myproductId.currentValue){
-      this.firestore.collection('users').doc(this.user.uid).collection('myorders').doc(this.orderId).collection('myproducts').doc(this.myproductId).collection('status').ref.get().then((querySnap)=>{
-        querySnap.forEach(doc => {
-          this.statusData = doc.data();
-          // var orderData = {
-          //   deliveredTime: doc.data().deliveredTime,
-          //   nearByTime: doc.data().nearByTime,
-          //   orderPlacedTime: doc.data().shippedTime,
-          //   shippedTime: doc.data().shippedTime,
-          // }
-          // this.statusData = orderData;
-          if(this.statusData.orderPlacedTime != null  && this.statusData.shippedTime ==null && this.statusData.nearByTime == null && this.statusData.deliveredTime == null){
-            this.status = "order placed";
+      this.firestore.collection('orders').doc(this.orderId).collection('products').doc(this.myproductId).collection('status').ref.get().then(statusSnap=>{
+        statusSnap.forEach(statusDoc=>{
+          if(statusDoc.data().status == "Order Placed"){
+            this.ordered += 1;
           }
-          else if(this.statusData.orderPlacedTime !=null && this.statusData.shippedTime !=null && this.statusData.nearByTime == null && this.statusData.deliveredTime == null){
-            this.status = "shipped";
+          if(statusDoc.data().status == "Shipped"){
+            this.shipped += 1;
           }
-          else if(this.statusData.orderPlacedTime !=null && this.statusData.shippedTime !=null && this.statusData.nearByTime != null && this.statusData.deliveredTime == null){
-            this.status = "near by";
+          if(statusDoc.data().status == "Near By"){
+            this.nearby += 1;
           }
-          else if(this.statusData.orderPlacedTime !=null && this.statusData.shippedTime !=null && this.statusData.nearByTime != null && this.statusData.deliveredTime != null){
-            this.status = "delivered";
+          if(statusDoc.data().status == "Delivered"){
+            this.delivered += 1;
           }
-        });
+          if(statusDoc.data().status == "Cancelled"){
+            this.cancelled += 1;
+          }
+        })
       })
     }
   }

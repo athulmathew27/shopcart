@@ -33,12 +33,35 @@
       opacity: .8;
       margin-right: 1rem;
     }
-    // .toggle-btn{
-    //   background-color: white;
-    //   color: black;
-    //   border: 1px solid rgb(209, 207, 207);
-    //   outline: none;
-    // }
+    .counter{
+      display: flex;
+      .content{
+        height: 1.5rem;
+        width: 3rem;
+        border: 1px solid #00000020;
+        text-align: center;
+      }
+      .minus{
+        background-color: black;
+        color: white;
+        font-size: 1.5rem;
+        height: 1.5rem;
+        width: 1.5rem;
+        cursor: pointer;
+        border-top-left-radius: 18px;
+        border-bottom-left-radius: 18px;
+      }
+      .plus{
+        background-color: black;
+        color: white;
+        font-size: 1.5rem;
+        height: 1.5rem;
+        width: 1.5rem;
+        cursor: pointer;
+        border-top-right-radius: 18px;
+        border-bottom-right-radius: 18px;
+      }
+    }
   }
   .similer{
     border: 1px solid rgba(0,0,0,.125);
@@ -81,3 +104,4 @@
 .rating-sec{
   width: 100%;
 }
+

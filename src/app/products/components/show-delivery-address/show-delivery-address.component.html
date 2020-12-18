@@ -1,8 +1,7 @@
-<div class="row">
-  <div class="col">
-    <mat-card class="main-container">
+
+    <div class="main-container">
       <div class="new-section">
-        <button mat-raised-button class="primary-button" (click)="addNewAddress()">New Address</button>
+        <button mat-raised-button class="primary-button new-btn" (click)="addNewAddress()">New Address</button>
       </div>
       <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="addressSelected" (change)="selectDeliveryAddress(addressSelected)">
           <mat-radio-button class="example-radio-button" *ngFor="let address of address$ |async" [value]="address">
@@ -12,6 +11,5 @@
             </div>
           </mat-radio-button>
       </mat-radio-group>
-    </mat-card>
-  </div>
-</div>
+    </div>
+

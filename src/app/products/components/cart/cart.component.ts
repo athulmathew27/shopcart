@@ -35,6 +35,8 @@ export class CartComponent implements OnInit {
     if(user){
       this.firestore.collection('users').doc(this.user.uid).collection<Cart>('cart').valueChanges({idField : 'cartId'})
       .subscribe(val =>{
+        this.products = []
+        this.productID = []
         this.length = val.length;
         for(let i = 0; i < this.length; i++)
         {
@@ -59,7 +61,7 @@ export class CartComponent implements OnInit {
     this.firestore.collection('users').doc(this.user.uid).collection('cart').doc(cartId).delete()
     .then(()=> {
       console.log("Document successfully deleted!");
-      window.location.reload()
+      // window.location.reload()
       }).catch(error =>{
           console.error("Error removing document: ", error);
   });
@@ -73,7 +75,7 @@ export class CartComponent implements OnInit {
     else{
       this.firestore.collection('users').doc(this.user.uid).collection('cart').doc(cartId).update({quantity : quantity})
       .then( ()=>{
-                   window.location.reload()
+                  //  window.location.reload()
       })
 
     }

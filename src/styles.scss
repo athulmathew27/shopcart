@@ -36,10 +36,32 @@ $btn-color-primary :#2874f0;
   background-color: $btn-color-primary;
   color: white;
   outline: none;
-  box-shadow: 1px 1px 5px 0px $primary-color;
   font-size: 1.2rem;
+  border: none;
+  outline: none;
+  border-radius: 2px;
 }
-
+.secondary-button{
+  background-color: white;
+  color: black;
+  outline: none;
+  font-size: 1.2rem;
+  border: none;
+  outline: none;
+  border-radius: 2px;
+  margin-left: 1rem;
+}
+.btn-lg{
+  height: 4rem;
+  width: 10rem;
+}
+.btn-md-fxd{
+  height: 3rem;
+  width: 10rem;
+}
+.btn-md{
+  height: 3rem;
+}
 .dialog-header-font{
   font-size: 1.2rem;
   font-weight: bold;

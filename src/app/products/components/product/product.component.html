@@ -6,7 +6,7 @@
           <div class="image-sec">
             <carousel>
               <slide>
-                <img [src]="image" alt="first slide" style="display: block;">
+                <img [src]="image" alt="first slide" style="display: block; height: 200px; width: 320px;">
               </slide>
               <!-- <slide>
                 <img src="https://source.unsplash.com/1610x910/?product" alt="second slide" style="display: block; width: 100%;">
@@ -27,25 +27,26 @@
               <p class="green"> Free Shipping</p>
               <div class="vertical">
                 <p class="text">Quantity</p>
-                <div class="btn-group" btnRadioGroup name="quantity" [(ngModel)]="uncheckableRadioModel">
-                  <label class="btn btn-info toggle-btn" btnRadio="1" uncheckable tabindex="0" role="button">1kg</label>
-                  <label class="btn btn-info toggle-btn" btnRadio="2" uncheckable tabindex="0" role="button">2kg</label>
-                  <label class="btn btn-info toggle-btn" btnRadio="3" uncheckable tabindex="0" role="button">3kg</label>
-                  <label class="btn btn-info toggle-btn" btnRadio="4" uncheckable tabindex="0" role="button">4kg</label>
-                  <label class="btn btn-info toggle-btn" btnRadio="5" uncheckable tabindex="0" role="button">5kg</label>
+                <div class="counter">
+                  <mat-icon class="minus" (click)="minus()">remove</mat-icon>
+                  <input type="text" [(ngModel)]="quantity" class="content">
+                  <mat-icon class="plus" (click)="plus()">add</mat-icon>
                 </div>
               </div>
-              <button class="primary-button" mat-raised-button (click)="addToCart(productID, uncheckableRadioModel)">Add to Cart</button>
+              <button class="primary-button btn-md" mat-raised-button (click)="addToCart(productID)">Add to Cart</button>
             </div>
             <div class="col-lg-6 col-lg-6 col-lg-6 col-xs-12">
-              <div class="similer" *ngFor="let similer of similerProducts | async" (click)=" showProduct(similer, similer.productId)">
-                <div class="left">
-                    <img class="image" [src]="similer.image" alt="similer products">
-                </div>
-                <div class="right">
-                  <p>{{similer.name | titlecase}}</p>
+              <div class="" *ngFor="let similer of similerProducts | async">
+                <div class="similer"  (click)=" showProduct(similer, similer.productId)" *ngIf="similer.productId != productID">
+                  <div class="left">
+                      <img class="image" [src]="similer.image" alt="similer products">
+                  </div>
+                  <div class="right">
+                    <p>{{similer.name | titlecase}}</p>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>

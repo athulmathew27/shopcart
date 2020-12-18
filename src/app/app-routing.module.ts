@@ -17,18 +17,8 @@ const routes: Routes = [
     loadChildren:()=>import('./products/products.module').then(m=>m.ProductsModule),
   },
   {
-    path:'category',
-    loadChildren:()=>import('./category/category.module').then(m=>m.CategoryModule),
-    canActivate : [AngularFireAuthGuard],
-    data : { authGuardPipe : redirectUnauthorizedToLogin}
-  },
-  {
     path:'auth',
     loadChildren:()=>import('./auth/auth.module').then(m=>m.AuthModule)
-  },
-  {
-    path: 'admin',
-    loadChildren:()=>import('./admin/admin.module').then(m=>m.AdminModule)
   },
   {
     path:'**',

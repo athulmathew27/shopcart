@@ -1,7 +1,6 @@
 @import '../../../../styles.scss';
 
 .main-container{
-  margin-top: 5rem;
   .heading{
     text-align: center;
     margin-top: 1rem;
@@ -30,6 +29,14 @@
 
 .new-section{
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: row-reverse;
+  .new-btn{
+    height: 3rem;
+    border: none;
+    outline: none;
+    border-radius: 2px;
+  }
 }
 .card-address{
   padding: 16px;

@@ -45,7 +45,15 @@
     font-size: 2rem;
     border-radius: 50%;
     padding-left: .2rem;
-    color: black;
+    color: $navbar-color;
+    cursor: pointer;
+  }
+  .clear-icon{
+    margin-top: .3rem;
+    font-size: 1.7rem;
+    border-radius: 50%;
+    padding-left: .2rem;
+    color: $navbar-color;
     cursor: pointer;
   }
 

@@ -1,27 +1,28 @@
 
 <div class="main-content">
   <div class="text-section">
-    <div class="content text-ordered" *ngIf="status == 'order placed' && statusData.orderPlacedTime != null">
+    <div class="content text-ordered" *ngIf="ordered > 0 && shipped < 1 && cancelled < 1">
       <p>Order Placed</p>
       <p class="mini-text">Your Order has been placed</p>
-      <!-- <p>{{statusData.orderPlacedTime.seconds *1000 |date}}</p> -->
     </div>
-    <div class="content text-shipped" *ngIf="status == 'shipped' && statusData.shippedTime != null">
+    <div class="content text-shipped" *ngIf="shipped > 0 && nearby < 1 && cancelled < 1">
       <p>Shipped</p>
       <p class="mini-text">Ordered item is shipped</p>
-      <!-- <p>{{statusData.shippedTime.seconds *1000 |date}}</p> -->
     </div>
-    <div class="content text-near" *ngIf="status == 'near by' && statusData.nearByTime != null">
+    <div class="content text-near" *ngIf="nearby > 0 && delivered < 1 && cancelled < 1">
       <p>Near by</p>
       <p class="mini-text">Your is near, be ready to accept your order</p>
-      <!-- <p>{{statusData.nearByTime.seconds *1000 |date}}</p> -->
     </div>
-    <div class="content text-delivered" *ngIf="status == 'delivered' && statusData.deliveredTime != null">
+    <div class="content text-delivered" *ngIf="delivered > 0 && cancelled < 1">
       <p>Delivered</p>
       <p class="mini-text">Your order has been delivered</p>
-      <!-- <p>{{statusData.deliveredTime.seconds *1000 |date}}</p> -->
     </div>
-    <div class="rating-sec" *ngIf="status == 'delivered'" (click)="doRating()">
+    <div class="content text-cancelled" *ngIf="cancelled > 0">
+      <p>Cancelled</p>
+      <p class="mini-text">Your order has been Cancelled</p>
+    </div>
+
+    <div class="rating-sec" *ngIf="delivered > 0" (click)="doRating()">
       <mat-icon>star</mat-icon>
       <span class="text">Rating and review </span>
     </div>

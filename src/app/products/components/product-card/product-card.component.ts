@@ -47,7 +47,9 @@ export class ProductCardComponent implements OnInit, OnChanges {
         for(let i = 0; i < val.length; i++)
         {
           this.favProductCount = val.length;
-          this.favProductsID.push(val[i].productID);
+          if(!this.favProductsID.includes(val[i].productID)){
+            this.favProductsID.push(val[i].productID);
+          }
         }
       })
     }
@@ -55,6 +57,7 @@ export class ProductCardComponent implements OnInit, OnChanges {
 
   addToFavourite(e, product)
   {
+    this.favProductsID.push(product.productId);
     e.stopPropagation();
     var user = firebase.auth().currentUser;
     if(user)
@@ -63,7 +66,6 @@ export class ProductCardComponent implements OnInit, OnChanges {
       this.firestore.collection('users').doc(this.user.uid).collection('favourite', ref => ref.where('productID', '==', product.productId)).valueChanges()
       .subscribe(val=>{
           if(val.length > 0){
-            //alert('already added to favourie')
             this.snack.open('Added To Wishlist', 'close',{
               duration: 3000
             });
@@ -85,6 +87,10 @@ export class ProductCardComponent implements OnInit, OnChanges {
   removeFromFavourite(e, product)
   {
     e.stopPropagation();
+    const index = this.favProductsID.indexOf(product.productId);
+    if (index > -1) {
+      this.favProductsID.splice(index, 1);
+    }
     var user = firebase.auth().currentUser;
     if(user)
     {
@@ -96,12 +102,10 @@ export class ProductCardComponent implements OnInit, OnChanges {
             this.snack.open('Removed', 'close',{
               duration: 3000
             });
-            window.location.reload()
           })
           .catch(err=>{
             console.log(err)
           })
-
       })
     }
   }

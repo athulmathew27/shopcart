@@ -3,13 +3,11 @@ import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { MatDialog } from '@angular/material/dialog';
 import { Store } from '@ngrx/store';
-
-import { ProductAddComponent } from '../product-add/product-add.component';
 import { Product } from '../../models/products.model';
 import { ProductsService } from '../../services/products.service';
 import * as fromProductAction from '../../store/actions/products.action';
 import * as fromApp from '../../../app.state';
-import { Category } from 'src/app/category/model/category.model';
+import { Category } from '../../models/category.model';
 import { ProductSearchService } from '../../services/product-search.service';
 
 

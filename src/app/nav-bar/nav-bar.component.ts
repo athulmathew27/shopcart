@@ -24,19 +24,19 @@ export class NavBarComponent implements OnInit {
   filteredProductList :Product[] = [];
   cartItemCount :number = 0;
   userId :string;
+  showClearTextButton :boolean = false;
+  searchValue :string = "";
   constructor(private breakpointObserver: BreakpointObserver,
               private authService : AuthService,
               private firestore : AngularFirestore,
               private ProductSearchService :ProductSearchService,
               private router :Router) {}
   ngOnInit() :void {
-
     this.firestore.collection<Product>('products').valueChanges({ idField: 'productId' }).subscribe(val =>{
       this.productList = val;
     })
     firebase.auth().onAuthStateChanged((user)=>{
       if (user) {
-        // User is signed in.
         this.userId =user.uid;
         this.firestore.collection("users").doc(user.uid).collection("cart").valueChanges().subscribe(val=>{
             this.cartItemCount = val.length;
@@ -56,6 +56,7 @@ export class NavBarComponent implements OnInit {
   onSearch(item){
     this.router.navigate(['products/list'])
     if(item){
+      this.showClearTextButton = true;
       this.filteredProductList = [];
       for (let i = 0; i < this.productList.length; i++) {
         if(this.productList[i].name.toLowerCase().startsWith(item.toLowerCase())){
@@ -65,6 +66,8 @@ export class NavBarComponent implements OnInit {
       this.ProductSearchService.filterProduct(this.filteredProductList)
     }
     else{
+      this.showClearTextButton = false
+      this.searchValue = ""
       this.ProductSearchService.filterProduct(this.productList)
     }
   }
