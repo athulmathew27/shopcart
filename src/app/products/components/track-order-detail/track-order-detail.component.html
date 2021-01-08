@@ -1,8 +1,11 @@
-<div class="row centered">
+<div class="row centered" *ngIf="!returnPage">
   <div class="col-md-11">
     <mat-card class="card">
       <div class="address-sec">
-        <p class="main-text">Delivery Address</p>
+        <div class="top">
+          <p class="main-text">Delivery Address</p>
+          <span class="link-text" *ngIf="IsReturnable" (click)="showReturnPage()">Return Back</span>
+        </div>
         <p class="sub-text">Athul</p>
         <span class="text">{{productDetails.delivaryAddress}}</span>
         <p class="sub-text">Phone number <span class="text">7034870589</span></p>
@@ -10,7 +13,7 @@
     </mat-card>
   </div>
 </div>
-<div class="row centered">
+<div class="row centered" *ngIf="!returnPage">
   <div class="col-md-11">
     <mat-card class="card">
       <div class="row">
@@ -36,10 +39,12 @@
     </mat-card>
   </div>
 </div>
-<div class="row centered">
+<div class="row centered" *ngIf="!returnPage">
   <div class="col-md-11">
     <app-other-items-in-order [productDetails]="productDetails" (parentFunction)="parentFunction($event)"></app-other-items-in-order>
   </div>
 </div>
 
-
+<app-return-item *ngIf="returnPage" [products]= "productDetails"
+ (backToOrderPage)="backToOrderPage($event)"
+ (backToOrderPage2)="backToOrderPage2($event)"></app-return-item>

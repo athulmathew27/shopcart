@@ -1,11 +1,11 @@
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <mat-accordion class="example-headers-align sub-container">
       <mat-expansion-panel class="card" [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
         <mat-expansion-panel-header>
           <mat-panel-title> Pay using Cash on Delivery</mat-panel-title>
         </mat-expansion-panel-header>
-          <app-cash-on-delivery [paymentDetails]="paymentDetails" [selectedAddress]="selectedAddress"></app-cash-on-delivery>
+          <app-cash-on-delivery  [paymentDetails]="paymentDetails" [selectedAddress]="selectedAddress"></app-cash-on-delivery>
         <mat-action-row>
           <button mat-button color="primary" (click)="nextStep()">Next</button>
         </mat-action-row>
@@ -23,4 +23,12 @@
       </mat-expansion-panel>
     </mat-accordion>
   </div>
+</div> -->
+<div class="main-container">
+  <p class="heading">Payment Options</p>
+  <mat-radio-group  aria-labelledby="example-radio-group-label"  class="example-radio-group" [(ngModel)]="paymentType">
+  <mat-radio-button class="example-radio-button" value="cod"> Cash On Delivary </mat-radio-button>
+  <mat-radio-button class="example-radio-button" value="net"> Net Banking </mat-radio-button>
+</mat-radio-group>
+<button mat-raised-button class="primary-button" (click)="pay()" *ngIf="paymentType">Confirm Order</button>
 </div>

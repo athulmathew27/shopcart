@@ -1,5 +1,5 @@
-<div class="row main-row">
-  <div class="col-lg-10 col-md-10 col-sm-10 col-xs-12">
+<div class="row main-row" *ngIf="!showRatingDetailPage">
+  <div class="col-lg-10 col-md-10 col-sm-12 col-xs-12">
     <mat-card class="card">
       <div class="row">
         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
@@ -35,19 +35,6 @@
               </div>
               <button class="primary-button btn-md" mat-raised-button (click)="addToCart(productID)">Add to Cart</button>
             </div>
-            <div class="col-lg-6 col-lg-6 col-lg-6 col-xs-12">
-              <div class="" *ngFor="let similer of similerProducts | async">
-                <div class="similer"  (click)=" showProduct(similer, similer.productId)" *ngIf="similer.productId != productID">
-                  <div class="left">
-                      <img class="image" [src]="similer.image" alt="similer products">
-                  </div>
-                  <div class="right">
-                    <p>{{similer.name | titlecase}}</p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
           </div>
         </div>
       </div>
@@ -64,14 +51,28 @@
         </div>
         <div class="row rating-sec">
           <div class="col-lg-10 col-md-10 col-sm-11 col-xs-12">
-            <app-rating [productID]="productID"></app-rating>
+            <app-rating (showRatingDetail)="showRatingDetail($event)" [productID]="productID"></app-rating>
           </div>
         </div>
+    </div>
+    <div class="row similer-sec">
+      <p class="header">Similer Products</p>
+      <div class="main">
+        <div class="box" *ngFor="let similer of similerProducts | async; let i = index">
+          <div class="similer"  (click)=" showProduct(similer, similer.productId)" *ngIf="similer.productId != productID && i<8">
+            <div class="left">
+                <img class="image" [src]="similer.image" alt="similer products">
+            </div>
+            <div class="right">
+              <p>{{similer.name | titlecase}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     </mat-card>
   </div>
 </div>
 
 
-
-
+<app-rating-detail *ngIf="showRatingDetailPage" (OnBackToDetailPage)="OnBackToDetailPage($event)" [ratingList]="ratingList"></app-rating-detail>

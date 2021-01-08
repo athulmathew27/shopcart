@@ -1,7 +1,10 @@
 <div class="col">
   <div  class="rating-all-users">
     {{rateTotal}} <rating  [(ngModel)]="rateTotal" [max]="maxTotal" readonly="true"></rating>
-    <p class="review">{{totalReview}} Reviews</p>
+    <div class="vertical">
+      <p class="review">{{totalReview}} Reviews</p>
+      <p class="showmore-text" (click)="showAll()">Show All</p>
+    </div>
   </div>
 </div>
 
@@ -15,6 +18,7 @@
     <p class="user-review">{{review.description}}</p>
       <hr>
   </section>
-  <p class="showmore-text" (click)="showMoreReview()" *ngIf="totalReview != showMore">show more(+3)</p>
-  <p class="showmore-text" (click)="showLessReview()" *ngIf="totalReview == showMore && totalReview > 0">show less</p>
+  <p class="showmore-text" (click)="showMoreReview()" *ngIf="totalReview != showMore" >show more(+3)</p>
+  <!-- -->
+  <p class="showmore-text" (click)="showLessReview()" *ngIf="totalReview == showMore && totalReview > 3">show less</p>
 </div>

@@ -1,5 +1,5 @@
 <mat-horizontal-stepper linear #stepper>
-  <mat-step  [editable]="isEditable" [completed]="isCompletedStep1">
+  <mat-step  [completed]="isCompletedStep1" [editable]="editStep1">
     <form >
       <ng-template matStepLabel>Fill out your address</ng-template>
       <app-show-delivery-address (callParent)="isAddressSelected($event)" ></app-show-delivery-address>
@@ -9,26 +9,32 @@
     </form>
   </mat-step>
 
-  <mat-step  [editable]="isEditable" completed=false>
+  <mat-step  [completed]="isCompletedStep1" editable=false>
     <form >
       <ng-template matStepLabel>Select the Payment</ng-template>
       <div class=""*ngIf="selectedAddress && data">
-        <app-payment [paymentDetails]="data" [selectedAddress]="selectedAddress"></app-payment>
+        <app-payment [paymentDetails]="data" [selectedAddress]="selectedAddress" (completeStep2)="completeStep2($event)"></app-payment>
       </div>
 
       <div>
-        <button class="primary-button next-btn" mat-raised-button matStepperNext>Next</button>
-        <button class=" next-btn" mat-raised-button matStepperPrevious>Back</button>
+        <!-- <button class="primary-button next-btn" mat-raised-button matStepperNext>Next</button> -->
+        <button class=" next-btn" mat-raised-button matStepperPrevious *ngIf="!isCompletedStep2">Back</button>
       </div>
     </form>
   </mat-step>
 
-  <mat-step completed=false>
+  <mat-step [completed]="isCompletedStep2" editable=false>
     <ng-template matStepLabel>Done</ng-template>
-    <p>You are now done.</p>
-    <div>
-      <button mat-button matStepperPrevious>Back</button>
-      <button mat-button (click)="stepper.reset()">Reset</button>
-    </div>
+    <app-payment-success></app-payment-success>
+    <!-- <div>
+      <button class mat-raised-button matStepperPrevious>Back</button>
+      <button mat-raised-button (click)="stepper.reset()">Reset</button>
+    </div> -->
   </mat-step>
+  <ng-template matStepperIcon="phone">
+    <mat-icon>call_end</mat-icon>
+  </ng-template>
+  <ng-template matStepperIcon="chat">
+    <mat-icon>forum</mat-icon>
+  </ng-template>
 </mat-horizontal-stepper>

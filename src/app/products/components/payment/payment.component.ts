@@ -1,11 +1,11 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Product } from '../../models/products.model';
 import * as firebase from 'firebase';
 import { Cart } from '../../models/cart.model';
 import { Myorders } from '../../models/my-orders.model';
 import { Address } from '../../models/address.model';
-
+import { CodService } from '../../services/cod.service';
 @Component({
   selector: 'app-payment',
   templateUrl: './payment.component.html',
@@ -25,8 +25,10 @@ export class PaymentComponent implements OnInit, OnChanges {
 
   @Input() paymentDetails;
   @Input() selectedAddress;
-
-  constructor(private firestore : AngularFirestore) { }
+  @Output() completeStep2 :EventEmitter<any> = new EventEmitter()
+  paymentType = ""
+  constructor(private firestore : AngularFirestore,
+              private codService : CodService) { }
 
   ngOnInit(): void {
     var user = firebase.auth().currentUser;
@@ -44,23 +46,13 @@ export class PaymentComponent implements OnInit, OnChanges {
       }
   }
 
-  setStep(index: number) {
-    this.step = index;
+pay(){
+  if(this.paymentType == "cod"){
+    this.codService.payByCod(this.selectedAddress,this.paymentDetails)
+    this.completeStep2.emit("success")
   }
+}
 
-  nextStep() {
-    this.step++;
-  }
-
-  prevStep() {
-    this.step--;
-  }
-
-
-
-  updateProduct(){
-    console.log("xxx")
-  }
 
 
 }

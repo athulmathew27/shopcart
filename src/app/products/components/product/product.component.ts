@@ -9,6 +9,7 @@ import { FeedbackFormComponent } from '../feedback-form/feedback-form.component'
 import { AngularFirestore } from '@angular/fire/firestore';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import * as firebase from 'firebase';
+import { ReviewFull } from '../../models/review.model';
 
 @Component({
   selector: 'app-product',
@@ -26,10 +27,11 @@ export class ProductComponent implements OnInit, OnDestroy {
   max :number = 5;
   rate :number = 1;
   quantity = 1;
-  //productId : string;
   similerProducts : Observable<Product[]>;
   subscription : Subscription;
   userData : any;
+  showRatingDetailPage :boolean = false;
+  ratingList : ReviewFull[] = [];
   constructor(private ActivatedRoute : ActivatedRoute,
               private dialog : MatDialog,
               private firestore : AngularFirestore,
@@ -38,7 +40,7 @@ export class ProductComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
 
- //  let product : Product = this.ActivatedRoute.snapshot.paramMap.get('product');
+    //  let product : Product = this.ActivatedRoute.snapshot.paramMap.get('product');
     this.subscription = this.ActivatedRoute.paramMap.subscribe(params =>{
       this.productID = params.get('id');
       this.product  = params.get('product');
@@ -47,6 +49,12 @@ export class ProductComponent implements OnInit, OnDestroy {
       this.stock = parseInt(params.get('stock'),10);
       this.price = parseInt(params.get('price'),10);
     })
+    var obj = {
+      productId : this.productID,
+      product : this.product,
+      image : this.image
+    }
+    this.firestore.collection('most_viewed').add(obj)
 
     this.similerProducts = this.firestore.collection<Product>('products',
         ref => ref.where('categoryName', '==', this.category))
@@ -92,6 +100,13 @@ export class ProductComponent implements OnInit, OnDestroy {
   minus(){
     if(this.quantity > 1)
       this.quantity -= 1;
+  }
+  showRatingDetail($event){
+    this.ratingList = $event;
+    this.showRatingDetailPage = true;
+  }
+  OnBackToDetailPage($event){
+    this.showRatingDetailPage = false;
   }
   ngOnDestroy():void{
     this.subscription.unsubscribe();

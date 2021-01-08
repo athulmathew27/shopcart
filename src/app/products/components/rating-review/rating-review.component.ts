@@ -26,14 +26,14 @@ export class RatingReviewComponent implements OnInit, OnChanges {
   ngOnChanges(changes : SimpleChanges){
     if(changes.productId.currentValue && changes.orderId.currentValue && changes.myproductId.currentValue && changes.user.currentValue){
       this.displayName1 = this.user.displayName;
-      this.firestore.collection<ReviewFull>('products').doc(this.productId).collection('rating', ref => ref.where('userId', '==', this.user.uid)).ref.get().then((snap)=>{
+      this.firestore.collection<ReviewFull>('products').doc(this.productId).collection('rating', ref => ref.where('userId', '==', this.user.uid)).valueChanges({idField : 'ratingId'}).subscribe((snap)=>{
         snap.forEach((doc)=>{
-          if(doc.exists){
+          if(doc){
             this.update = true;
-            this.description1 = doc.data().description;
-            this.title1 = doc.data().title;
-            this.ratingId = doc.id;
-            this.starValue = doc.data().rating;
+            this.description1 = doc.description;
+            this.title1 = doc.title;
+            this.ratingId = doc.ratingId;
+            this.starValue = doc.rating;
           }
           else{
             this.update = false;

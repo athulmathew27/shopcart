@@ -1,0 +1,39 @@
+.row{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 2rem;
+  .card{
+    .head{
+      font-size: 17px;
+      font-weight: 500;
+    }
+    .sec{
+      border: 1px solid #e0e0e0;
+      padding: 1rem;
+      .head{
+        font-size: 1.2rem;
+      }
+      .field-area{
+        display: flex;
+        .text{
+          font-size: 1.2rem;
+        }
+        .form-control{
+          min-height: 3rem;
+          margin-right: 2rem;
+          //max-width: 18rem;
+        }
+      }
+      .button-sec{
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+.errormessage{
+  color: red;
+  float: left;
+}

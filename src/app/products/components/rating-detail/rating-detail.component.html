@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-11">
+  <mat-card class="card">
+    <div class="vertical">
+      <div class="vertical">
+        <mat-icon class="icon" (click)="onBack()">arrow_back_ios</mat-icon>
+        <span class="head">Rating And Review</span>
+      </div>
+      <div class="vertical">
+        <div class="positive" (click)="onFilter('positive')">
+          <mat-icon class="icon">star_border</mat-icon>
+          <p class="text">Positive</p>
+        </div>
+        <div class="negative" (click)="onFilter('negative')">
+          <mat-icon class="icon">star_border</mat-icon>
+          <p class="text">Negative</p>
+        </div>
+      </div>
+    </div>
+      <hr>
+      <section class="bottom-sec" *ngFor="let review of ratingList |review :category">
+        <div class="head-section">
+          <h6 class="user-name">{{review.displayName}}</h6>
+          <rating [(ngModel)]="review.rating" class="rating-section" readonly="true"></rating>
+        </div>
+        <p class="title">{{review.title}}</p>
+        <p class="user-review">{{review.description}}</p>
+          <hr>
+      </section>
+    </mat-card>
+  </div>
+</div>

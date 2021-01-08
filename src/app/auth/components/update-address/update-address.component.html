@@ -91,9 +91,10 @@
           </div>
         </div>
       </div>
-
-      <button class="primary-button" mat-raised-button  type="submit">Add</button>
-      <button class="cancel-button" mat-raised-button (click)="onCancel()">Cancel</button>
+      <div class="button-sec">
+        <button class="primary-button btn-lg" mat-raised-button  type="submit">Add</button>
+        <button class="secondary-button btn-lg" mat-raised-button (click)="onCancel()">Cancel</button>
+      </div>
       <!-- [disabled]="addAddress.invalid" -->
     </form>
   </div>

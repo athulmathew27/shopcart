@@ -7,10 +7,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-    .btn{
+  padding-top: 7px;
+    .text{
       background-color: transparent;
-      outline: none;
-      border: none;
       font-size: 1.1rem;
       cursor: pointer;
       &:last-child{
@@ -19,7 +18,7 @@
     }
 
     @media screen and (max-width: 750px) {
-      .btn:last-child{
+      .text:last-child{
         margin-right: 0;
       }
     }
@@ -35,3 +34,7 @@
 }
 
 
+.highlight{
+  color: #2874f0;
+  border-bottom: solid 1px rgb(83, 83, 83);
+}

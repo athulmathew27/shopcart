@@ -1,6 +1,6 @@
 export interface OrderStatus{
-  orderPlacedTime? : Date,
-  shippedTime? : Date,
-  nearByTime? : Date,
-  deliveredTime? : Date
+  location :string,
+  status :string,
+  time :any,
+  text :string
 }

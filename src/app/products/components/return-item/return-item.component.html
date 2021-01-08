@@ -1,0 +1,52 @@
+<div class="row">
+  <div class="col-11">
+    <mat-card class="card">
+      <span class="head">Return</span>
+      <hr>
+      <div class="sec">
+        <span class="head">Reason For Return</span>
+        <form #returnForm="ngForm">
+          <div class="row field-area">
+            <span class="text col-4">Reason for return:</span>
+            <mat-select class="form-control col-7" matInput name="reason" ngModel #reason="ngModel" required>
+              <mat-option value="Wrong Shipment">Wrong Shipment</mat-option>
+              <mat-option value="Damage">Damage</mat-option>
+            </mat-select>
+            <div *ngIf="reason.invalid && (reason.dirty || reason.touched)"  class="errormessage">
+              <div *ngIf="reason.errors.required">
+                This Field is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="row field-area">
+            <span class="col-4 text">Issue with Item:</span>
+            <mat-select class="form-control col-7" matInput name="issue" ngModel #issue="ngModel" required>
+              <mat-option value="Order A got B" *ngIf="reason.value == 'Wrong Shipment'">Order A got B</mat-option>
+              <mat-option value="Expire Date" *ngIf="reason.value == 'Damage'">Expire Date</mat-option>
+            </mat-select>
+            <div *ngIf="issue.invalid && (issue.dirty || issue.touched)"  class="errormessage">
+              <div *ngIf="issue.errors.required">
+                This Field is required.
+              </div>
+            </div>
+          </div>
+
+          <div class="row field-area">
+            <span class="text col-4">Comment:</span>
+            <textarea name="comment" class="form-control col-7"  ngModel #comment="ngModel" required  cols="10" ></textarea>
+            <div *ngIf="comment.invalid && (comment.dirty || comment.touched)"  class="errormessage">
+              <div *ngIf="comment.errors.required">
+                This Field is required.
+              </div>
+            </div>
+          </div>
+          <div class="button-sec">
+            <button mat-raised-button class="primary-button btn-lg" (click)="onSubmit(returnForm.value)" [disabled]="!returnForm.valid">Submit</button>
+            <button mat-raised-button class="secondary-button btn-lg" (click)="onCancel()">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </mat-card>
+  </div>
+</div>

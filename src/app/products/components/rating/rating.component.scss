@@ -1,30 +1,40 @@
 .rating-all-users{
   font-size: 3rem;
+  .vertical{
+    display: flex;
+    justify-content: space-between;
+    .review{
+      font-size: 1.3rem;
+      word-wrap: break-word;
+    }
+    .showmore-text{
+      font-size: 1.2rem;
+      color: blue;
+      float: right;
+      cursor: pointer;
+    }
+  }
 
-  .review{
-    font-size: 1.3rem;
-    word-wrap: break-word;
-  }
-}
-.user-name{
-  font-size: 1.2rem;
-}
-.user-review{
-  font-size: 1.2rem;
-  width: 100%;
-  word-wrap: break-word;
-}
-.head-section{
-  display: flex;
-  min-width: 15rem;
-  .rating-section{
-    color: gold;
-    margin-left: 1rem;
-    font-size: 1.2rem;
-  }
 }
 .bottom-sec{
   min-width: 80%;
+  .head-section{
+    display: flex;
+    min-width: 15rem;
+    .user-name{
+      font-size: 1.2rem;
+    }
+    .rating-section{
+      color: gold;
+      margin-left: 1rem;
+      font-size: 1.2rem;
+    }
+  }
+  .user-review{
+    font-size: 1.2rem;
+    width: 100%;
+    word-wrap: break-word;
+  }
 }
 .showmore-text{
   font-size: 1.2rem;

@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, validateEventsArray } from '@angular/fire/firestore';
 import { from, Observable, Subject } from 'rxjs';
 import { ReviewFull } from '../../models/review.model';
@@ -20,7 +20,7 @@ export class RatingComponent implements OnInit, OnChanges {
   showMore :number = 3;
 
   @Input() productID : string;
-
+  @Output() showRatingDetail :EventEmitter<any> = new EventEmitter();
 
   constructor(private firestore : AngularFirestore) {}
   ngOnInit(): void {}
@@ -59,6 +59,9 @@ export class RatingComponent implements OnInit, OnChanges {
     })
   }
 
+  showAll(){
+    this.showRatingDetail.emit(this.ratingList);
+  }
   showMoreReview(){
     this.showMore = this.showMore + 3;
     var len = 0;

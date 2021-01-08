@@ -29,7 +29,6 @@ export class OtherItemsInOrderComponent implements OnInit,OnChanges {
         var orderId = {orderId :orderDoc.id}
         this.firestore.collection('orders').doc(this.productDetails.orderId).collection('products').ref.get().then((productsSnap)=>{
           productsSnap.forEach(productsDoc=>{
-            console.log(productsDoc.data())
             if(productsDoc.data().productID != this.productDetails.myproductId){
               var newObj = Object.assign({},productsDoc.data(), orderId, orderData);
               this.otherProducts.push(newObj)

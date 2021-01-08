@@ -26,6 +26,8 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatCheckboxModule} from '@angular/material/checkbox';
+
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 import { CarouselModule } from 'ngx-bootstrap/carousel';
@@ -55,6 +57,10 @@ import { RatingReviewComponent } from './components/rating-review/rating-review.
 import { RatingStarsComponent } from './components/rating-stars/rating-stars.component';
 import { CategoryTopListComponent } from './components/category-top-list/category-top-list.component';
 import { CategoryBasedFilterPipe } from './pipes/category-based-filter.pipe';
+import { RatingDetailComponent } from './components/rating-detail/rating-detail.component';
+import { ReviewPipe } from './pipes/review.pipe';
+import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
+import { ReturnItemComponent } from './components/return-item/return-item.component';
 
 
 @NgModule({
@@ -83,6 +89,10 @@ import { CategoryBasedFilterPipe } from './pipes/category-based-filter.pipe';
     RatingStarsComponent,
     CategoryTopListComponent,
     CategoryBasedFilterPipe,
+    RatingDetailComponent,
+    ReviewPipe,
+    PaymentSuccessComponent,
+    ReturnItemComponent,
 
   ],
   exports : [
@@ -94,6 +104,7 @@ import { CategoryBasedFilterPipe } from './pipes/category-based-filter.pipe';
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
+    ProductsRoutingModule,
     ReactiveFormsModule,
     MatDialogModule,
     MatButtonModule,
@@ -109,10 +120,10 @@ import { CategoryBasedFilterPipe } from './pipes/category-based-filter.pipe';
     MatExpansionModule,
     MatProgressBarModule,
     MatIconModule,
+    MatCheckboxModule,
     CarouselModule,
     ButtonsModule,
     RatingModule,
-    ProductsRoutingModule,
     // StoreModule.forFeature({ products : fromProduct.productsReducer} ),
     // EffectsModule.forFeature([ProductsEffect]),
   ]

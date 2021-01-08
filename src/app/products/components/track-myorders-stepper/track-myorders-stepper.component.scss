@@ -1,0 +1,31 @@
+.mat-stepper-horizontal {
+  margin-top: 8px;
+}
+
+.mat-form-field {
+  margin-top: 16px;
+}
+
+
+
+
+.row{
+  @media screen and (min-width: 800px) {
+    .show-under-900px {
+        display: none;
+    }
+    .hide-under-900px {
+        display: table-cell;
+        width: 100%;
+    }
+  }
+  @media screen and (max-width: 800px) {
+    .show-under-900px {
+        display: table-cell;
+        width: 100%;
+    }
+    .hide-under-900px {
+        display: none;
+    }
+  }
+}

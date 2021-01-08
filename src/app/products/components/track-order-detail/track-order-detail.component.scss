@@ -6,12 +6,24 @@
   margin-top: 2rem;
 }
 .address-sec{
-  max-width: 18rem;
+  width: 100%;
+  .top{
+    display: flex;
+    justify-content: space-between;
+    .main-text{
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .link-text{
+      color: #4c8cf3;
+      font-size: 1.2rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+    }
+  }
 }
-.main-text{
-  font-size: 1.4rem;
-  font-weight: 600;
-}
+
 .sub-text{
   font-size: 1.2rem;
   font-weight: 600;
@@ -49,6 +61,7 @@
   list-style: none;
   float: right;
   color: #4c8cf3;
+  cursor: pointer;
 }
 .head-text{
   font-weight: 400;

@@ -2,7 +2,8 @@ export interface Myorders{
   toPay : number,
   paymentType : string,
   delivaryAddress : string,
-  userId : string
+  userId : string,
+  orderPlacedTime? : Date,
 }
 
 export interface Myproducts{
@@ -12,7 +13,6 @@ export interface Myproducts{
   category : string,
   price : number,
   image : string,
-  orderPlacedTime? : Date,
   // shippedTime? : Date,
   // nearByTime? : Date,
   // deliveredTime? : Date
